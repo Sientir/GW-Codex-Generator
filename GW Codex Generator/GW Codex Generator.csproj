@@ -1,0 +1,4213 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{601C332B-CEAD-43B9-9FD7-AA30130064B2}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>GW_Codex_Generator</RootNamespace>
+    <AssemblyName>GW Codex Generator</AssemblyName>
+    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\GWCodexGenIcon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Challenge UI\BinaryChallenges.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Challenge UI\BinaryChallenges.Designer.cs">
+      <DependentUpon>BinaryChallenges.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Challenge UI\IChallengeToHTML.cs" />
+    <Compile Include="Challenge UI\RequiredElites.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Challenge UI\RequiredElites.Designer.cs">
+      <DependentUpon>RequiredElites.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Challenges.cs" />
+    <Compile Include="Codex Method Settings\AttributeBalanced.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Codex Method Settings\AttributeBalanced.Designer.cs">
+      <DependentUpon>AttributeBalanced.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Codex Method Settings\ByRating.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Codex Method Settings\ByRating.Designer.cs">
+      <DependentUpon>ByRating.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Codex Method Settings\ICodexPoolSettingsGenerator.cs" />
+    <Compile Include="Codex Method Settings\ProfessionBalanced.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Codex Method Settings\ProfessionBalanced.Designer.cs">
+      <DependentUpon>ProfessionBalanced.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Codex Method Settings\PureRandomMethod.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Codex Method Settings\PureRandomMethod.Designer.cs">
+      <DependentUpon>PureRandomMethod.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Codex Method Settings\RegularFromAttributesElitesFromProfession.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Codex Method Settings\RegularFromAttributesElitesFromProfession.Designer.cs">
+      <DependentUpon>RegularFromAttributesElitesFromProfession.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CodexGenerator.cs" />
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GrabBag.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Skill UI\SkillDisplay.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Skill UI\SkillDisplay.Designer.cs">
+      <DependentUpon>SkillDisplay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Skill UI\SkillInfoDisplay.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Skill UI\SkillInfoDisplay.Designer.cs">
+      <DependentUpon>SkillInfoDisplay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Skill.cs" />
+    <Compile Include="SkillDatabase.cs" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_I_Am_Unstoppable__.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Challenge UI\BinaryChallenges.resx">
+      <DependentUpon>BinaryChallenges.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Challenge UI\RequiredElites.resx">
+      <DependentUpon>RequiredElites.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Codex Method Settings\AttributeBalanced.resx">
+      <DependentUpon>AttributeBalanced.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Codex Method Settings\ByRating.resx">
+      <DependentUpon>ByRating.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Codex Method Settings\ProfessionBalanced.resx">
+      <DependentUpon>ProfessionBalanced.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Codex Method Settings\PureRandomMethod.resx">
+      <DependentUpon>PureRandomMethod.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Codex Method Settings\RegularFromAttributesElitesFromProfession.resx">
+      <DependentUpon>RegularFromAttributesElitesFromProfession.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Skill UI\SkillDisplay.resx">
+      <DependentUpon>SkillDisplay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Skill UI\SkillInfoDisplay.resx">
+      <DependentUpon>SkillInfoDisplay.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\A_Touch_of_Guile.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Accumulated_Pain.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Aegis.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Aftershock.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Aggressive_Refrain.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Agonizing_Chop.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Agony.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Air_Attunement.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Air_of_Disenchantment.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Air_of_Enchantment.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Air_of_Superiority.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Alkar%27s_Alchemical_Acid.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Amity.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Ancestors%27_Rage.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Ancestor%27s_Visage.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Aneurysm.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Angelic_Bond.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Angelic_Protection.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Angorodon%27s_Gaze.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Anguish.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Anguished_Was_Lingwah.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Animate_Bone_Fiend.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Animate_Bone_Horror.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Animate_Bone_Minions.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Animate_Flesh_Golem.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Animate_Shambling_Horror.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Animate_Vampiric_Horror.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Anthem_of_Disruption.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Anthem_of_Envy.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Anthem_of_Flame.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Anthem_of_Fury.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Anthem_of_Guidance.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Anthem_of_Weariness.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Antidote_Signet.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Apply_Poison.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Arc_Lightning.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Arcane_Conundrum.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Arcane_Echo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Arcane_Languor.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Arcane_Larceny.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Arcane_Mimicry.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Arcane_Thievery.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Arcane_Zeal.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Archer%27s_Signet.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Arcing_Shot.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Aria_of_Restoration.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Aria_of_Zeal.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Armor_of_Earth.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Armor_of_Frost.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Armor_of_Mist.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Armor_of_Sanctity.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Armor_of_Unfeeling.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Ash_Blast.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Assassin%27s_Promise.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Assassin%27s_Remedy.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Assault_Enchantments.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Asuran_Scan.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Atrophy.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Attacker%27s_Insight.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Attuned_Was_Songkai.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Augury_of_Death.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Aura_of_Displacement.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Aura_of_Faith.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Aura_of_Holy_Might Luxon.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Aura_of_Holy_Might.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Aura_of_Restoration.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Aura_of_Stability.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Aura_of_the_Lich.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Aura_of_Thorns.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Aura_Slicer.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Auspicious_Blow.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Auspicious_Incantation.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Auspicious_Parry.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Avatar_of_Balthazar.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Avatar_of_Dwayna.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Avatar_of_Grenth.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Avatar_of_Lyssa.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Avatar_of_Melandru.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Awaken_the_Blood.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Awe.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Axe_Rake.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Axe_Twist.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Backbreaker.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Backfire.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Balanced_Stance.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Ballad_of_Restoration.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Balthazar%27s_Aura.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Balthazar%27s_Pendulum.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Balthazar%27s_Rage.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Balthazar%27s_Spirit.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Bane_Signet.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Banish.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Banishing_Strike.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Barbarous_Slice.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Barbed_Arrows.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Barbed_Signet.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Barbed_Spear.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Barbed_Trap.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Barbs.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Barrage.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Battle_Rage.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Bed_of_Coals.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Beguiling_Haze.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Belly_Smash.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Berserker_Stance.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Bestial_Fury.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Bestial_Mauling.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Bestial_Pounce.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Binding_Chains.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Bitter_Chill.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Black_Lotus_Strike.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Black_Mantis_Thrust.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Black_Powder_Mine.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Black_Spider_Strike.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Blackout.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Blades_of_Steel.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Bladeturn_Refrain.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Blazing_Finale.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Blazing_Spear.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Blessed_Aura.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Blessed_Light.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Blessed_Signet.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Blind_Was_Mingson.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Blinding_Flash.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Blinding_Powder.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Blinding_Surge.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Blood_Bond.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Blood_Drinker.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Blood_is_Power.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Blood_of_the_Aggressor.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Blood_of_the_Master.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Blood_Renewal.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Blood_Ritual.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Bloodsong.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Blurred_Vision.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Body_Blow.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Body_Shot.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Bonetti%27s_Defense.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Boon_of_Creation.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Boon_Signet.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\-Brace_Yourself!-.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Brambles.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Brawling_Headbutt.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Breath_of_Fire.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Breath_of_the_Great_Dwarf.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Broad_Head_Arrow.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Brutal_Strike.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Brutal_Weapon.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Bull%27s_Charge.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Bull%27s_Strike.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Burning_Arrow.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Burning_Refrain.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Burning_Shield.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Burning_Speed.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Burst_of_Aggression.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\-By_Ural%27s_Hammer!-.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Cacophony.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Calculated_Risk.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Call_of_Haste.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Call_of_Protection.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Called_Shot.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Caltrops.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\-Can%27t_Touch_This!-.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Caretaker%27s_Charge.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Castigation_Signet.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Cautery_Signet.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Chain_Lightning.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Channeled_Strike.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Channeling.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Chaos_Storm.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\-Charge!-.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Charging_Strike.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Charm_Animal.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Chest_Thumper.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Chilblains.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Chilling_Victory.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Chilling_Winds.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Choking_Gas.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Chorus_of_Restoration.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Churning_Earth.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Clamor_of_Souls.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Cleave.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Club_of_a_Thousand_Bears.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Clumsiness.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Comfort_Animal.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Companionship.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Complicate.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Concussion_Shot.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Conflagration.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Confusing_Images.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Conjure_Flame.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Conjure_Frost.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Conjure_Lightning.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Conjure_Nightmare.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Conjure_Phantasm.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Consume_Corpse.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Consume_Soul.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Contagion.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Contemplation_of_Purity.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Convert_Hexes.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Conviction.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Corrupt_Enchantment.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Counter_Blow.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Counterattack.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\-Coward!-.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Crippling_Anguish.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Crippling_Anthem.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Crippling_Dagger.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Crippling_Shot.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Crippling_Slash.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Crippling_Sweep.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Crippling_Victory.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Critical_Agility.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Critical_Chop.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Critical_Defenses.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Critical_Eye.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Critical_Strike.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Crossfire.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Crude_Swing.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Cruel_Spear.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Cruel_Was_Daoshen.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Crushing_Blow.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Cry_of_Frustration.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Cry_of_Pain.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Crystal_Wave.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Cultist%27s_Fervor.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Cure_Hex.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Cyclone_Axe.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Dancing_Daggers.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Dark_Apostasy.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Dark_Aura.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Dark_Bond.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Dark_Escape.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Dark_Fury.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Dark_Pact.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Dark_Prison.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Dash.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Deadly_Haste.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Deadly_Paradox.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Deadly_Riposte.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Death_Blossom.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Death_Nova.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Death_Pact_Signet.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Deathly_Chill.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Deathly_Swarm.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Death%27s_Charge.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Death%27s_Retreat.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Debilitating_Shot.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Decapitate.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Deep_Freeze.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Defender%27s_Zeal.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Defensive_Anthem.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Defensive_Stance.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Defiant_Was_Xinrae.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Defile_Defenses.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Defile_Enchantments.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Defile_Flesh.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Deflect_Arrows.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Deft_Strike.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Defy_Pain.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Demonic_Flesh.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Deny_Hexes.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Depravity.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Desecrate_Enchantments.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Desperate_Strike.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Desperation_Blow.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Destruction.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Destructive_Was_Glaive.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Determined_Shot.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Devastating_Hammer.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Disarm.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Discharge_Enchantment.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Disciplined_Stance.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Discord.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Disenchantment.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Dismember.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Dismiss_Condition.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Displacement.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Disrupting_Accuracy.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Disrupting_Chop.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Disrupting_Dagger.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Disrupting_Lunge.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Disrupting_Shot.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Disrupting_Stab.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Disrupting_Throw.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Dissonance.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Distortion.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Distracting_Blow.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Distracting_Shot.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Distracting_Strike.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Diversion.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Divert_Hexes.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Divine_Boon.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Divine_Healing.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Divine_Intervention.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Divine_Spirit.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Dodge.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\-Dodge_This!-.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Dolyak_Signet.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\-Don%27t_Trip!-.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Doom.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Double_Dragon.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Dragon_Slash.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Dragon%27s_Stomp.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Drain_Delusions.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Drain_Enchantment.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Draw_Conditions.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Draw_Spirit.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Drunken_Blow.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Drunken_Master.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Dryder%27s_Defenses.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Dual_Shot.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Dulled_Weapon.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Dust_Cloak.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Dust_Trap.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Dwarven_Battle_Stance.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Dwarven_Stability.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Dwayna%27s_Kiss.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Dwayna%27s_Sorrow.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Dwayna%27s_Touch.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Ear_Bite.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Earth_Attunement.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Earth_Shaker.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Earthbind.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Earthen_Shackles.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Earthquake.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Ebon_Battle_Standard_of_Courage.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Ebon_Battle_Standard_of_Honor.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Ebon_Battle_Standard_of_Wisdom.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Ebon_Dust_Aura.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Ebon_Escape.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Ebon_Hawk.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Ebon_Vanguard_Assassin_Support.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Ebon_Vanguard_Sniper_Support.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Echo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Edge_of_Extinction.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Elemental_Attunement.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Elemental_Flame.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Elemental_Lord Luxon.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Elemental_Lord.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Elemental_Resistance.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Empathic_Removal.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Empathy.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Empowerment.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Enchanted_Haste.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Enchanter%27s_Conundrum.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Endure_Pain.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Enduring_Harmony.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Enduring_Toxin.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Energetic_Was_Lee_Sa.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Energizing_Chorus.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Energizing_Finale.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Energizing_Wind.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Energy_Blast.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Energy_Boon.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Energy_Burn.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Energy_Drain.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Energy_Surge.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Energy_Tap.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Enervating_Charge.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Enfeeble.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Enfeebling_Blood.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Enfeebling_Touch.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Enraged_Lunge.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Enraged_Smash.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Enraging_Charge.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Entangling_Asp.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Envenom_Enchantments.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Epidemic.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Equinox.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Eremite%27s_Attack.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Eremite%27s_Zeal.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Eruption.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Escape.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Essence_Bond.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Essence_Strike.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Eternal_Aura.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Ether_Feast.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Ether_Lord.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Ether_Nightmare Luxon.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Ether_Nightmare.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Ether_Phantom.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Ether_Prism.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Ether_Prodigy.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Ether_Renewal.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Ether_Signet.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Ethereal_Burden.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Ethereal_Light.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Eviscerate.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Executioner%27s_Strike.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Exhausting_Assault.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Expel_Hexes.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Expert_Focus.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Expert%27s_Dexterity.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Explosive_Growth.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Expose_Defenses.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Expunge_Enchantments.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Extend_Conditions.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Extend_Enchantments.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Extinguish.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Faintheartedness.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Faithful_Intervention.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\-Fall_Back!-.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Falling_Lotus_Strike.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Falling_Spider.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Famine.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Farmer%27s_Scythe.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Favorable_Winds.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\-Fear_Me!-.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Feast_for_the_Dead.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Feast_of_Corruption.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Feast_of_Souls.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Featherfoot_Grace.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Feedback.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Feel_No_Pain.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Feigned_Neutrality.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Feral_Aggression.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Feral_Lunge.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Ferocious_Strike.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Fertile_Season.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Fetid_Ground.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Fevered_Dreams.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Fierce_Blow.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Final_Thrust.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Finale_of_Restoration.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\-Find_Their_Weakness!-.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\-Finish_Him!-.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Fire_Attunement.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Fire_Storm.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Fireball.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Flail.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Flame_Burst.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Flame_Djinn%27s_Haste.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Flame_Trap.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Flare.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Flashing_Blades.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Fleeting_Stability.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Flesh_of_My_Flesh.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Flourish.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Flurry.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Focused_Anger.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Focused_Shot.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\-For_Great_Justice!-.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Forceful_Blow.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Forked_Arrow.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Foul_Feast.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Fox_Fangs.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Fox%27s_Promise.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Fragility.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Freezing_Gust.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Frenzied_Defense.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Frenzy.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Frigid_Armor.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Frozen_Burst.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Frozen_Soil.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Frustration.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Furious_Axe.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Gale.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Galrath_Slash.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Gash.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Gaze_from_Beyond.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Gaze_of_Contempt.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Gaze_of_Fury.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Generous_Was_Tsungrai.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Ghostly_Haste.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Ghostly_Weapon.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Ghostmirror_Light.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Gift_of_Health.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Gladiator%27s_Defense.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Glass_Arrows.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Glimmer_of_Light.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Glimmering_Mark.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Glowing_Gaze.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Glowing_Ice.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Glowing_Signet.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Glowstone.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Glyph_of_Concentration.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Glyph_of_Elemental_Power.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Glyph_of_Energy.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Glyph_of_Essence.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Glyph_of_Immolation.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Glyph_of_Lesser_Energy.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Glyph_of_Renewal.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Glyph_of_Restoration.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Glyph_of_Sacrifice.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Glyph_of_Swiftness.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\-Go_for_the_Eyes!-.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Godspeed.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Golden_Fang_Strike.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Golden_Fox_Strike.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Golden_Lotus_Strike.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Golden_Phoenix_Strike.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Golden_Skull_Strike.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Grapple.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Grasping_Earth.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Grasping_Was_Kuurong.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Great_Dwarf_Armor.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Great_Dwarf_Weapon.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Greater_Conflagration.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Grenth%27s_Aura.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Grenth%27s_Balance.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Grenth%27s_Fingers.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Grenth%27s_Grasp.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Griffon%27s_Sweep.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Guardian.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Guided_Weapon.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Guiding_Hands.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Guilt.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Gust.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Hammer_Bash.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Hamstring.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Harrier%27s_Grasp.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Harrier%27s_Haste.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Harrier%27s_Toss.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Hasty_Refrain.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Headbutt.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Heal_Area.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Heal_as_One.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Heal_Other.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Heal_Party.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Healer%27s_Boon.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Healer%27s_Covenant.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Healing_Breeze.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Healing_Burst.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Healing_Hands.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Healing_Light.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Healing_Ribbon.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Healing_Ring.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Healing_Seed.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Healing_Signet.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Healing_Spring.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Healing_Touch.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Healing_Whisper.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Heart_of_Fury.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Heart_of_Holy_Flame.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Heart_of_Shadow.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Heaven%27s_Delight.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Heavy_Blow.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Heket%27s_Rampage.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\-Help_Me!-.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Hex_Breaker.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Hex_Eater_Signet.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Hex_Eater_Vortex.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Hexbreaker_Aria.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Hexer%27s_Vigor.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Hidden_Caltrops.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Holy_Haste.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Holy_Spear.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Holy_Strike.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Holy_Veil.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Holy_Wrath.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Horns_of_the_Ox.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Hundred_Blades.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Hunter%27s_Shot.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Hypochondria.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\-I_Am_the_Strongest!-.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\-I_Am_Unstoppable!-.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\-I_Meant_to_Do_That!-.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\-I_Will_Avenge_You!-.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\-I_Will_Survive!-.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Ice_Prison.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Ice_Spear.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Ice_Spikes.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Icy_Prism.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Icy_Shackles.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Icy_Veins.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Ignite_Arrows.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Ignorance.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Illusion_of_Haste.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Illusion_of_Pain.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Illusion_of_Weakness.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Illusionary_Weaponry.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Images_of_Remorse.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Imagined_Burden.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Imbue_Health.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Immolate.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Impale.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Incendiary_Arrows.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Incendiary_Bonds.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\-Incoming!-.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Ineptitude.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Inferno.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Infuriating_Heat.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Infuse_Condition.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Infuse_Health.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Insidious_Parasite.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Inspirational_Speech.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Inspired_Enchantment.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Inspired_Hex.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Intensity.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Intimidating_Aura.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Invoke_Lightning.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Iron_Mist.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Iron_Palm.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Irresistible_Blow.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Irresistible_Sweep.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\-It%27s_Just_a_Flesh_Wound.-.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Jagged_Bones.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Jagged_Strike.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Jaizhenju_Strike.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Jamei%27s_Gaze.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Jaundiced_Gaze.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Judge%27s_Insight.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Judge%27s_Intervention.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Jungle_Strike.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Karei%27s_Healing_Circle.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Keen_Arrow.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Keen_Chop.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Keystone_Signet.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Kindle_Arrows.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Kinetic_Armor.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Kirin%27s_Wrath.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Kitah%27s_Burden.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Knee_Cutter.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Lacerate.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Lacerating_Chop.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Lamentation.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Lava_Arrows.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Lava_Font.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\-Lead_the_Way!-.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Leader%27s_Comfort.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Leader%27s_Zeal.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Leaping_Mantis_Sting.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Leech_Signet.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Leviathan%27s_Sweep.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Life.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Life_Attunement.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Life_Barrier.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Life_Bond.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Life_Sheath.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Life_Siphon.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Life_Transfer.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Lifebane_Strike.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Lift_Enchantment.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Light_of_Deldrimor.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Light_of_Deliverance.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Light_of_Dwayna.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Lightbringer_Signet.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Lightbringer%27s_Gaze.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Lightning_Bolt.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Lightning_Hammer.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Lightning_Javelin.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Lightning_Orb.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Lightning_Reflexes.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Lightning_Strike.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Lightning_Surge.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Lightning_Touch.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Lingering_Curse.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Lion%27s_Comfort.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Liquid_Flame.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Live_Vicariously.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Lively_Was_Naomei.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Locust%27s_Fury.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Lotus_Strike.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Low_Blow.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Lyric_of_Purification.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Lyric_of_Zeal.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Lyssa%27s_Assault.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Lyssa%27s_Aura.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Lyssa%27s_Balance.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Lyssa%27s_Haste.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Maelstrom.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Magebane_Shot.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Magehunter_Strike.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Magehunter%27s_Smash.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Magnetic_Aura.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Magnetic_Surge.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Maiming_Spear.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Maiming_Strike.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\-Make_Haste!-.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\-Make_Your_Time!-.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Malaise.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Malicious_Strike.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Malign_Intervention.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Mantis_Touch.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Mantra_of_Concentration.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Mantra_of_Earth.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Mantra_of_Flame.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Mantra_of_Frost.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Mantra_of_Inscriptions.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Mantra_of_Lightning.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Mantra_of_Persistence.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Mantra_of_Recall.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Mantra_of_Recovery.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Mantra_of_Resolve.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Mantra_of_Signets.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Marauder%27s_Shot.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Mark_of_Death.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Mark_of_Fury.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Mark_of_Insecurity.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Mark_of_Instability.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Mark_of_Pain.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Mark_of_Protection.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Mark_of_Rodgort.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Mark_of_Subversion.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Marksman%27s_Wager.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Martyr.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Masochism.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Master_of_Magic.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Meditation.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Meekness.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Melandru%27s_Arrows.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Melandru%27s_Assault.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Melandru%27s_Resilience.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Melandru%27s_Shot.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Mend_Ailment.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Mend_Body_and_Soul.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Mend_Condition.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Mending.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Mending_Grip.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Mending_Refrain.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Mending_Touch.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Mental_Block.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Merciless_Spear.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Meteor.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Meteor_Shower.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Mighty_Blow.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Mighty_Throw.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Mighty_Was_Vorizun.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Migraine.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Mind_Blast.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Mind_Burn.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Mind_Freeze.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Mind_Shock.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Mind_Wrack.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Mindbender.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Mirage_Cloak.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Mirror_of_Disenchantment.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Mirror_of_Ice.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Mirrored_Stance.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Mist_Form.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Mistrust.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Moebius_Strike.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Mokele_Smash.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Monster_skill.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Muddy_Terrain.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Mystic_Corruption.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Mystic_Healing.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Mystic_Regeneration.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Mystic_Sandstorm.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Mystic_Sweep.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Mystic_Twister.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Mystic_Vigor.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Natural_Healing.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Natural_Stride.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Natural_Temper.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Nature%27s_Renewal.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Necrosis.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Necrotic_Traversal.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Needling_Shot.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\-Never_Give_Up!-.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Never_Rampage_Alone %281%29.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Never_Rampage_Alone.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\-Never_Surrender!-.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Nightmare_Weapon.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Nine_Tail_Strike.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\-None_Shall_Pass!-.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Oath_Shot.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Obsidian_Flame.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Obsidian_Flesh.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Offering_of_Blood.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Offering_of_Spirit.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\-On_Your_Knees!-.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Onslaught.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Oppressive_Gaze.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Order_of_Apostasy.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Order_of_Pain.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Order_of_the_Vampire.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Order_of_Undeath.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Orison_of_Healing.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Otyugh%27s_Cry.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Overbearing_Smash.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Overload.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Pacifism.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Pain.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Pain_Inverter.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Pain_of_Disenchantment.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Painful_Bond.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Palm_Strike.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Panic.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Parasitic_Bond.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Patient_Spirit.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Peace_and_Harmony.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Penetrating_Attack.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Penetrating_Blow.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Penetrating_Chop.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Pensive_Guardian.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Persistence_of_Memory.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Pestilence.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Phantom_Pain.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Phoenix.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Physical_Resistance.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Piercing_Trap.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Pin_Down.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Pious_Assault.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Pious_Concentration.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Pious_Fury.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Pious_Haste.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Pious_Renewal.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Pious_Restoration.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Plague_Sending.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Plague_Signet.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Plague_Touch.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Point_Blank_Shot.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Poison_Arrow.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Poison_Tip_Signet.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Poisoned_Heart.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Poisonous_Bite.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Pounce.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Power_Attack.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Power_Block.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Power_Drain.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Power_Flux.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Power_Leak.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Power_Leech.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Power_Lock.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Power_Return.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Power_Shot.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Power_Spike.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Practiced_Stance.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Precision_Shot.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Predator%27s_Pounce.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Predatory_Bond.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Predatory_Season.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Prepared_Shot.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Preservation.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Price_of_Failure.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Price_of_Pride.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Primal_Echoes.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Primal_Rage.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Protective_Bond.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Protective_Spirit.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Protective_Was_Kaolai.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Protector%27s_Defense.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Protector%27s_Strike.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Psychic_Distraction.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Psychic_Instability.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Pulverizing_Smash.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Punishing_Shot.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Pure_Strike.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Pure_Was_Li_Ming.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Purge_Conditions.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Purge_Signet.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Purifying_Finale.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Purifying_Veil.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Putrid_Bile.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Putrid_Explosion.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Putrid_Flesh.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Quick_Shot.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Quickening_Zephyr.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Quicksand.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Quivering_Blade.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Radiant_Scythe.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Radiation_Field.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Rage_of_the_Ntouka.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Rampage_as_One.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Rapid_Fire.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Raven_Blessing.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Ravenous_Gaze.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Ray_of_Judgment.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Read_the_Wind.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Reap_Impurities.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Reaper%27s_Mark.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Reaper%27s_Sweep.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Rebirth.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Recall.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Reckless_Haste.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Reclaim_Essence.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Recovery.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Recuperation.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Recurring_Insecurity.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Rejuvenation.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Release_Enchantments.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Remedy_Signet.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Remove_Hex.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Rend_Enchantments.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Rending_Aura.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Rending_Sweep.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Rending_Touch.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Renew_Life.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Renewing_Memories.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Renewing_Smash.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Renewing_Surge.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Repeating_Strike.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Resilient_Was_Xiko.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Resilient_Weapon.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Restful_Breeze.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Restoration.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Restore_Condition.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Restore_Life.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Resurrect.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Resurrection_Chant.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Resurrection_Signet.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\-Retreat!-.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Retribution.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Return.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Revealed_Enchantment.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Revealed_Hex.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Reversal_of_Damage.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Reversal_of_Fortune.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Reverse_Hex.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Revive_Animal.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Ride_the_Lightning.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Rigor_Mortis.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Rip_Enchantment.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Riposte.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Rising_Bile.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Ritual_Lord.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Roaring_Winds.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Rodgort%27s_Invocation.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Rotting_Flesh.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Run_as_One.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Rupture_Soul.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Rush.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Rust.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Sadist%27s_Signet.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Sand_Shards.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Sandstorm.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Savage_Pounce.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Savage_Shot.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Savage_Slash.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Savannah_Heat.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\-Save_Yourselves!-.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\-Save_Yourselves!-Luxon.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Scavenger_Strike.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Scavenger%27s_Focus.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Scorpion_Wire.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Scourge_Enchantment.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Scourge_Healing.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Scourge_Sacrifice.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Screaming_Shot.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Scribe%27s_Insight.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Searing_Flames.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Searing_Heat.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Second_Wind.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Seed_of_Life.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Seeking_Arrows.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Seeking_Blade.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Seeping_Wound.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Selfless_Spirit Luxon.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Selfless_Spirit.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Serpent%27s_Quickness.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Sever_Artery.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Shadow_Fang.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Shadow_Form.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Shadow_Meld.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Shadow_of_Fear.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Shadow_of_Haste.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Shadow_Prison.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Shadow_Refuge.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Shadow_Sanctuary Luxon.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Shadow_Sanctuary.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Shadow_Shroud.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Shadow_Strike.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Shadow_Walk.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Shadowsong.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Shadowy_Burden.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Shame.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Shameful_Fear.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Shard_Storm.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Shared_Burden.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Sharpen_Daggers.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Shatter_Delusions.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Shatter_Enchantment.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Shatter_Hex.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Shatter_Storm.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Shattering_Assault.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Shatterstone.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Shell_Shock.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Shelter.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Shield_Bash.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Shield_Guardian.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Shield_of_Absorption.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Shield_of_Deflection.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Shield_of_Force.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Shield_of_Judgment.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Shield_of_Regeneration.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Shield_Stance.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Shielding_Hands.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\-Shields_Up!-.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Shivers_of_Dread.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Shock.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Shock_Arrow.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Shockwave.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Shove.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Shrinking_Armor.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Shroud_of_Distress.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Shroud_of_Silence.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Sight_Beyond_Sight.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Signet_of_Aggression.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Signet_of_Agony.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Signet_of_Binding.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Signet_of_Capture.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Signet_of_Clumsiness.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Signet_of_Corruption Luxon.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Signet_of_Corruption.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Signet_of_Creation.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Signet_of_Deadly_Corruption.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Signet_of_Devotion.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Signet_of_Disenchantment.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Signet_of_Disruption.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Signet_of_Distraction.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Signet_of_Ghostly_Might.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Signet_of_Humility.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Signet_of_Illusions.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Signet_of_Infection.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Signet_of_Judgment.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Signet_of_Lost_Souls.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Signet_of_Malice.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Signet_of_Midnight.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Signet_of_Mystic_Speed.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Signet_of_Mystic_Wrath.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Signet_of_Pious_Light.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Signet_of_Pious_Restraint.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Signet_of_Rage.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Signet_of_Recall.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Signet_of_Rejuvenation.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Signet_of_Removal.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Signet_of_Return.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Signet_of_Shadows.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Signet_of_Sorrow.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Signet_of_Spirits.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Signet_of_Stamina.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Signet_of_Strength.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Signet_of_Suffering.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Signet_of_Synergy.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Signet_of_Toxic_Shock.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Signet_of_Twilight.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Signet_of_Weariness.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Silverwing_Slash.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Simple_Thievery.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Siphon_Speed.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Siphon_Strength.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Skull_Crack.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Slayer%27s_Spear.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Slippery_Ground.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Sliver_Armor.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Sloth_Hunter%27s_Shot.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Smite.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Smite_Condition.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Smite_Hex.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Smiter%27s_Boon.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Smoke_Powder_Defense.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Smoke_Trap.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Smoldering_Embers.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Smooth_Criminal.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Snare.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Sneak_Attack.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Snow_Storm.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Soldier%27s_Defense.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Soldier%27s_Fury.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Soldier%27s_Speed.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Soldier%27s_Stance.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Soldier%27s_Strike.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Song_of_Concentration.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Song_of_Power.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Song_of_Purification.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Song_of_Restoration.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Soothing.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Soothing_Images.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Soothing_Memories.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Soul_Barbs.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Soul_Bind.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Soul_Feast.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Soul_Leech.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Soul_Twisting.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Spear_of_Fury Luxon.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Spear_of_Fury.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Spear_of_Light.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Spear_of_Lightning.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Spear_of_Redemption.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Spear_Swipe.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Spell_Breaker.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Spell_Shield.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Spike_Trap.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Spinal_Shivers.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Spirit_Bond.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Spirit_Boon_Strike.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Spirit_Burn.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Spirit_Channeling.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Spirit_Light.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Spirit_Light_Weapon.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Spirit_of_Failure.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Spirit_Rift.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Spirit_Shackles.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Spirit_Siphon.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Spirit_to_Flesh.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Spirit_Transfer.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Spirit_Walk.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Spiritleech_Aura.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Spirit%27s_Gift.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Spirit%27s_Strength.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Spiritual_Pain.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Spiteful_Spirit.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Splinter_Shot.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Splinter_Weapon.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Spoil_Victor.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Spotless_Mind.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Spotless_Soul.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Sprint.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Staggering_Blow.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Staggering_Force.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\-Stand_Your_Ground!-.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Standing_Slash.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Star_Burst.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Steady_Stance.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Steam.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Steelfang_Slash.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Stolen_Speed.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Stone_Daggers.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Stone_Sheath.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Stone_Striker.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Stoneflesh_Aura.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Stonesoul_Strike.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Stoning.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Storm_Chaser.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Storm_Djinn%27s_Haste.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Storm%27s_Embrace.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Strength_of_Honor.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Strike_as_One.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Strip_Enchantment.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Stunning_Strike.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Succor.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Suffering.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Sum_of_All_Fears.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Summon_Ice_Imp.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Summon_Mursaat.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Summon_Naga_Shaman.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Summon_Ruby_Djinn.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Summon_Spirits Luxon.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Summon_Spirits.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Sun_and_Moon_Slash.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Sundering_Attack.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Sundering_Weapon.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Sunspear_Rebirth_Signet.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Supportive_Spirit.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Swap.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Swift_Chop.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Swift_Javelin.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Swirling_Aura.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Symbiosis.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Symbiotic_Bond.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Symbol_of_Wrath.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Symbolic_Celerity.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Symbolic_Posture.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Symbolic_Strike.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Symbols_of_Inspiration.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Sympathetic_Visage.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Tainted_Flesh.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Taste_of_Death.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Taste_of_Pain.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Tease.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Technobabble.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Teinai%27s_Crystals.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Teinai%27s_Heat.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Teinai%27s_Prison.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Teinai%27s_Wind.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Temple_Strike.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Test_of_Faith.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\-The_Power_Is_Yours!-.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\-There%27s_Nothing_to_Fear!-.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\-They%27re_on_Fire!-.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Thrill_of_Victory.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Throw_Dirt.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Thunderclap.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Tiger_Stance.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Tiger%27s_Fury.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\-To_the_Limit!-.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Touch_of_Agony.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Toxic_Chill.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Toxicity.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Trampling_Ox.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Tranquil_Was_Tanasen.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Tranquility.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Trapper%27s_Focus.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Trapper%27s_Speed.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Triple_Chop.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Triple_Shot Luxon.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Triple_Shot.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Tripwire.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Troll_Unguent.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Tryptophan_Signet.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Twin_Moon_Sweep.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Twisting_Fangs.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Ulcerous_Lungs.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Unblockable_Throw.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Unholy_Feast.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Union.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Unnatural_Signet.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Unseen_Fury.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Unsteady_Ground.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Unsuspecting_Strike.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Unyielding_Aura.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Ursan_Blessing.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Vampiric_Assault.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Vampiric_Bite.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Vampiric_Gaze.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Vampiric_Spirit.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Vampiric_Swarm.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Vampiric_Touch.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Vampirism.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Vapor_Blade.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Veil_of_Thorns.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Vengeance.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Vengeful_Was_Khanhei.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Vengeful_Weapon.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Verata%27s_Aura.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Verata%27s_Gaze.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Verata%27s_Sacrifice.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Vicious_Attack.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Victorious_Sweep.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\-Victory_Is_Mine!-.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Vigorous_Spirit.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Vile_Miasma.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Vile_Touch.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Viper%27s_Defense.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Viper%27s_Nest.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Virulence.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Visions_of_Regret.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Vital_Blessing.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Vital_Boon.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Vital_Weapon.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Vocal_Minority.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Vocal_Was_Sogolon.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Volfen_Blessing.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Volley.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Vow_of_Piety.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Vow_of_Silence.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Vow_of_Strength.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Wail_of_Doom.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Wailing_Weapon.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Wallow%27s_Bite.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Wandering_Eye.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Wanderlust.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Ward_Against_Elements.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Ward_Against_Foes.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Ward_Against_Harm.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Ward_Against_Melee.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Ward_of_Stability.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Ward_of_Weakness.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Warmonger%27s_Weapon.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Warrior%27s_Cunning.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Warrior%27s_Endurance.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Wary_Stance.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Waste_Not,_Want_Not.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Wastrel%27s_Collapse.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Wastrel%27s_Demise.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Wastrel%27s_Worry.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\-Watch_Yourself!-.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Watchful_Healing.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Watchful_Intervention.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Watchful_Spirit.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Water_Attunement.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Water_Trident.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Way_of_Perfection.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Way_of_the_Assassin.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Way_of_the_Empty_Palm.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Way_of_the_Fox.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Way_of_the_Lotus.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Way_of_the_Master.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\-We_Shall_Return!-.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Weaken_Armor.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Weaken_Knees.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Weakness_Trap.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Weapon_of_Aggression.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Weapon_of_Fury.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Weapon_of_Quickening.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Weapon_of_Remedy.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Weapon_of_Renewal.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Weapon_of_Shadow.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Weapon_of_Warding.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Wearying_Spear.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Wearying_Strike.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Web_of_Disruption.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Well_of_Blood.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Well_of_Darkness.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Well_of_Power.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Well_of_Ruin.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Well_of_Silence.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Well_of_Suffering.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Well_of_the_Profane.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Well_of_Weariness.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Whirling_Axe.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Whirling_Charge.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Whirling_Defense.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Whirlwind.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Whirlwind_Attack.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Wielder%27s_Boon.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Wielder%27s_Remedy.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Wielder%27s_Strike.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Wielder%27s_Zeal.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Wild_Blow.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Wild_Strike.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Wild_Throw.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Windborne_Speed.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Winds.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Winds_of_Disenchantment.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Winnowing.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Winter.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Winter%27s_Embrace.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Withdraw_Hexes.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Wither.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Withering_Aura.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Word_of_Censure.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Word_of_Healing.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Words_of_Comfort.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Wounding_Strike.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Xinrae%27s_Weapon.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Yeti_Smash.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\-You_Are_All_Weaklings!-.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\-You_Move_Like_a_Dwarf!-.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\-You_Will_Die!-.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\-You%27re_All_Alone!-.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Zealot%27s_Fire.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Zealous_Anthem.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Zealous_Benediction.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Zealous_Renewal.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Zealous_Sweep.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Zealous_Vow.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Zojun%27s_Haste.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Zojun%27s_Shot.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Profession Icons\Assassin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Profession Icons\Asuran.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Profession Icons\Dervish.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Profession Icons\Dwarven.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Profession Icons\Ebon Vanguard.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Profession Icons\Elementalist.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Profession Icons\Lightbringer.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Profession Icons\Mesmer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Profession Icons\Monk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Profession Icons\Necromancer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Profession Icons\Norn.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Profession Icons\Paragon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Profession Icons\Ranger.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Profession Icons\Ritualist.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Profession Icons\Sunspear.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Profession Icons\Warrior.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Tango-activation-darker.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Tango-adrenaline.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Tango-energy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Tango-overcast.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Tango-recharge-darker.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Tango-sacrifice.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Tango-upkeep.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GWCodexGenIcon.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
