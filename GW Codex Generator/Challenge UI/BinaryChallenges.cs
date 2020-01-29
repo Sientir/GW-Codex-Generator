@@ -16,6 +16,7 @@ namespace GW_Codex_Generator.Challenge_UI
         public BinaryChallenges()
         {
             InitializeComponent();
+            __NumberOfRules.Maximum = Challenges.Restrictions.Length;
         }
 
         public string GetHTML()

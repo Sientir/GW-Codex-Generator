@@ -22,6 +22,22 @@ namespace GW_Codex_Generator
 		bO- Pokemon (skill bars are limited to 4 skills).
 		O- Elites that have to be used equal to the number of open character slots. Probably should be able to specify rating range for these skills!
 		
+            - Build theme: Fragility, Hexway, high pressure, orders, etc...
+            - Rule: Skills must be on exactly two skill bars. So if you bring Glimmering Light on one character, it must be on exactly on other character's skill bar, as an example.
+
+            - Add rules for the other challenges to the rules list? Or maybe make a separate thing for it. Oooh, it could be a checkbox!
+
+            --- Moist Midget Suggestions ---
+            Here some ideas for rules for your programm:
+O- no Elite skills allowed
+X- Elite have to be from secondary class
+O- You have to take one hero less with you than the maximum is in the area
+O- 50% of the Team have to do physical damage
+O- Atleast one hero have to wield x weapon (bow, daggers, axe,...)
+- The Team can only take skills, that have 5 energy or less
+X- 50% of the skills in each build have to be from the secondary class
+O- Your Team have to distribute atleast 5 conditions
+
 		*/
 
 
@@ -34,7 +50,7 @@ namespace GW_Codex_Generator
             {
                 foreach (Skill skill in SkillDatabase.Data)
                 {
-                    if (skill.IsElite && skill.Rating >= rating_min && skill.Rating <= rating_max && skill.Attribute != Skill.Attributes.PvE_Only && Skill.PrimaryAttributes.Contains(skill.Attribute)==false)
+                    if (skill.IsElite && skill.Rating >= rating_min && skill.Rating <= rating_max && skill.Attribute != Skill.Attributes.PvE_Only && Skill.PrimaryAttributes.Contains(skill.Attribute) == false)
                     {
                         pool.Add(skill);
                     }
@@ -70,27 +86,44 @@ namespace GW_Codex_Generator
             return RandomInclusive(min, max);
         }
 
+        static public string[][] Restrictions =
+            {
+                new string[]{"• No profession may be duplicated in primaries/secondaries. (You may have a W/Mo and a Mo/W, but not a W/Mo and W/R or Mo/W and R/W.)" },
+                new string[]{"• No skill duplication. (If a skill is used on one character, it may not be used on another character.)", "• Skills must be used on exactly two characters." },
+                new string[]{"• Attribute Lines must be unique. (If one character has at least 1 rank in an attribute line, no other character may put any ranks into that attribute line.)" },
+                new string[]{"• Pokemon—Skill Bars are limited to 4 skills." },
+                new string[]{"• Elite Skills must be from primary profession.", "• Elite Skills must be from secondary profession.", "• You're not allowed to use elite skills." },
+                new string[]{"• Every party member must bring an interrupt."},
+                new string[]{"• Every party member must bring a healing skill."},
+                new string[]{"• Party size -1. (If the area has a party size of 8, treat it as 7, etc.)"},
+                new string[]{"• Your party must be capable of inflicting at least 5 different conditions."},
+                new string[]{"• Your party must consist of at least 50% physical attackers."},
+                new string[]{"• Your party must be capable of applying at least 5 different hexes that each last at least 10 seconds."},
+                new string[]{"• Characters in your party must leave at least half of their attribute points unused. (100 unused attribute points for a character with maximum attribute points.)"},
+                new string[]{"• At least one character must wield a spear. (If this is a repeat, then at least two characters must use this weapon.)", "• At least one character must wield daggers. (If this is a repeat, then at least two characters must use this weapon.)", "• At least one character must wield a sword. (If this is a repeat, then at least two characters must use this weapon.)", "• At least one character must wield a hammer. (If this is a repeat, then at least two characters must use this weapon.)", "• At least one character must wield a axe. (If this is a repeat, then at least two characters must use this weapon.)", "• At least one character must wield a scythe. (If this is a repeat, then at least two characters must use this weapon.)", "• At least one character must wield a bow. (If this is a repeat, then at least two characters must use this weapon.)"},
+                new string[]{"• At least one character must wield a spear. (If this is a repeat, then at least two characters must use this weapon.)", "• At least one character must wield daggers. (If this is a repeat, then at least two characters must use this weapon.)", "• At least one character must wield a sword. (If this is a repeat, then at least two characters must use this weapon.)", "• At least one character must wield a hammer. (If this is a repeat, then at least two characters must use this weapon.)", "• At least one character must wield a axe. (If this is a repeat, then at least two characters must use this weapon.)", "• At least one character must wield a scythe. (If this is a repeat, then at least two characters must use this weapon.)", "• At least one character must wield a bow. (If this is a repeat, then at least two characters must use this weapon.)"},
+                new string[] {"• Your party may not use skills that cost more than 5 energy."}
+            };
         static public string[] BooleanRestrictions(int count)
         {
             if (count <= 0) return new string[0];
 
-            string[] Restrictions =
+            // Well, we want all of them, so get adding!
+            if (count >= Restrictions.Length)
             {
-                "• No profession may be duplicated in primaries/secondaries. (You may have a W/Mo and a Mo/W, but not a W/Mo and W/R or Mo/W and R/W.)",
-                "• No skill duplication. (If a skill is used on one character, it may not be used on another character.)",
-                "• Attribute Lines must be unique. (If one character has at least 1 rank in an attribute line, no other character may put any ranks into that attribute line.)",
-                "• Pokemon—Skill Bars are limited to 4 skills.",
-                "• Elite Restriction..." // index 4
-			};
-
-            if (count >= 5)
-            {
-                bool eliteFromPrimary = RandomBoolean();
-                return new string[] { Restrictions[0], Restrictions[1], Restrictions[2], Restrictions[3], eliteFromPrimary ? "Elite Skills must be from primary profession." : "Elite Skills must be from secondary profession." };
+                string[] result = new string[Restrictions.Length];
+                for (int i = 0; i < result.Length; ++i)
+                {
+                    result[i] = Restrictions[i].GetRandom();
+                }
+                return result;
             }
 
-            List<int> bag = new List<int>(new int[] { 0, 1, 2, 3, 4 });
+            // Create and fill the bag:
+            List<int> bag = new List<int>(Restrictions.Length);
+            for (int i = 0; i < Restrictions.Length; ++i) { bag.Add(i); }
 
+            // Make an array to hold this stuff:
             string[] output = new string[count];
             for (int i = 0; i < count; ++i)
             {
@@ -99,21 +132,8 @@ namespace GW_Codex_Generator
                 int id = bag[index];
                 bag.RemoveAt(index);
 
-                if (id == 4) // Index 4 is the elite restrictions, which are mutually exclusive...
-                {
-                    if (RandomBoolean())
-                    {
-                        output[i] = "• Elite Skills must be from primary profession.";
-                    }
-                    else
-                    {
-                        output[i] = "• Elite Skills must be from secondary profession.";
-                    }
-                }
-                else // The other restrictions...
-                {
-                    output[i] = Restrictions[id];
-                }
+                // Get our specified restriction!
+                output[i] = Restrictions[id].GetRandom();
             }
 
             return output;
@@ -162,6 +182,12 @@ namespace GW_Codex_Generator
         static private bool RandomBoolean()
         {
             return SkillDatabase.RNG.Next(0, 2) == 0;
+        }
+
+        static public T GetRandom<T>(this T[] array)
+        {
+            if (array.Length == 1) return array[0];
+            return array[SkillDatabase.RNG.Next(0, array.Length)];
         }
 
         public delegate void RefreshHTMLFunction();
