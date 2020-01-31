@@ -55,11 +55,35 @@
       <DependentUpon>BinaryChallenges.cs</DependentUpon>
     </Compile>
     <Compile Include="Challenge UI\IChallengeToHTML.cs" />
+    <Compile Include="Challenge UI\MandatorySkillsUI.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Challenge UI\MandatorySkillsUI.Designer.cs">
+      <DependentUpon>MandatorySkillsUI.cs</DependentUpon>
+    </Compile>
     <Compile Include="Challenge UI\RequiredElites.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Challenge UI\RequiredElites.Designer.cs">
       <DependentUpon>RequiredElites.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Challenge UI\RequiredSkill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Challenge UI\RequiredSkill.Designer.cs">
+      <DependentUpon>RequiredSkill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Challenge UI\TemplateChallengeUI.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Challenge UI\TemplateChallengeUI.Designer.cs">
+      <DependentUpon>TemplateChallengeUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Challenge UI\TemplateDisplay.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Challenge UI\TemplateDisplay.Designer.cs">
+      <DependentUpon>TemplateDisplay.cs</DependentUpon>
     </Compile>
     <Compile Include="Challenges.cs" />
     <Compile Include="Codex Method Settings\AttributeBalanced.cs">
@@ -142,8 +166,20 @@
     <EmbeddedResource Include="Challenge UI\BinaryChallenges.resx">
       <DependentUpon>BinaryChallenges.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Challenge UI\MandatorySkillsUI.resx">
+      <DependentUpon>MandatorySkillsUI.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Challenge UI\RequiredElites.resx">
       <DependentUpon>RequiredElites.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Challenge UI\RequiredSkill.resx">
+      <DependentUpon>RequiredSkill.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Challenge UI\TemplateChallengeUI.resx">
+      <DependentUpon>TemplateChallengeUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Challenge UI\TemplateDisplay.resx">
+      <DependentUpon>TemplateDisplay.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Codex Method Settings\AttributeBalanced.resx">
       <DependentUpon>AttributeBalanced.cs</DependentUpon>

@@ -141,7 +141,7 @@ namespace GW_Codex_Generator
         };
 
         string _Name = "Not a skill";
-        Image Icon = null;
+        Image _Icon = null;
         int _Rating = 0;
         Professions _Profession = Professions.None;
         Attributes _Attribute = Attributes.None;
@@ -266,6 +266,7 @@ namespace GW_Codex_Generator
         public Professions Profession { get { return _Profession; } private set { _Profession = value; } }
         public Attributes Attribute { get { return _Attribute; } private set { _Attribute = value; } }
         public bool IsElite { get { return Elite; } }
+        public Image Icon { get { return _Icon; } private set { _Icon = value; } }
 
         public void UpdateRating(int newRating)
         {

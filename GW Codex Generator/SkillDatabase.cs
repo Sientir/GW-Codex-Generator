@@ -4563,19 +4563,101 @@ namespace GW_Codex_Generator
             PopulateLists();
         }
 
+        static public List<string> TemplatesDatabase = new List<string>();
+
+        static public bool LoadTemplatesFile()
+        {
+            if (System.IO.File.Exists("Templates.txt"))
+            {
+                System.IO.StreamReader input = new System.IO.StreamReader("Templates.txt");
+                while (input.EndOfStream == false)
+                {
+                    string line = input.ReadLine();
+                    if (line.Length > 0) TemplatesDatabase.Add(line);
+                }
+                input.Close();
+                return true;
+            }
+            else // If there is no file, then just populate with stuff.
+            {
+                TemplatesDatabase.Add("Shadow Blade (A)|OwFj0xf4oOAw+HCrh5yCdwMBA");
+                TemplatesDatabase.Add("Dark Flame (E/A)|OgdToYm+R5WGGeJYw9BGXEA");
+                TemplatesDatabase.Add("Ice Blighter (E/N)|OgRDc4ysCTrOyX3O0NKA");
+                TemplatesDatabase.Add("Pyromancer (E/R)|OgJToYmaxQXanYFrX4SA5C");
+                TemplatesDatabase.Add("Spell Slasher (Me/W)|OQFUAIBPOqGCIwFBFJtJcIDA");
+                TemplatesDatabase.Add("DW Healer (Mo)|OwYT043A5IjaMnSsiucn6E");
+                TemplatesDatabase.Add("Fi Boon Healer (Mo/N)|OwQTQwmC5gjtkkZMnb0jSC");
+                TemplatesDatabase.Add("Protection Healer (Mo/W)|OwET8Y4WtYmCclvkvVsg1D");
+                TemplatesDatabase.Add("Minion Master (N/Me)|OAVDMaxGCp9kAopFmUNF");
+                TemplatesDatabase.Add("Warrior's Bane (N/Me)|OAVEE8gWdJIwh48yHtAFKA");
+                TemplatesDatabase.Add("Fang of Melandru (R/A)|OgcTcXs1ZxhZ4EWhRYgz3EA");
+                TemplatesDatabase.Add("IVEX Trapper (R)|OgUTcV8m14xUGxoe5K/4+G");
+                TemplatesDatabase.Add("Brutal Bombardier (R/Rt)|OggkcpZMIGKzip4gaSNqzvJ25iB");
+                TemplatesDatabase.Add("Earthbinder (Rt/Me)|OAWjAyk7gNnTy53scGBqcOzLG");
+                TemplatesDatabase.Add("Soul Spinner (Rt/Mo)|OAOiEyk8M5kmxzMm4s61SuYA");
+                TemplatesDatabase.Add("Abominable Snowman (W/E)|OQYUs0IO3qFj9rnVABwdUrrA");
+                TemplatesDatabase.Add("Paladin (W/Mo)|OQMT0woS5wvA+vBurdUk6E");
+                TemplatesDatabase.Add("Hot Stepper (A/N)|OwRj0xf4oKDc3nwKMC7yaiAA");
+                TemplatesDatabase.Add("Blinding Prodigy (E/Mo)|OgNDgMjtGlzbcDcy6jgUAA");
+                TemplatesDatabase.Add("Energy Denied (Me/Mo)|OQNDApwTGnQFeoIEJDtMmA");
+                TemplatesDatabase.Add("Warrior's Anguish (Me/Mo)|OQNEAWsT+pYDDOMkBEBC5ACA");
+                TemplatesDatabase.Add("Air of Smite (Mo)|OwAT443CtZmIQ2iPkFCExlIAA");
+                TemplatesDatabase.Add("Blessed Light Monk (Mo/Me)|OwUUMuG+QIP1jW3MZiUSCjEhMI");
+                TemplatesDatabase.Add("Boon Prot (Mo/Me)|OwUTMyXC5YmVUglkjs0CSB");
+                TemplatesDatabase.Add("Tainted Ally (N/Mo)|OANDUshfGx5LqJNe5mBUAA");
+                TemplatesDatabase.Add("Spirit Lord (Rt)|OACjAuhKpOwzzm17xV9CmOTBA");
+                TemplatesDatabase.Add("Cripshot Ranger (R/Me)|OgUUEmLjzcGJ+xqe2++4LQAA");
+                TemplatesDatabase.Add("Frenzy Theory (W/E)|OQYUgqYK5KGS1pQNAnTrdVAA");
+                TemplatesDatabase.Add("Final Master (W/Me)|OQUUIkoR56G+FwBmtBQrKQAA");
+                TemplatesDatabase.Add("Hamstorm (W/E)|OQYTo4IS1Boo9Ps/EmSxwIKAAA"); // WE (Sword)
+                TemplatesDatabase.Add("Touch Ranger (R/N)|OgQScZCP1QOBqRTwKTNSChD"); // RN
+                TemplatesDatabase.Add("Earthshaker Aftershock (W/E)|OQYTk4IOVRsclEXq/pyqVEAA"); // WE (Hammer)
+                TemplatesDatabase.Add("Plague Martyr (N/Mo)|OANDY4xuSVCOV7O4VJgqEPE7EA"); // NMo
+                TemplatesDatabase.Add("Bunny Thumper (R/W)|OgETMZrexZpAWCL56E3qh2IAAA"); // RW
+                TemplatesDatabase.Add("Charr Hunter (R)|OgATcVsm3hx4YytvGfzve1IAAA"); // R
+                TemplatesDatabase.Add("Distressing Touch (N/A)|OAdUQ2iasPO2QPhggOk9YzHQBAA"); // NA
+                TemplatesDatabase.Add("Unseen Lyssa (D/A)|Ogek8hp6KyqD3Pb/cjgZ34LuTAA"); // DA
+                TemplatesDatabase.Add("Gift of Protection (Mo)|OwAT00nC35uKQaJb6w4l+iEQAA"); // Mo
+                TemplatesDatabase.Add("Antidote Healer (Mo/R)|OwIT043A5Zj4Rm+jNQi/4msaAA"); // MoR
+                TemplatesDatabase.Add("Deadly Symbolism (W/A)|OQcTERJ7VKqYSkw6n44jBSRUAAA"); // WA (Axe)
+                TemplatesDatabase.Add("Dwayna's Cultist (N/D)|OApjQwGoqOmsOxkwQgfDv3XBAA"); // ND
+                TemplatesDatabase.Add("Critical Disruption (A/R)|OwJikxjMhr1btrVAtIq/saIAAA"); // AR
+                TemplatesDatabase.Add("Terrifying Ox (A/W)|OwFjUpd8ISZFfaVQXhEFcFuFCAA"); // AW
+                TemplatesDatabase.Add("Fragile Spider's Fangs (A/Me)|OwVjEod8IOTAyMCTHwAdCgQBAA"); // AMe
+                TemplatesDatabase.Add("Signet Flash (E/A)|OgdTgYG6VibgcwcocQRktJcQAAA"); // EA
+                TemplatesDatabase.Add("Burning Ice (E)|OghkooLMDGKz0QdsOYG/ZoBp4iB"); // E
+                TemplatesDatabase.Add("Holy Ground (E/Mo)|OgNDkKjOT+MUfuEbDOioCID7EA"); // EMo
+                TemplatesDatabase.Add("Healer's Boon (Mo)|OwAS0YIPT/NyvLjIR+Ix13J"); // Mo
+                TemplatesDatabase.Add("Fevered Frustration (Me/N)|OQRDAawHO3gead4Ts74gjOBA"); // MeN
+                TemplatesDatabase.Add("Guided Teasing (Me/Rt)|OQhjAoDK4OTTq560nmBgCZukLA"); // MeRt
+                TemplatesDatabase.Add("The Hex Punisher (Me/Mo)|OQNDAqsuOE1hgLx6b6uA5gdC"); // MeMo
+                TemplatesDatabase.Add("Extreme Binding (Rt)|OACjAqhK5SfTnNPOWPbOciVPBTA"); // Rt
+                TemplatesDatabase.Add("Weapon Healer (Rt/Me)|OAWjAihMpSkhZMEPDTxTRTMb6OA"); // RtMe
+                TemplatesDatabase.Add("Explosive Minions (Rt/N)|OASjUwhDJPVhjKaIp6MRuNzLGA"); // RtN
+                TemplatesDatabase.Add("Reap Poison (D/R)|OgKjghpMrScfOXWgibFYzGrGCAA"); // DR
+                TemplatesDatabase.Add("Contagious Reaper (D/N)|OgSjUopMLSWgjhCYibfXNfMVCAA"); // DN
+                TemplatesDatabase.Add("Shock and Awe (P/E)|OQakgolqZguUoYR2QmFWzw5QJm8G"); // PE
+                TemplatesDatabase.Add("Triple Finale (P/W)|OQGlUhlqpcio68gPxp43t9mrYhl3"); // PW
+                TemplatesDatabase.Add("Crippling Song (P/Rt)|OQikIilqJiqzDOIvjtwS4Lc5EHD"); // PRt
+                //TemplatesDatabase.Add("|"); // TEMPLATE EXTRA
+
+                return false;
+            }
+        }
+
         static public bool CheckRatingsFile()
         {
-            if(System.IO.File.Exists("Skills Ratings.txt"))
+            if (System.IO.File.Exists("Skills Ratings.txt"))
             {
                 System.IO.StreamReader input = new System.IO.StreamReader("Skills Ratings.txt");
                 input.ReadLine(); // Toss out the instructions line.
                 List<Pair<int, int>> ratings = new List<Pair<int, int>>();
 
-                while(input.EndOfStream==false)
+                while (input.EndOfStream == false)
                 {
                     string linecopy = input.ReadLine();
                     string[] line = linecopy.Split(new char[] { '|' }, StringSplitOptions.RemoveEmptyEntries);
-                    if(line.Length < 2)
+                    if (line.Length < 2)
                     {
                         System.Windows.Forms.MessageBox.Show("Warning: Malformed line \"" + linecopy + "\".", "Malformed Line", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Warning);
                     }
@@ -4587,7 +4669,7 @@ namespace GW_Codex_Generator
                         id = Convert.ToInt32(line[0]);
                         rating = Convert.ToInt32(line[1].Substring(7));
                     }
-                    catch(Exception e)
+                    catch (Exception e)
                     {
                         System.Windows.Forms.MessageBox.Show("Warning: Malformed line \"" + linecopy + "\"" + Environment.NewLine + Environment.NewLine + "Error message: " + e.Message, "Malformed Line", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Warning);
                         continue;
@@ -4598,7 +4680,7 @@ namespace GW_Codex_Generator
 
                 input.Close();
 
-                foreach(Pair<int,int> rating in ratings)
+                foreach (Pair<int, int> rating in ratings)
                 {
                     Data[rating.first].UpdateRating(rating.second);
                 }

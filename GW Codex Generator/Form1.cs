@@ -51,6 +51,7 @@ namespace GW_Codex_Generator
             InitializeComponent();
 
             SkillDatabase.LoadSkillInformation();
+            SkillDatabase.LoadTemplatesFile();
 
             // Hook up skill info displays:
             __CodexSkillDisplay.DescriptionBox = __CodexSkillInfo;
@@ -69,6 +70,20 @@ namespace GW_Codex_Generator
             requiredElites.Dock = DockStyle.Top;
             requiredElites.SetSkillDisplayInfo(__CodexSkillInfo);
 
+            Challenge_UI.RequiredSkill requiredSkill = new Challenge_UI.RequiredSkill();
+            _ChallengeControls.Add(requiredSkill);
+            requiredSkill.Dock = DockStyle.Top;
+            requiredSkill.SkillInfoDisplay = __CodexSkillInfo;
+
+            Challenge_UI.MandatorySkillsUI mandatedSkills = new Challenge_UI.MandatorySkillsUI();
+            _ChallengeControls.Add(mandatedSkills);
+            mandatedSkills.Dock = DockStyle.Top;
+            mandatedSkills.SetSkillInfoDisplay(__CodexSkillInfo);
+
+            Challenge_UI.TemplateChallengeUI requiredTemplates = new Challenge_UI.TemplateChallengeUI();
+            _ChallengeControls.Add(requiredTemplates);
+            requiredTemplates.Dock = DockStyle.Top;
+
 
             // Properly establish the challenge controls:
             for(int i = _ChallengeControls.Count-1; i >= 0; --i) // running this in reverse, as previous experience has taught me that adding a new top-docked control will put it above previous ones, and I want to lead with the order they are in the list.
@@ -77,6 +92,7 @@ namespace GW_Codex_Generator
                 __Tabs.TabPages[2].Controls.Add((Control)_ChallengeControls[i]);
             }
 
+            #region Skill ID look up greencode
             //string[] leadAttacks = {
             //    "blades of steel",
             //    "death blossom",
@@ -90,7 +106,155 @@ namespace GW_Codex_Generator
             //    __HTMLSummary.Text += "DualAttacks.Add(Data[" + SkillDatabase.GetSkillIndexByName(str).ToString() + "]);" + Environment.NewLine;
             //}
 
+            //string[] badrequiredskills =
+            //{
+            //    "Barbed Arrows",
+            //    "Choking Gas",
+            //    "Brambles",
+            //    "Conflagration",
+            //    "Equinox",
+            //    "Famine",
+            //    "Frozen Soil",
+            //    "Greater Conflagration",
+            //    "Ignite Arrows",
+            //    "Incendiary Arrows",
+            //    "Kindle Arrows",
+            //    "Melandru's Arrows",
+            //    "Muddy Terrain",
+            //    "Nature's Renewal",
+            //    "Pestilence",
+            //    "Poison Arrow",
+            //    "Quickening Zephyr",
+            //    "Quicksand",
+            //    "Roaring Winds",
+            //    "Tranquility",
+            //    "Winnowing",
+            //    "Winter",
+            //    "Called Shot",
+            //    "Dual Shot",
+            //    "Forked Arrow",
+            //    "Magebane Shot",
+            //    "Quick Shot",
+            //    "Deadly Riposte",
+            //    "Desperation Blow",
+            //    "Drunken Blow",
+            //    "Riposte",
+            //    "Shield Stance",
+            //    "Thrill of Victory",
+            //    "Distracting Blow",
+            //    "Distracting Strike",
+            //    "Skull Crack",
+            //    "Symbolic Strike",
+            //    "Wild Blow",
+            //    "Impale",
+            //    "Deadly Paradox",
+            //    "Entangling Asp",
+            //    "Mantis Touch",
+            //    "Mark of Insecurity",
+            //    "Vampiric Assault",
+            //    "Way of the Empty Palm",
+            //    "Blinding Powder",
+            //    "Hidden Caltrops",
+            //    "Way of the Lotus",
+            //    "Assault Enchantments",
+            //    "Mark of Instability",
+            //    "Recall",
+            //    "Wastrel's Collapse",
+            //    "Healer's Covenant",
+            //    "Healing Burst",
+            //    "Healing Touch",
+            //    "Rebirth",
+            //    "Succor",
+            //    "Awaken the Blood",
+            //    "Cultist's Fervor",
+            //    "Dark Bond",
+            //    "Order of Apostasy",
+            //    "Blood of the Master",
+            //    "Dark Aura",
+            //    "Feast for the Dead",
+            //    "Infuse Condition",
+            //    "Jagged Bones",
+            //    "Order of Undeath",
+            //    "Putrid Flesh",
+            //    "Taste of Death",
+            //    "Verata's Aura",
+            //    "Verata's Sacrifice",
+            //    "Illusionary Weaponry",
+            //    "Ether Lord",
+            //    "Mantra of Inscriptions",
+            //    "Mantra of Persistence",
+            //    "Mantra of Signets",
+            //    "Signet of Humility",
+            //    "Arcane Echo",
+            //    "Air Attunement",
+            //    "Arc Lightning",
+            //    "Conjure Lightning",
+            //    "Shell Shock",
+            //    "Shock Arrow",
+            //    "Earth Attunement",
+            //    "Glowstone",
+            //    "Iron Mist",
+            //    "Obsidian Flesh",
+            //    "Conjure Flame",
+            //    "Elemental Flame",
+            //    "Fire Attunement",
+            //    "Glowing Gaze",
+            //    "Conjure Frost",
+            //    "Glowing Ice",
+            //    "Water Attunement",
+            //    "Glyph of Elemental Power",
+            //    "Glyph of Concentration",
+            //    "Glyph of Essence",
+            //    "Glyph of Sacrifice",
+            //    "Agony",
+            //    "Bloodsong",
+            //    "Destruction",
+            //    "Gaze of Fury",
+            //    "Signet of Spirits",
+            //    "Spirit Siphon",
+            //    "Weapon of Aggression",
+            //    "Anguish",
+            //    "Armor of Unfeeling",
+            //    "Disenchantment",
+            //    "Displacement",
+            //    "Dissonance",
+            //    "Earthbind",
+            //    "Pain",
+            //    "Mighty Was Vorizun",
+            //    "Restoration",
+            //    "Shadowsong",
+            //    "Shelter",
+            //    "Signet of Ghostly Might",
+            //    "Soothing",
+            //    "Union",
+            //    "Wanderlust",
+            //    "Life",
+            //    "Preservation",
+            //    "Recovery",
+            //    "Recuperation",
+            //    "Rejuvenation",
+            //    "Spiritleech Aura",
+            //    "Tranquil Was Tanasen",
+            //    "Vocal Was Sogolon",
+            //    "Draw Spirit",
+            //    "Signet of Aggression",
+            //    "Ebon Dust Aura",
+            //    "Sand Shards",
+            //    "Vow of Strength",
+            //    "Grenth's Aura",
+            //    "Grenth's Grasp",
+            //    "Signet of Mystic Speed",
+            //    "Winds of Disenchantment"
+            //};
+
+            //foreach(string str in badrequiredskills)
+            //{
+            //    __HTMLSummary.Text += "case " + SkillDatabase.GetSkillIndexByName(str).ToString() + ": // " + str + Environment.NewLine + "skipSkill = true;" +
+            //        Environment.NewLine + "break;" + Environment.NewLine;
+            //}
+
             //GenerateCampaignCode(); // Only do this to generate the code, which I've done!
+            #endregion
         }
 
         private void __Codex_SelectMethod_SelectedIndexChanged(object sender, EventArgs e)
