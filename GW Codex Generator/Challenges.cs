@@ -590,7 +590,19 @@ O- Your Team have to distribute atleast 5 conditions
                     "• Your party's skills must be split 7 primary and 1 secondary (3p-1s if Pokemon rule is present)."
                 },
                 new string[] {"• Your party must include at least one henchman.", "• Your party must include at least one henchman.", "• Your party must include at least two henchmen."},
-                new string[] { "• Any given character cannot use more than 3 skills from an attribute line.", "• Any given character cannot use more than 3 skills from an attribute line.", "• For any given attribute line (no attribute counts as an attribute for this), all characters can combined use up to six skills. (One character could use 2 and another use 4, but a third could not then use even one skill from that attribute line.)"}
+                new string[] { "• Any given character cannot use more than 3 skills from an attribute line.", "• Any given character cannot use more than 3 skills from an attribute line.", "• For any given attribute line (no attribute counts as an attribute for this), all characters can combined use up to six skills. (One character could use 2 and another use 4, but a third could not then use even one skill from that attribute line.)"},
+                new string[] {
+                    "• Every character must be either a Monk secondary or primary. (If professions aren't to be duplicated, all characters must be secondary Monk with no primary Monks, player characters excepted from primary restriction.)",
+                    "• Every character must be either a Warrior secondary or primary. (If professions aren't to be duplicated, all characters must be secondary Warrior with no primary Warriors, player characters excepted from primary restriction.)",
+                    "• Every character must be either a Ranger secondary or primary. (If professions aren't to be duplicated, all characters must be secondary Ranger with no primary Rangers, player characters excepted from primary restriction.)",
+                    "• Every character must be either a Necromancer secondary or primary. (If professions aren't to be duplicated, all characters must be secondary Necromancer with no primary Necromancers, player characters excepted from primary restriction.)",
+                    "• Every character must be either a Elementalist secondary or primary. (If professions aren't to be duplicated, all characters must be secondary Elementalist with no primary Elementalists, player characters excepted from primary restriction.)",
+                    "• Every character must be either a Mesmer secondary or primary. (If professions aren't to be duplicated, all characters must be secondary Mesmer with no primary Mesmers, player characters excepted from primary restriction.)",
+                    "• Every character must be either a Assassin secondary or primary. (If professions aren't to be duplicated, all characters must be secondary Assassin with no primary Assassins, player characters excepted from primary restriction.)",
+                    "• Every character must be either a Ritualist secondary or primary. (If professions aren't to be duplicated, all characters must be secondary Ritualist with no primary Ritualists, player characters excepted from primary restriction.)",
+                    "• Every character must be either a Dervish secondary or primary. (If professions aren't to be duplicated, all characters must be secondary Dervish with no primary Dervishs, player characters excepted from primary restriction.)",
+                    "• Every character must be either a Paragon secondary or primary. (If professions aren't to be duplicated, all characters must be secondary Paragon with no primary Paragons, player characters excepted from primary restriction.)"
+                }
             };
         static public string[] BooleanRestrictions(int count)
         {

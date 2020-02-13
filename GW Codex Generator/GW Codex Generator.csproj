@@ -146,6 +146,12 @@
     </Compile>
     <Compile Include="Skill.cs" />
     <Compile Include="SkillDatabase.cs" />
+    <Compile Include="TemplateReaderDisplay.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TemplateReaderDisplay.Designer.cs">
+      <DependentUpon>TemplateReaderDisplay.cs</DependentUpon>
+    </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -208,6 +214,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Skill UI\SkillInfoDisplay.resx">
       <DependentUpon>SkillInfoDisplay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TemplateReaderDisplay.resx">
+      <DependentUpon>TemplateReaderDisplay.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

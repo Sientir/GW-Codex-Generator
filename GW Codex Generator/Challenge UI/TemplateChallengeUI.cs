@@ -18,6 +18,7 @@ namespace GW_Codex_Generator.Challenge_UI
             InitializeComponent();
         }
 
+        public Skill_UI.SkillInfoDisplay SkillInfoDisplay = null;
         private void __RollTemplateSelection_Click(object sender, EventArgs e)
         {
             string[] templates = Challenges.RandomBuildTemplates((int)__TemplateCount.Value, __AllowDuplicates.Checked);
@@ -27,6 +28,7 @@ namespace GW_Codex_Generator.Challenge_UI
             {
                 TemplateDisplay td = new TemplateDisplay();
                 td.SetTemplateInformation(str);
+                td.SkillInfoDisplay = SkillInfoDisplay;
                 _TemplateDisplays.Add(td);
                 __TemplatesPanel.Controls.Add(td);
             }

@@ -4563,6 +4563,1681 @@ namespace GW_Codex_Generator
             PopulateLists();
         }
 
+        internal class TemplateInformation
+        {
+            public TemplateInformation(string code)
+            {
+                Attributes = new List<AttributeRank>();
+                ParseTemplateCode(code);
+            }
+
+            public bool ValidTemplate { get; private set; }
+
+            private Skill[] _SkillBar = new Skill[8];
+            public Skill[] SkillBar { get { return _SkillBar; } }
+            public Skill.Professions PrimaryProfession { get; private set; }
+            public Skill.Professions SecondaryProfession { get; private set; }
+            public string TemplateCode { get; private set; }
+
+            public struct AttributeRank
+            {
+                public AttributeRank(Skill.Attributes attr, int rank)
+                {
+                    Attribute = attr;
+                    Rank = rank;
+                }
+
+                public Skill.Attributes Attribute;
+                public int Rank;
+            }
+
+            public List<AttributeRank> Attributes { get; private set; }
+            public bool ParseTemplateCode(string code)
+            {
+                int PrimaryProfessionID = 0;
+                int SecondaryProfessionID = 0;
+                AttributeRank[] AttributesArray = null;
+                int[] SkillbarIDs = new int[8];
+                try
+                {
+                    byte[] bytes = TranslateString(code);
+                    BitReader bits = new BitReader(bytes);
+
+                    // Get version information:
+                    int version = bits.Read(4);
+                    if (version == 0xE) bits.Read(4);
+
+                    // Professions:
+                    int bits_per_profession_id = bits.Read(2) * 2 + 4;
+                    PrimaryProfessionID = bits.Read(bits_per_profession_id);
+                    SecondaryProfessionID = bits.Read(bits_per_profession_id);
+
+                    // Attributes:
+                    int num_attributes = bits.Read(4);
+                    AttributesArray = new AttributeRank[num_attributes];
+                    int bits_per_attribute_id = bits.Read(4) + 4;
+                    for (int i = 0; i < num_attributes; ++i)
+                    {
+                        // Need to verify that my attributes are in the proper order and such.
+                        int attrID = bits.Read(bits_per_attribute_id);
+                        int rank = bits.Read(4);
+                        AttributesArray[i] = new AttributeRank(GetAttributeFromID(attrID), rank);
+                    }
+
+                    // Skills:
+                    int bits_per_skill_id = bits.Read(4) + 8;
+                    for (int i = 0; i < 8; ++i)
+                    {
+                        SkillbarIDs[i] = bits.Read(bits_per_skill_id);
+                    }
+
+                    ValidTemplate = true;
+                }
+                catch (IndexOutOfRangeException)
+                {
+                    ValidTemplate = false;
+                }
+
+                if(ValidTemplate)
+                {
+                    TemplateCode = code;
+                    Attributes.Clear();
+                    if(AttributesArray != null) Attributes.AddRange(AttributesArray);
+                    PrimaryProfession = GetProfessionFromID(PrimaryProfessionID);
+                    SecondaryProfession = GetProfessionFromID(SecondaryProfessionID);
+                    for(int i = 0; i < 8; ++i)
+                    {
+                        _SkillBar[i] = GetSkillByEngineID(SkillbarIDs[i]);
+                    }
+                }
+
+                return ValidTemplate;
+            }
+
+            #region Template parsing helper functions
+
+            Skill.Professions GetProfessionFromID(int id)
+            {
+                //    public enum Profession { None = 0, Warrior = 1, Ranger = 2, Monk = 3, Necromancer = 4, Mesmer = 5, Elementalist = 6, Assassin = 7, Ritualist = 8, Paragon = 9, Dervish = 10 };
+                switch (id)
+                {
+                    default: return Skill.Professions.None;
+                    case 1: return Skill.Professions.Warrior;
+                    case 2: return Skill.Professions.Ranger;
+                    case 3: return Skill.Professions.Monk;
+                    case 4: return Skill.Professions.Necromancer;
+                    case 5: return Skill.Professions.Mesmer;
+                    case 6: return Skill.Professions.Elementalist;
+                    case 7: return Skill.Professions.Assassin;
+                    case 8: return Skill.Professions.Ritualist;
+                    case 9: return Skill.Professions.Paragon;
+                    case 10: return Skill.Professions.Dervish;
+                }
+            }
+
+            Skill.Attributes GetAttributeFromID(int id)
+            {
+                switch (id)
+                {
+                    default: return Skill.Attributes.None; // Shouldn't happen, but eh?
+                    case 0: return Skill.Attributes.Fast_Casting;//Fast_Casting
+                    case 1: return Skill.Attributes.Illusion_Magic;//Illusion_Magic
+                    case 2: return Skill.Attributes.Domination_Magic;//Domination_Magic
+                    case 3: return Skill.Attributes.Inspiration_Magic;//Inspiration_Magic
+                    case 4: return Skill.Attributes.Blood_Magic;//Blood_Magic
+                    case 5: return Skill.Attributes.Death_Magic;//Death_Magic
+                    case 6: return Skill.Attributes.Soul_Reaping;//Soul_Reaping
+                    case 7: return Skill.Attributes.Curses;//Curses
+                    case 8: return Skill.Attributes.Air_Magic;//Air_Magic
+                    case 9: return Skill.Attributes.Earth_Magic;//Earth_Magic
+                    case 10: return Skill.Attributes.Fire_Magic;//Fire_Magic
+                    case 11: return Skill.Attributes.Water_Magic;//Water_Magic
+                    case 12: return Skill.Attributes.Energy_Storage;//Energy_Storage
+                    case 13: return Skill.Attributes.Healing_Prayers;//Healing_Prayers
+                    case 14: return Skill.Attributes.Smiting_Prayers;//Smiting_Prayers
+                    case 15: return Skill.Attributes.Protection_Prayers;//Protection_Prayers
+                    case 16: return Skill.Attributes.Divine_Favor;//Divine_Favor
+                    case 17: return Skill.Attributes.Strength;//Strength
+                    case 18: return Skill.Attributes.Axe_Mastery;//Axe_Mastery
+                    case 19: return Skill.Attributes.Hammer_Mastery;//Hammer_Mastery
+                    case 20: return Skill.Attributes.Swordsmanship;//Swordsmanship
+                    case 21: return Skill.Attributes.Tactics;//Tactics
+                    case 22: return Skill.Attributes.Beast_Mastery;//Beast_Mastery
+                    case 23: return Skill.Attributes.Expertise;//Expertise
+                    case 24: return Skill.Attributes.Wilderness_Survival;//Wilderness_Survival
+                    case 25: return Skill.Attributes.Marksmanship;//Marksmanship
+                    case 29: return Skill.Attributes.Dagger_Mastery;//Dagger_Mastery = 29 <-- I have no idea why this is, but for some reason, there's a skip between Marksmanship and Dagger Mastery. Probably an abandoned profession idea or something?
+                    case 30: return Skill.Attributes.Deadly_Arts;//Deadly_Arts
+                    case 31: return Skill.Attributes.Shadow_Arts;//Shadow_Arts
+                    case 32: return Skill.Attributes.Communing;//Communing
+                    case 33: return Skill.Attributes.Restoration_Magic;//Restoration_Magic
+                    case 34: return Skill.Attributes.Channeling_Magic;//Channeling_Magic
+                    case 35: return Skill.Attributes.Critical_Strikes;//Critical_Strikes
+                    case 36: return Skill.Attributes.Spawning_Power;//Spawning_Power
+                    case 37: return Skill.Attributes.Spear_Mastery;//Spear_Mastery
+                    case 38: return Skill.Attributes.Command;//Command
+                    case 39: return Skill.Attributes.Motivation;//Motivation
+                    case 40: return Skill.Attributes.Leadership;//Leadership
+                    case 41: return Skill.Attributes.Scythe_Mastery;//Scythe_Mastery
+                    case 42: return Skill.Attributes.Wind_Prayers;//Wind_Prayers
+                    case 43: return Skill.Attributes.Earth_Prayers;//Earth_Prayers
+                    case 44: return Skill.Attributes.Mysticism;//Mysticism
+                    case 45: //Ebon_Vanguard <-- I'm including these here for no particular reason, since you can't technically put points in them!
+                    case 46: //Norn
+                    case 47: //Dwarven
+                    case 48: //Asuran
+                    case 49: //Lightbringer
+                    case 50: //Allegiance
+                    case 51: //Sunspear
+                        return Skill.Attributes.PvE_Only;
+                }
+            }
+            static public byte[] TranslateString(string str)
+            {
+                // Start by converting the string into a bitlist:
+                List<bool> bitlist = new List<bool>();
+                foreach (char c in str.ToCharArray())
+                {
+                    int? value = TranslateChar(c);
+                    if (value.HasValue)
+                    {
+                        // Note that this process flips them as it reads, as that is how GW does it. Yeah.
+                        for (int bit = 0; bit < 6; ++bit)
+                        {
+                            bitlist.Add(((value.Value >> bit) & 1) == 1);
+                        }
+                    }
+                }
+
+                // Then figure out how many bytes we're returning:
+                int numBytes = bitlist.Count / 8; if (bitlist.Count % 8 != 0) numBytes++;
+                byte[] ret = new byte[numBytes];
+                for (int i = 0; i < numBytes; ++i) ret[i] = 0;
+
+                // Iterate over the bits and put them into the array:
+                int currentByte = 0;
+                int currentBit = 7;
+                foreach (bool b in bitlist)
+                {
+                    ret[currentByte] |= (byte)((b ? 1 : 0) << currentBit);
+                    currentBit--;
+                    if (currentBit < 0)
+                    {
+                        currentBit = 7;
+                        currentByte++;
+                    }
+                }
+
+                return ret;
+            }
+
+            static private int? TranslateChar(char c)
+            {
+                if (c >= 'A' && c <= 'Z') return c - 'A';
+                if (c >= 'a' && c <= 'z') return (c - 'a') + 26;
+                if (c >= '0' && c <= '9') return (c - '0') + 52;
+                if (c == '+') return 62;
+                if (c == '/') return 63;
+                return null;
+                /*
+            0	A	16	Q	32	g	48	w
+            1	B	17	R	33	h	49	x
+            2	C	18	S	34	i	50	y
+            3	D	19	T	35	j	51	z
+            4	E	20	U	36	k	52	0
+            5	F	21	V	37	l	53	1
+            6	G	22	W	38	m	54	2
+            7	H	23	X	39	n	55	3
+            8	I	24	Y	40	o	56	4
+            9	J	25	Z	41	p	57	5
+            10	K	26	a	42	q	58	6
+            11	L	27	b	43	r	59	7
+            12	M	28	c	44	s	60	8
+            13	N	29	d	45	t	61	9
+            14	O	30	e	46	u	62	+
+            15	P	31	f	47	v	63	/
+                 */
+            }
+
+            static private string TranslateBitArray(BitArray bits)
+            {
+                string[] Character = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z",
+                                     "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z",
+                                     "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "+", "/"};
+                string ret = "";
+                int pos = 0, len = bits.Length;
+                bool looping = true;
+                while (looping)
+                {
+                    int bitsToRead = len - pos; if (bitsToRead > 6) bitsToRead = 6;
+                    ret += Character[bits.Get(pos, bitsToRead)];
+                    pos += bitsToRead;
+                    if (pos >= len) looping = false;
+                }
+                return ret;
+            }
+
+            class BitArray
+            {
+                bool[] _Bits = new bool[0];
+                public BitArray(byte[] bytes)
+                {
+                    if (bytes == null) return;
+                    _Bits = new bool[bytes.Length * 8];
+                    int index = 0;
+                    foreach (byte b in bytes)
+                    {
+                        for (int bit = 7; bit >= 0; --bit)
+                            _Bits[index++] = ((b >> bit) & 1) == 1;
+                    }
+                }
+
+                /// <summary>
+                /// Gets bits. Flips them. Because that is how GW templates work. Don't ask ME why; it's probably because it's easier to code that way.
+                /// </summary>
+                /// <param name="index">The index of the bit to start reading.</param>
+                /// <param name="bits">The number of bits to read.</param>
+                /// <returns>A integer containg the bits.</returns>
+                virtual public int Get(int index, int bits)
+                {
+                    int ret = 0;
+                    for (int i = 0; i < bits; ++i)
+                    {
+                        if (_Bits[index + i])
+                        {
+                            ret |= (1 << i);
+                        }
+                    }
+                    return ret;
+                }
+
+                virtual public int Length { get { return _Bits.Length; } }
+            }
+
+            class BitReader : BitArray
+            {
+                int _Position = 0;
+                public BitReader(byte[] bytes) : base(bytes) { }
+                public void ResetPosition() { _Position = 0; }
+                public int Read(int numBits)
+                {
+                    int ret = Get(_Position, numBits);
+                    _Position += numBits;
+                    return ret;
+                }
+            }
+
+            class BitWriter : BitArray
+            {
+                List<bool> _Bits = new List<bool>();
+                public BitWriter() : base(null) { }
+
+                public override int Get(int index, int bits)
+                {
+                    int ret = 0;
+                    for (int i = 0; i < bits; ++i)
+                    {
+                        if (_Bits[index + i])
+                        {
+                            ret |= (1 << i);
+                        }
+                    }
+                    return ret;
+                }
+
+                /// <summary>
+                /// Adds a bit to the end of the bit array.
+                /// </summary>
+                /// <param name="bit">True if 1, false if 0.</param>
+                public void Write(bool bit) { _Bits.Add(bit); }
+
+                /// <summary>
+                /// Writes the "numBits" rightmost bits into the bitarray.
+                /// </summary>
+                /// <param name="value">A value.</param>
+                /// <param name="numBits">The number of bits [0-32) from the right to add in.</param>
+                public void Write(int value, int numBits)
+                {
+                    for (int i = 0; i < numBits; ++i)
+                    {
+                        _Bits.Add(((value >> i) & 1) == 1);
+                    }
+                }
+
+                public bool this[int index] { get { return _Bits[index]; } set { _Bits[index] = value; } }
+
+                public override int Length { get { return _Bits.Count; } }
+            }
+            #endregion
+        }
+
+        static public Skill GetSkillByEngineID(int id)
+        {
+            switch (id)
+            {
+                default: return null;
+                case 1: return Data[0];
+                case 2: return Data[1];
+                //case 3: return Data[-1] // Signet of Capture, which I'm going to exclude because I don't allow the signet of capture!
+                case 5: return Data[2];
+                case 6: return Data[3];
+                case 7: return Data[4];
+                case 8: return Data[5];
+                case 9: return Data[6];
+                case 10: return Data[7];
+                case 11: return Data[8];
+                case 13: return Data[9];
+                case 14: return Data[10];
+                case 15: return Data[11];
+                case 16: return Data[12];
+                case 17: return Data[13];
+                case 18: return Data[14];
+                case 19: return Data[15];
+                case 21: return Data[16];
+                case 22: return Data[17];
+                case 23: return Data[18];
+                case 24: return Data[19];
+                case 25: return Data[20];
+                case 26: return Data[21];
+                case 27: return Data[22];
+                case 28: return Data[23];
+                case 29: return Data[24];
+                case 30: return Data[25];
+                case 31: return Data[26];
+                case 32: return Data[27];
+                case 33: return Data[28];
+                case 34: return Data[29];
+                case 35: return Data[30];
+                case 36: return Data[31];
+                case 37: return Data[32];
+                case 38: return Data[33];
+                case 39: return Data[34];
+                case 40: return Data[35];
+                case 41: return Data[36];
+                case 42: return Data[37];
+                case 43: return Data[38];
+                case 44: return Data[39];
+                case 45: return Data[40];
+                case 46: return Data[41];
+                case 47: return Data[42];
+                case 48: return Data[43];
+                case 49: return Data[44];
+                case 50: return Data[45];
+                case 51: return Data[46];
+                case 52: return Data[47];
+                case 53: return Data[48];
+                case 54: return Data[49];
+                case 55: return Data[50];
+                case 56: return Data[51];
+                case 57: return Data[52];
+                case 58: return Data[53];
+                case 59: return Data[54];
+                case 61: return Data[55];
+                case 62: return Data[56];
+                case 63: return Data[57];
+                case 65: return Data[58];
+                case 66: return Data[59];
+                case 67: return Data[60];
+                case 68: return Data[61];
+                case 69: return Data[62];
+                case 72: return Data[63];
+                case 73: return Data[64];
+                case 74: return Data[65];
+                case 75: return Data[66];
+                case 76: return Data[67];
+                case 77: return Data[68];
+                case 78: return Data[69];
+                case 79: return Data[70];
+                case 80: return Data[71];
+                case 81: return Data[72];
+                case 82: return Data[73];
+                case 83: return Data[74];
+                case 84: return Data[75];
+                case 85: return Data[76];
+                case 86: return Data[77];
+                case 87: return Data[78];
+                case 88: return Data[79];
+                case 89: return Data[80];
+                case 90: return Data[81];
+                case 91: return Data[82];
+                case 92: return Data[83];
+                case 93: return Data[84];
+                case 94: return Data[85];
+                case 95: return Data[86];
+                case 96: return Data[87];
+                case 97: return Data[88];
+                case 98: return Data[89];
+                case 99: return Data[90];
+                case 100: return Data[91];
+                case 101: return Data[92];
+                case 102: return Data[93];
+                case 103: return Data[94];
+                case 104: return Data[95];
+                case 105: return Data[96];
+                case 106: return Data[97];
+                case 107: return Data[98];
+                case 108: return Data[99];
+                case 109: return Data[100];
+                case 110: return Data[101];
+                case 111: return Data[102];
+                case 112: return Data[103];
+                case 113: return Data[104];
+                case 114: return Data[105];
+                case 115: return Data[106];
+                case 116: return Data[107];
+                case 117: return Data[108];
+                case 118: return Data[109];
+                case 119: return Data[110];
+                case 120: return Data[111];
+                case 121: return Data[112];
+                case 122: return Data[113];
+                case 123: return Data[114];
+                case 124: return Data[115];
+                case 125: return Data[116];
+                case 126: return Data[117];
+                case 127: return Data[118];
+                case 128: return Data[119];
+                case 129: return Data[120];
+                case 130: return Data[121];
+                case 131: return Data[122];
+                case 132: return Data[123];
+                case 133: return Data[124];
+                case 134: return Data[125];
+                case 135: return Data[126];
+                case 136: return Data[127];
+                case 137: return Data[128];
+                case 138: return Data[129];
+                case 139: return Data[130];
+                case 140: return Data[131];
+                case 141: return Data[132];
+                case 142: return Data[133];
+                case 143: return Data[134];
+                case 144: return Data[135];
+                case 145: return Data[136];
+                case 146: return Data[137];
+                case 147: return Data[138];
+                case 148: return Data[139];
+                case 149: return Data[140];
+                case 150: return Data[141];
+                case 151: return Data[142];
+                case 152: return Data[143];
+                case 153: return Data[144];
+                case 154: return Data[145];
+                case 155: return Data[146];
+                case 156: return Data[147];
+                case 157: return Data[148];
+                case 158: return Data[149];
+                case 159: return Data[150];
+                case 160: return Data[151];
+                case 162: return Data[152];
+                case 163: return Data[153];
+                case 164: return Data[154];
+                case 165: return Data[155];
+                case 166: return Data[156];
+                case 167: return Data[157];
+                case 168: return Data[158];
+                case 169: return Data[159];
+                case 170: return Data[160];
+                case 171: return Data[161];
+                case 172: return Data[162];
+                case 173: return Data[163];
+                case 174: return Data[164];
+                case 175: return Data[165];
+                case 176: return Data[166];
+                case 177: return Data[167];
+                case 178: return Data[168];
+                case 179: return Data[169];
+                case 180: return Data[170];
+                case 181: return Data[171];
+                case 182: return Data[172];
+                case 183: return Data[173];
+                case 184: return Data[174];
+                case 185: return Data[175];
+                case 186: return Data[176];
+                case 187: return Data[177];
+                case 188: return Data[178];
+                case 189: return Data[179];
+                case 190: return Data[180];
+                case 191: return Data[181];
+                case 192: return Data[182];
+                case 193: return Data[183];
+                case 194: return Data[184];
+                case 195: return Data[185];
+                case 196: return Data[186];
+                case 197: return Data[187];
+                case 198: return Data[188];
+                case 199: return Data[189];
+                case 200: return Data[190];
+                case 201: return Data[191];
+                case 202: return Data[192];
+                case 203: return Data[193];
+                case 204: return Data[194];
+                case 205: return Data[195];
+                case 206: return Data[196];
+                case 207: return Data[197];
+                case 208: return Data[198];
+                case 209: return Data[199];
+                case 210: return Data[200];
+                case 211: return Data[201];
+                case 212: return Data[202];
+                case 213: return Data[203];
+                case 214: return Data[204];
+                case 215: return Data[205];
+                case 216: return Data[206];
+                case 217: return Data[207];
+                case 218: return Data[208];
+                case 219: return Data[209];
+                case 220: return Data[210];
+                case 221: return Data[211];
+                case 222: return Data[212];
+                case 223: return Data[213];
+                case 224: return Data[214];
+                case 225: return Data[215];
+                case 226: return Data[216];
+                case 227: return Data[217];
+                case 228: return Data[218];
+                case 229: return Data[219];
+                case 230: return Data[220];
+                case 231: return Data[221];
+                case 232: return Data[222];
+                case 233: return Data[223];
+                case 234: return Data[224];
+                case 235: return Data[225];
+                case 236: return Data[226];
+                case 237: return Data[227];
+                case 238: return Data[228];
+                case 239: return Data[229];
+                case 240: return Data[230];
+                case 241: return Data[231];
+                case 242: return Data[232];
+                case 243: return Data[233];
+                case 244: return Data[234];
+                case 245: return Data[235];
+                case 246: return Data[236];
+                case 247: return Data[237];
+                case 248: return Data[238];
+                case 249: return Data[239];
+                case 250: return Data[240];
+                case 251: return Data[241];
+                case 252: return Data[242];
+                case 253: return Data[243];
+                case 254: return Data[244];
+                case 255: return Data[245];
+                case 256: return Data[246];
+                case 257: return Data[247];
+                case 258: return Data[248];
+                case 259: return Data[249];
+                case 260: return Data[250];
+                case 261: return Data[251];
+                case 262: return Data[252];
+                case 263: return Data[253];
+                case 264: return Data[254];
+                case 265: return Data[255];
+                case 266: return Data[256];
+                case 267: return Data[257];
+                case 268: return Data[258];
+                case 269: return Data[259];
+                case 270: return Data[260];
+                case 271: return Data[261];
+                case 272: return Data[262];
+                case 273: return Data[263];
+                case 274: return Data[264];
+                case 275: return Data[265];
+                case 276: return Data[266];
+                case 277: return Data[267];
+                case 278: return Data[268];
+                case 279: return Data[269];
+                case 280: return Data[270];
+                case 281: return Data[271];
+                case 282: return Data[272];
+                case 283: return Data[273];
+                case 284: return Data[274];
+                case 285: return Data[275];
+                case 286: return Data[276];
+                case 287: return Data[277];
+                case 288: return Data[278];
+                case 289: return Data[279];
+                case 290: return Data[280];
+                case 291: return Data[281];
+                case 292: return Data[282];
+                case 293: return Data[283];
+                case 294: return Data[284];
+                case 295: return Data[285];
+                case 296: return Data[286];
+                case 297: return Data[287];
+                case 298: return Data[288];
+                case 299: return Data[289];
+                case 300: return Data[290];
+                case 301: return Data[291];
+                case 302: return Data[292];
+                case 303: return Data[293];
+                case 304: return Data[294];
+                case 305: return Data[295];
+                case 306: return Data[296];
+                case 307: return Data[297];
+                case 308: return Data[298];
+                case 309: return Data[299];
+                case 310: return Data[300];
+                case 311: return Data[301];
+                case 312: return Data[302];
+                case 313: return Data[303];
+                case 314: return Data[304];
+                case 315: return Data[305];
+                case 316: return Data[306];
+                case 317: return Data[307];
+                case 318: return Data[308];
+                case 319: return Data[309];
+                case 320: return Data[310];
+                case 321: return Data[311];
+                case 322: return Data[312];
+                case 323: return Data[313];
+                case 324: return Data[314];
+                case 325: return Data[315];
+                case 326: return Data[316];
+                case 327: return Data[317];
+                case 328: return Data[318];
+                case 329: return Data[319];
+                case 330: return Data[320];
+                case 331: return Data[321];
+                case 332: return Data[322];
+                case 333: return Data[323];
+                case 334: return Data[324];
+                case 335: return Data[325];
+                case 336: return Data[326];
+                case 337: return Data[327];
+                case 338: return Data[328];
+                case 339: return Data[329];
+                case 340: return Data[330];
+                case 341: return Data[331];
+                case 342: return Data[332];
+                case 343: return Data[333];
+                case 344: return Data[334];
+                case 345: return Data[335];
+                case 346: return Data[336];
+                case 347: return Data[337];
+                case 348: return Data[338];
+                case 349: return Data[339];
+                case 350: return Data[340];
+                case 351: return Data[341];
+                case 352: return Data[342];
+                case 353: return Data[343];
+                case 354: return Data[344];
+                case 355: return Data[345];
+                case 356: return Data[346];
+                case 357: return Data[347];
+                case 358: return Data[348];
+                case 359: return Data[349];
+                case 360: return Data[350];
+                case 361: return Data[351];
+                case 362: return Data[352];
+                case 363: return Data[353];
+                case 364: return Data[354];
+                case 365: return Data[355];
+                case 366: return Data[356];
+                case 367: return Data[357];
+                case 368: return Data[358];
+                case 370: return Data[359];
+                case 371: return Data[360];
+                case 372: return Data[361];
+                case 373: return Data[362];
+                case 374: return Data[363];
+                case 375: return Data[364];
+                case 376: return Data[365];
+                case 377: return Data[366];
+                case 378: return Data[367];
+                case 379: return Data[368];
+                case 380: return Data[369];
+                case 381: return Data[370];
+                case 382: return Data[371];
+                case 383: return Data[372];
+                case 384: return Data[373];
+                case 385: return Data[374];
+                case 386: return Data[375];
+                case 387: return Data[376];
+                case 388: return Data[377];
+                case 389: return Data[378];
+                case 390: return Data[379];
+                case 391: return Data[380];
+                case 392: return Data[381];
+                case 393: return Data[382];
+                case 394: return Data[383];
+                case 395: return Data[384];
+                case 396: return Data[385];
+                case 397: return Data[386];
+                case 398: return Data[387];
+                case 399: return Data[388];
+                case 400: return Data[389];
+                case 402: return Data[390];
+                case 403: return Data[391];
+                case 404: return Data[392];
+                case 405: return Data[393];
+                case 406: return Data[394];
+                case 407: return Data[395];
+                case 408: return Data[396];
+                case 409: return Data[397];
+                case 411: return Data[398];
+                case 412: return Data[399];
+                case 415: return Data[400];
+                case 422: return Data[401];
+                case 423: return Data[402];
+                case 424: return Data[403];
+                case 425: return Data[404];
+                case 426: return Data[405];
+                case 427: return Data[406];
+                case 428: return Data[407];
+                case 429: return Data[408];
+                case 430: return Data[409];
+                case 431: return Data[410];
+                case 432: return Data[411];
+                case 433: return Data[412];
+                case 434: return Data[413];
+                case 435: return Data[414];
+                case 436: return Data[415];
+                case 437: return Data[416];
+                case 438: return Data[417];
+                case 439: return Data[418];
+                case 440: return Data[419];
+                case 441: return Data[420];
+                case 442: return Data[421];
+                case 443: return Data[422];
+                case 444: return Data[423];
+                case 445: return Data[424];
+                case 446: return Data[425];
+                case 447: return Data[426];
+                case 448: return Data[427];
+                case 449: return Data[428];
+                case 450: return Data[429];
+                case 451: return Data[430];
+                case 452: return Data[431];
+                case 453: return Data[432];
+                case 454: return Data[433];
+                case 455: return Data[434];
+                case 456: return Data[435];
+                case 457: return Data[436];
+                case 458: return Data[437];
+                case 459: return Data[438];
+                case 460: return Data[439];
+                case 461: return Data[440];
+                case 462: return Data[441];
+                case 463: return Data[442];
+                case 464: return Data[443];
+                case 465: return Data[444];
+                case 466: return Data[445];
+                case 467: return Data[446];
+                case 468: return Data[447];
+                case 469: return Data[448];
+                case 470: return Data[449];
+                case 471: return Data[450];
+                case 472: return Data[451];
+                case 474: return Data[452];
+                case 475: return Data[453];
+                case 476: return Data[454];
+                case 477: return Data[455];
+                case 570: return Data[456];
+                case 571: return Data[457];
+                case 572: return Data[458];
+                case 763: return Data[459];
+                case 764: return Data[460];
+                case 766: return Data[461];
+                case 769: return Data[462];
+                case 770: return Data[463];
+                case 771: return Data[464];
+                case 772: return Data[465];
+                case 773: return Data[466];
+                case 775: return Data[467];
+                case 776: return Data[468];
+                case 777: return Data[469];
+                case 778: return Data[470];
+                case 779: return Data[471];
+                case 780: return Data[472];
+                case 781: return Data[473];
+                case 782: return Data[474];
+                case 783: return Data[475];
+                case 784: return Data[476];
+                case 785: return Data[477];
+                case 786: return Data[478];
+                case 787: return Data[479];
+                case 788: return Data[480];
+                case 789: return Data[481];
+                case 790: return Data[482];
+                case 791: return Data[483];
+                case 792: return Data[484];
+                case 793: return Data[485];
+                case 794: return Data[486];
+                case 795: return Data[487];
+                case 799: return Data[488];
+                case 800: return Data[489];
+                case 801: return Data[490];
+                case 802: return Data[491];
+                case 803: return Data[492];
+                case 804: return Data[493];
+                case 805: return Data[494];
+                case 806: return Data[495];
+                case 808: return Data[496];
+                case 809: return Data[497];
+                case 810: return Data[498];
+                case 811: return Data[499];
+                case 812: return Data[500];
+                case 813: return Data[501];
+                case 814: return Data[502];
+                case 815: return Data[503];
+                case 816: return Data[504];
+                case 817: return Data[505];
+                case 818: return Data[506];
+                case 819: return Data[507];
+                case 820: return Data[508];
+                case 821: return Data[509];
+                case 822: return Data[510];
+                case 823: return Data[511];
+                case 824: return Data[512];
+                case 825: return Data[513];
+                case 826: return Data[514];
+                case 827: return Data[515];
+                case 828: return Data[516];
+                case 830: return Data[517];
+                case 831: return Data[518];
+                case 832: return Data[519];
+                case 834: return Data[520];
+                case 835: return Data[521];
+                case 836: return Data[522];
+                case 837: return Data[523];
+                case 838: return Data[524];
+                case 839: return Data[525];
+                case 840: return Data[526];
+                case 841: return Data[527];
+                case 842: return Data[528];
+                case 843: return Data[529];
+                case 844: return Data[530];
+                case 845: return Data[531];
+                case 846: return Data[532];
+                case 847: return Data[533];
+                case 848: return Data[534];
+                case 849: return Data[535];
+                case 850: return Data[536];
+                case 851: return Data[537];
+                case 852: return Data[538];
+                case 853: return Data[539];
+                case 854: return Data[540];
+                case 858: return Data[541];
+                case 859: return Data[542];
+                case 860: return Data[543];
+                case 862: return Data[544];
+                case 863: return Data[545];
+                case 864: return Data[546];
+                case 865: return Data[547];
+                case 866: return Data[548];
+                case 867: return Data[549];
+                case 869: return Data[550];
+                case 870: return Data[551];
+                case 871: return Data[552];
+                case 876: return Data[553];
+                case 877: return Data[554];
+                case 878: return Data[555];
+                case 879: return Data[556];
+                case 880: return Data[557];
+                case 881: return Data[558];
+                case 882: return Data[559];
+                case 883: return Data[560];
+                case 884: return Data[561];
+                case 885: return Data[562];
+                case 886: return Data[563];
+                case 887: return Data[564];
+                case 888: return Data[565];
+                case 889: return Data[566];
+                case 891: return Data[567];
+                case 892: return Data[568];
+                case 893: return Data[569];
+                case 898: return Data[570];
+                case 899: return Data[571];
+                case 900: return Data[572];
+                case 901: return Data[573];
+                case 902: return Data[574];
+                case 903: return Data[575];
+                case 904: return Data[576];
+                case 905: return Data[577];
+                case 906: return Data[578];
+                case 907: return Data[579];
+                case 908: return Data[580];
+                case 909: return Data[581];
+                case 910: return Data[582];
+                case 911: return Data[583];
+                case 913: return Data[584];
+                case 914: return Data[585];
+                case 915: return Data[586];
+                case 916: return Data[587];
+                case 917: return Data[588];
+                case 918: return Data[589];
+                case 919: return Data[590];
+                case 920: return Data[591];
+                case 921: return Data[592];
+                case 923: return Data[593];
+                case 925: return Data[594];
+                case 926: return Data[595];
+                case 927: return Data[596];
+                case 928: return Data[597];
+                case 929: return Data[598];
+                case 930: return Data[599];
+                case 931: return Data[600];
+                case 932: return Data[601];
+                case 933: return Data[602];
+                case 934: return Data[603];
+                case 935: return Data[604];
+                case 936: return Data[605];
+                case 937: return Data[606];
+                case 938: return Data[607];
+                case 939: return Data[608];
+                case 941: return Data[609];
+                case 942: return Data[610];
+                case 943: return Data[611];
+                case 944: return Data[612];
+                case 946: return Data[613];
+                case 947: return Data[614];
+                case 948: return Data[615];
+                case 949: return Data[616];
+                case 950: return Data[617];
+                case 951: return Data[618];
+                case 952: return Data[619];
+                case 953: return Data[620];
+                case 954: return Data[621];
+                case 955: return Data[622];
+                case 957: return Data[623];
+                case 958: return Data[624];
+                case 959: return Data[625];
+                case 960: return Data[626];
+                case 961: return Data[627];
+                case 962: return Data[628];
+                case 963: return Data[629];
+                case 964: return Data[630];
+                case 973: return Data[631];
+                case 974: return Data[632];
+                case 975: return Data[633];
+                case 976: return Data[634];
+                case 977: return Data[635];
+                case 978: return Data[636];
+                case 979: return Data[637];
+                case 980: return Data[638];
+                case 981: return Data[639];
+                case 982: return Data[640];
+                case 983: return Data[641];
+                case 985: return Data[642];
+                case 986: return Data[643];
+                case 987: return Data[644];
+                case 988: return Data[645];
+                case 989: return Data[646];
+                case 990: return Data[647];
+                case 991: return Data[648];
+                case 992: return Data[649];
+                case 993: return Data[650];
+                case 994: return Data[651];
+                case 995: return Data[652];
+                case 996: return Data[653];
+                case 997: return Data[654];
+                case 1018: return Data[655];
+                case 1019: return Data[656];
+                case 1020: return Data[657];
+                case 1021: return Data[658];
+                case 1022: return Data[659];
+                case 1023: return Data[660];
+                case 1024: return Data[661];
+                case 1025: return Data[662];
+                case 1026: return Data[663];
+                case 1027: return Data[664];
+                case 1028: return Data[665];
+                case 1029: return Data[666];
+                case 1030: return Data[667];
+                case 1031: return Data[668];
+                case 1032: return Data[669];
+                case 1033: return Data[670];
+                case 1034: return Data[671];
+                case 1035: return Data[672];
+                case 1036: return Data[673];
+                case 1037: return Data[674];
+                case 1038: return Data[675];
+                case 1040: return Data[676];
+                case 1041: return Data[677];
+                case 1042: return Data[678];
+                case 1043: return Data[679];
+                case 1044: return Data[680];
+                case 1045: return Data[681];
+                case 1048: return Data[682];
+                case 1049: return Data[683];
+                case 1052: return Data[684];
+                case 1053: return Data[685];
+                case 1054: return Data[686];
+                case 1055: return Data[687];
+                case 1056: return Data[688];
+                case 1057: return Data[689];
+                case 1059: return Data[690];
+                case 1061: return Data[691];
+                case 1062: return Data[692];
+                case 1066: return Data[693];
+                case 1067: return Data[694];
+                case 1068: return Data[695];
+                case 1069: return Data[696];
+                case 1070: return Data[697];
+                case 1071: return Data[698];
+                case 1075: return Data[699];
+                case 1076: return Data[700];
+                case 1077: return Data[701];
+                case 1078: return Data[702];
+                case 1079: return Data[703];
+                case 1081: return Data[704];
+                case 1082: return Data[705];
+                case 1083: return Data[706];
+                case 1084: return Data[707];
+                case 1085: return Data[708];
+                case 1086: return Data[709];
+                case 1088: return Data[710];
+                case 1090: return Data[711];
+                case 1091: return Data[712];
+                case 1093: return Data[713];
+                case 1094: return Data[714];
+                case 1095: return Data[715];
+                case 1096: return Data[716];
+                case 1097: return Data[717];
+                case 1098: return Data[718];
+                case 1099: return Data[719];
+                case 1113: return Data[720];
+                case 1114: return Data[721];
+                case 1115: return Data[722];
+                case 1117: return Data[723];
+                case 1118: return Data[724];
+                case 1119: return Data[725];
+                case 1120: return Data[726];
+                case 1121: return Data[727];
+                case 1123: return Data[728];
+                case 1126: return Data[729];
+                case 1128: return Data[730];
+                case 1129: return Data[731];
+                case 1130: return Data[732];
+                case 1131: return Data[733];
+                case 1133: return Data[734];
+                case 1134: return Data[735];
+                case 1135: return Data[736];
+                case 1136: return Data[737];
+                case 1137: return Data[738];
+                case 1141: return Data[739];
+                case 1142: return Data[740];
+                case 1144: return Data[741];
+                case 1146: return Data[742];
+                case 1191: return Data[743];
+                case 1192: return Data[744];
+                case 1194: return Data[745];
+                case 1195: return Data[746];
+                case 1196: return Data[747];
+                case 1197: return Data[748];
+                case 1198: return Data[749];
+                case 1199: return Data[750];
+                case 1200: return Data[751];
+                case 1201: return Data[752];
+                case 1202: return Data[753];
+                case 1203: return Data[754];
+                case 1205: return Data[755];
+                case 1206: return Data[756];
+                case 1209: return Data[757];
+                case 1211: return Data[758];
+                case 1212: return Data[759];
+                case 1213: return Data[760];
+                case 1215: return Data[761];
+                case 1217: return Data[762];
+                case 1218: return Data[763];
+                case 1219: return Data[764];
+                case 1220: return Data[765];
+                case 1221: return Data[766];
+                case 1222: return Data[767];
+                case 1223: return Data[768];
+                case 1224: return Data[769];
+                case 1225: return Data[770];
+                case 1226: return Data[771];
+                case 1227: return Data[772];
+                case 1228: return Data[773];
+                case 1229: return Data[774];
+                case 1230: return Data[775];
+                case 1231: return Data[776];
+                case 1232: return Data[777];
+                case 1233: return Data[778];
+                case 1234: return Data[779];
+                case 1235: return Data[780];
+                case 1236: return Data[781];
+                case 1237: return Data[782];
+                case 1238: return Data[783];
+                case 1239: return Data[784];
+                case 1240: return Data[785];
+                case 1244: return Data[786];
+                case 1245: return Data[787];
+                case 1246: return Data[788];
+                case 1247: return Data[789];
+                case 1249: return Data[790];
+                case 1250: return Data[791];
+                case 1251: return Data[792];
+                case 1252: return Data[793];
+                case 1253: return Data[794];
+                case 1255: return Data[795];
+                case 1257: return Data[796];
+                case 1258: return Data[797];
+                case 1259: return Data[798];
+                case 1260: return Data[799];
+                case 1261: return Data[800];
+                case 1262: return Data[801];
+                case 1263: return Data[802];
+                case 1264: return Data[803];
+                case 1265: return Data[804];
+                case 1266: return Data[805];
+                case 1267: return Data[806];
+                case 1268: return Data[807];
+                case 1269: return Data[808];
+                case 1333: return Data[809];
+                case 1334: return Data[810];
+                case 1335: return Data[811];
+                case 1336: return Data[812];
+                case 1337: return Data[813];
+                case 1338: return Data[814];
+                case 1339: return Data[815];
+                case 1340: return Data[816];
+                case 1341: return Data[817];
+                case 1342: return Data[818];
+                case 1343: return Data[819];
+                case 1344: return Data[820];
+                case 1345: return Data[821];
+                case 1346: return Data[822];
+                case 1347: return Data[823];
+                case 1348: return Data[824];
+                case 1349: return Data[825];
+                case 1350: return Data[826];
+                case 1351: return Data[827];
+                case 1352: return Data[828];
+                case 1353: return Data[829];
+                case 1354: return Data[830];
+                case 1355: return Data[831];
+                case 1356: return Data[832];
+                case 1358: return Data[833];
+                case 1359: return Data[834];
+                case 1360: return Data[835];
+                case 1362: return Data[836];
+                case 1363: return Data[837];
+                case 1364: return Data[838];
+                case 1365: return Data[839];
+                case 1366: return Data[840];
+                case 1367: return Data[841];
+                case 1368: return Data[842];
+                case 1369: return Data[843];
+                case 1370: return Data[844];
+                case 1371: return Data[845];
+                case 1372: return Data[846];
+                case 1373: return Data[847];
+                case 1374: return Data[848];
+                case 1375: return Data[849];
+                case 1376: return Data[850];
+                case 1377: return Data[851];
+                case 1378: return Data[852];
+                case 1379: return Data[853];
+                case 1380: return Data[854];
+                case 1381: return Data[855];
+                case 1382: return Data[856];
+                case 1390: return Data[857];
+                case 1391: return Data[858];
+                case 1392: return Data[859];
+                case 1393: return Data[860];
+                case 1394: return Data[861];
+                case 1395: return Data[862];
+                case 1396: return Data[863];
+                case 1397: return Data[864];
+                case 1398: return Data[865];
+                case 1399: return Data[866];
+                case 1400: return Data[867];
+                case 1401: return Data[868];
+                case 1402: return Data[869];
+                case 1403: return Data[870];
+                case 1404: return Data[871];
+                case 1405: return Data[872];
+                case 1406: return Data[873];
+                case 1407: return Data[874];
+                case 1408: return Data[875];
+                case 1409: return Data[876];
+                case 1410: return Data[877];
+                case 1411: return Data[878];
+                case 1412: return Data[879];
+                case 1413: return Data[880];
+                case 1414: return Data[881];
+                case 1415: return Data[882];
+                case 1416: return Data[883];
+                case 1465: return Data[884];
+                case 1466: return Data[885];
+                case 1467: return Data[886];
+                case 1468: return Data[887];
+                case 1469: return Data[888];
+                case 1470: return Data[889];
+                case 1471: return Data[890];
+                case 1472: return Data[891];
+                case 1473: return Data[892];
+                case 1474: return Data[893];
+                case 1475: return Data[894];
+                case 1476: return Data[895];
+                case 1478: return Data[896];
+                case 1479: return Data[897];
+                case 1480: return Data[898];
+                case 1481: return Data[899];
+                case 1482: return Data[900];
+                case 1483: return Data[901];
+                case 1484: return Data[902];
+                case 1485: return Data[903];
+                case 1486: return Data[904];
+                case 1487: return Data[905];
+                case 1488: return Data[906];
+                case 1489: return Data[907];
+                case 1490: return Data[908];
+                case 1491: return Data[909];
+                case 1493: return Data[910];
+                case 1495: return Data[911];
+                case 1496: return Data[912];
+                case 1497: return Data[913];
+                case 1498: return Data[914];
+                case 1499: return Data[915];
+                case 1500: return Data[916];
+                case 1502: return Data[917];
+                case 1503: return Data[918];
+                case 1504: return Data[919];
+                case 1505: return Data[920];
+                case 1506: return Data[921];
+                case 1507: return Data[922];
+                case 1508: return Data[923];
+                case 1509: return Data[924];
+                case 1510: return Data[925];
+                case 1512: return Data[926];
+                case 1513: return Data[927];
+                case 1514: return Data[928];
+                case 1515: return Data[929];
+                case 1516: return Data[930];
+                case 1517: return Data[931];
+                case 1518: return Data[932];
+                case 1519: return Data[933];
+                case 1520: return Data[934];
+                case 1521: return Data[935];
+                case 1522: return Data[936];
+                case 1523: return Data[937];
+                case 1524: return Data[938];
+                case 1525: return Data[939];
+                case 1526: return Data[940];
+                case 1527: return Data[941];
+                case 1528: return Data[942];
+                case 1529: return Data[943];
+                case 1530: return Data[944];
+                case 1531: return Data[945];
+                case 1532: return Data[946];
+                case 1533: return Data[947];
+                case 1534: return Data[948];
+                case 1535: return Data[949];
+                case 1536: return Data[950];
+                case 1537: return Data[951];
+                case 1538: return Data[952];
+                case 1539: return Data[953];
+                case 1540: return Data[954];
+                case 1541: return Data[955];
+                case 1542: return Data[956];
+                case 1543: return Data[957];
+                case 1544: return Data[958];
+                case 1545: return Data[959];
+                case 1546: return Data[960];
+                case 1547: return Data[961];
+                case 1548: return Data[962];
+                case 1549: return Data[963];
+                case 1550: return Data[964];
+                case 1551: return Data[965];
+                case 1552: return Data[966];
+                case 1553: return Data[967];
+                case 1554: return Data[968];
+                case 1555: return Data[969];
+                case 1556: return Data[970];
+                case 1557: return Data[971];
+                case 1558: return Data[972];
+                case 1559: return Data[973];
+                case 1560: return Data[974];
+                case 1561: return Data[975];
+                case 1562: return Data[976];
+                case 1563: return Data[977];
+                case 1564: return Data[978];
+                case 1565: return Data[979];
+                case 1566: return Data[980];
+                case 1567: return Data[981];
+                case 1568: return Data[982];
+                case 1569: return Data[983];
+                case 1570: return Data[984];
+                case 1571: return Data[985];
+                case 1572: return Data[986];
+                case 1573: return Data[987];
+                case 1574: return Data[988];
+                case 1575: return Data[989];
+                case 1576: return Data[990];
+                case 1577: return Data[991];
+                case 1578: return Data[992];
+                case 1579: return Data[993];
+                case 1580: return Data[994];
+                case 1581: return Data[995];
+                case 1583: return Data[996];
+                case 1584: return Data[997];
+                case 1585: return Data[998];
+                case 1586: return Data[999];
+                case 1587: return Data[1000];
+                case 1588: return Data[1001];
+                case 1589: return Data[1002];
+                case 1590: return Data[1003];
+                case 1591: return Data[1004];
+                case 1592: return Data[1005];
+                case 1593: return Data[1006];
+                case 1594: return Data[1007];
+                case 1595: return Data[1008];
+                case 1596: return Data[1009];
+                case 1597: return Data[1010];
+                case 1598: return Data[1011];
+                case 1599: return Data[1012];
+                case 1600: return Data[1013];
+                case 1601: return Data[1014];
+                case 1602: return Data[1015];
+                case 1603: return Data[1016];
+                case 1604: return Data[1017];
+                case 1605: return Data[1018];
+                case 1633: return Data[1019];
+                case 1634: return Data[1020];
+                case 1635: return Data[1021];
+                case 1636: return Data[1022];
+                case 1637: return Data[1023];
+                case 1638: return Data[1024];
+                case 1639: return Data[1025];
+                case 1640: return Data[1026];
+                case 1641: return Data[1027];
+                case 1642: return Data[1028];
+                case 1643: return Data[1029];
+                case 1644: return Data[1030];
+                case 1645: return Data[1031];
+                case 1646: return Data[1032];
+                case 1647: return Data[1033];
+                case 1648: return Data[1034];
+                case 1649: return Data[1035];
+                case 1650: return Data[1036];
+                case 1651: return Data[1037];
+                case 1652: return Data[1038];
+                case 1653: return Data[1039];
+                case 1654: return Data[1040];
+                case 1655: return Data[1041];
+                case 1656: return Data[1042];
+                case 1657: return Data[1043];
+                case 1658: return Data[1044];
+                case 1659: return Data[1045];
+                case 1660: return Data[1046];
+                case 1661: return Data[1047];
+                case 1662: return Data[1048];
+                case 1663: return Data[1049];
+                case 1664: return Data[1050];
+                case 1683: return Data[1051];
+                case 1684: return Data[1052];
+                case 1685: return Data[1053];
+                case 1686: return Data[1054];
+                case 1687: return Data[1055];
+                case 1688: return Data[1056];
+                case 1689: return Data[1057];
+                case 1690: return Data[1058];
+                case 1691: return Data[1059];
+                case 1692: return Data[1060];
+                case 1693: return Data[1061];
+                case 1694: return Data[1062];
+                case 1695: return Data[1063];
+                case 1696: return Data[1064];
+                case 1697: return Data[1065];
+                case 1698: return Data[1066];
+                case 1699: return Data[1067];
+                case 1700: return Data[1068];
+                case 1701: return Data[1069];
+                case 1702: return Data[1070];
+                case 1719: return Data[1071];
+                case 1720: return Data[1072];
+                case 1721: return Data[1073];
+                case 1722: return Data[1074];
+                case 1723: return Data[1075];
+                case 1724: return Data[1076];
+                case 1725: return Data[1077];
+                case 1726: return Data[1078];
+                case 1727: return Data[1079];
+                case 1728: return Data[1080];
+                case 1729: return Data[1081];
+                case 1730: return Data[1082];
+                case 1731: return Data[1083];
+                case 1732: return Data[1084];
+                case 1733: return Data[1085];
+                case 1734: return Data[1086];
+                case 1736: return Data[1087];
+                case 1737: return Data[1088];
+                case 1738: return Data[1089];
+                case 1739: return Data[1090];
+                case 1740: return Data[1091];
+                case 1741: return Data[1092];
+                case 1742: return Data[1093];
+                case 1743: return Data[1094];
+                case 1744: return Data[1095];
+                case 1745: return Data[1096];
+                case 1747: return Data[1097];
+                case 1748: return Data[1098];
+                case 1749: return Data[1099];
+                case 1750: return Data[1100];
+                case 1751: return Data[1101];
+                case 1752: return Data[1102];
+                case 1753: return Data[1103];
+                case 1754: return Data[1104];
+                case 1755: return Data[1105];
+                case 1756: return Data[1106];
+                case 1757: return Data[1107];
+                case 1758: return Data[1108];
+                case 1759: return Data[1109];
+                case 1760: return Data[1110];
+                case 1761: return Data[1111];
+                case 1762: return Data[1112];
+                case 1763: return Data[1113];
+                case 1764: return Data[1114];
+                case 1765: return Data[1115];
+                case 1766: return Data[1116];
+                case 1767: return Data[1117];
+                case 1768: return Data[1118];
+                case 1769: return Data[1119];
+                case 1770: return Data[1120];
+                case 1771: return Data[1121];
+                case 1772: return Data[1122];
+                case 1773: return Data[1123];
+                case 1774: return Data[1124];
+                case 1775: return Data[1125];
+                case 1776: return Data[1126];
+                case 1777: return Data[1127];
+                case 1778: return Data[1128];
+                case 1779: return Data[1129];
+                case 1780: return Data[1130];
+                case 1781: return Data[1131];
+                case 1782: return Data[1132];
+                case 1783: return Data[1133];
+                case 1784: return Data[1134];
+                case 1814: return Data[1135];
+                case 1815: return Data[1136];
+                case 1816: return Data[1137];
+                case 1948: return Data[1138];
+                case 1949: return Data[1139];
+                case 1950: return Data[1140];
+                case 1951: return Data[1141];
+                case 1952: return Data[1142];
+                case 1953: return Data[1143];
+                case 1954: return Data[1144];
+                case 1955: return Data[1145];
+                case 1957: return Data[1146];
+                case 1986: return Data[1147];
+                case 1987: return Data[1148];
+                case 1988: return Data[1149];
+                case 1990: return Data[1150];
+                case 1991: return Data[1151];
+                case 1992: return Data[1152];
+                case 1993: return Data[1153];
+                case 1994: return Data[1154];
+                case 1995: return Data[1155];
+                case 1996: return Data[1156];
+                case 1997: return Data[1157];
+                case 1998: return Data[1158];
+                case 1999: return Data[1159];
+                case 2000: return Data[1160];
+                case 2001: return Data[1161];
+                case 2002: return Data[1162];
+                case 2003: return Data[1163];
+                case 2004: return Data[1164];
+                case 2005: return Data[1165];
+                case 2006: return Data[1166];
+                case 2007: return Data[1167];
+                case 2008: return Data[1168];
+                case 2009: return Data[1169];
+                case 2010: return Data[1170];
+                case 2011: return Data[1171];
+                case 2012: return Data[1172];
+                case 2013: return Data[1173];
+                case 2014: return Data[1174];
+                case 2015: return Data[1175];
+                case 2016: return Data[1176];
+                case 2017: return Data[1177];
+                case 2018: return Data[1178];
+                case 2051: return Data[1179];
+                case 2052: return Data[1180];
+                case 2053: return Data[1181];
+                case 2054: return Data[1182];
+                case 2055: return Data[1183];
+                case 2056: return Data[1184];
+                case 2057: return Data[1185];
+                case 2058: return Data[1186];
+                case 2059: return Data[1187];
+                case 2060: return Data[1188];
+                case 2061: return Data[1189];
+                case 2062: return Data[1190];
+                case 2063: return Data[1191];
+                case 2064: return Data[1192];
+                case 2065: return Data[1193];
+                case 2066: return Data[1194];
+                case 2067: return Data[1195];
+                case 2068: return Data[1196];
+                case 2069: return Data[1197];
+                case 2070: return Data[1198];
+                case 2071: return Data[1199];
+                case 2072: return Data[1200];
+                case 2073: return Data[1201];
+                case 2074: return Data[1202];
+                case 2075: return Data[1203];
+                case 2091: return Data[1204];
+                case 2092: return Data[1205];
+                case 2093: return Data[1206];
+                case 2094: return Data[1207];
+                case 2095: return Data[1208];
+                case 2096: return Data[1209];
+                case 2097: return Data[1210];
+                case 2098: return Data[1211];
+                case 2099: return Data[1212];
+                case 2100: return Data[1213];
+                case 2101: return Data[1214];
+                case 2102: return Data[1215];
+                case 2103: return Data[1216];
+                case 2104: return Data[1217];
+                case 2105: return Data[1218];
+                case 2107: return Data[1219];
+                case 2108: return Data[1220];
+                case 2109: return Data[1221];
+                case 2110: return Data[1222];
+                case 2112: return Data[1223];
+                case 2116: return Data[1224];
+                case 2135: return Data[1225];
+                case 2136: return Data[1226];
+                case 2137: return Data[1227];
+                case 2138: return Data[1228];
+                case 2139: return Data[1229];
+                case 2140: return Data[1230];
+                case 2141: return Data[1231];
+                case 2142: return Data[1232];
+                case 2143: return Data[1233];
+                case 2144: return Data[1234];
+                case 2145: return Data[1235];
+                case 2146: return Data[1236];
+                case 2147: return Data[1237];
+                case 2148: return Data[1238];
+                case 2149: return Data[1239];
+                case 2150: return Data[1240];
+                case 2186: return Data[1241];
+                case 2187: return Data[1242];
+                case 2188: return Data[1243];
+                case 2189: return Data[1244];
+                case 2190: return Data[1245];
+                case 2191: return Data[1246];
+                case 2192: return Data[1247];
+                case 2193: return Data[1248];
+                case 2194: return Data[1249];
+                case 2195: return Data[1250];
+                case 2196: return Data[1251];
+                case 2197: return Data[1252];
+                case 2198: return Data[1253];
+                case 2199: return Data[1254];
+                case 2200: return Data[1255];
+                case 2201: return Data[1256];
+                case 2202: return Data[1257];
+                case 2203: return Data[1258];
+                case 2204: return Data[1259];
+                case 2205: return Data[1260];
+                case 2206: return Data[1261];
+                case 2207: return Data[1262];
+                case 2208: return Data[1263];
+                case 2209: return Data[1264];
+                case 2210: return Data[1265];
+                case 2211: return Data[1266];
+                case 2212: return Data[1267];
+                case 2213: return Data[1268];
+                case 2214: return Data[1269];
+                case 2215: return Data[1270];
+                case 2216: return Data[1271];
+                case 2217: return Data[1272];
+                case 2218: return Data[1273];
+                case 2219: return Data[1274];
+                case 2220: return Data[1275];
+                case 2221: return Data[1276];
+                case 2222: return Data[1277];
+                case 2223: return Data[1278];
+                case 2224: return Data[1279];
+                case 2225: return Data[1280];
+                case 2226: return Data[1281];
+                case 2227: return Data[1282];
+                case 2228: return Data[1283];
+                case 2229: return Data[1284];
+                case 2230: return Data[1285];
+                case 2231: return Data[1286];
+                case 2232: return Data[1287];
+                case 2233: return Data[1288];
+                case 2234: return Data[1289];
+                case 2235: return Data[1290];
+                case 2236: return Data[1291];
+                case 2237: return Data[1292];
+                case 2238: return Data[1293];
+                case 2353: return Data[1294];
+                case 2354: return Data[1295];
+                case 2355: return Data[1296];
+                case 2356: return Data[1297];
+                case 2357: return Data[1298];
+                case 2358: return Data[1299];
+                case 2359: return Data[1300];
+                case 2360: return Data[1301];
+                case 2361: return Data[1302];
+                case 2374: return Data[1303];
+                case 2379: return Data[1304];
+                case 2384: return Data[1305];
+                case 2411: return Data[1306];
+                case 2412: return Data[1307];
+                case 2413: return Data[1308];
+                case 2414: return Data[1309];
+                case 2415: return Data[1310];
+                case 2416: return Data[1311];
+                case 2417: return Data[1312];
+                case 2418: return Data[1313];
+                case 2420: return Data[1314];
+                case 2421: return Data[1315];
+                case 2422: return Data[1316];
+                case 2423: return Data[1317];
+            }
+        }
+
         static public List<string> TemplatesDatabase = new List<string>();
 
         static public bool LoadTemplatesFile()

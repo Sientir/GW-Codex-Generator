@@ -36,6 +36,8 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.@__CodexSettingsLayoutTable = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.@__LoadRatingFilebutton = new System.Windows.Forms.Button();
+            this.@__GenerateRatingsFile = new System.Windows.Forms.Button();
             this.@__Codex_Pool_PvEOnly = new System.Windows.Forms.CheckBox();
             this.@__Codex_Pool_EotN = new System.Windows.Forms.CheckBox();
             this.@__Codex_Pool_Nightfall = new System.Windows.Forms.CheckBox();
@@ -47,11 +49,11 @@
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.@__HTMLSummary = new System.Windows.Forms.TextBox();
+            this.tabPage5 = new System.Windows.Forms.TabPage();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.@__GenerateRatingsFile = new System.Windows.Forms.Button();
             this.@__CodexSkillInfo = new GW_Codex_Generator.Skill_UI.SkillInfoDisplay();
             this.@__CodexSkillDisplay = new GW_Codex_Generator.Skill_UI.SkillDisplay();
-            this.@__LoadRatingFilebutton = new System.Windows.Forms.Button();
+            this.@__TemplateCodeParserTest = new GW_Codex_Generator.TemplateReaderDisplay();
             this.@__Tabs.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.@__CodexTabLayout.SuspendLayout();
@@ -59,6 +61,7 @@
             this.@__CodexSettingsLayoutTable.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tabPage4.SuspendLayout();
+            this.tabPage5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -71,6 +74,7 @@
             this.@__Tabs.Controls.Add(this.tabPage2);
             this.@__Tabs.Controls.Add(this.tabPage3);
             this.@__Tabs.Controls.Add(this.tabPage4);
+            this.@__Tabs.Controls.Add(this.tabPage5);
             this.@__Tabs.Dock = System.Windows.Forms.DockStyle.Fill;
             this.@__Tabs.Location = new System.Drawing.Point(0, 0);
             this.@__Tabs.Name = "__Tabs";
@@ -162,6 +166,26 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Select Pool";
+            // 
+            // __LoadRatingFilebutton
+            // 
+            this.@__LoadRatingFilebutton.Location = new System.Drawing.Point(563, 38);
+            this.@__LoadRatingFilebutton.Name = "__LoadRatingFilebutton";
+            this.@__LoadRatingFilebutton.Size = new System.Drawing.Size(186, 23);
+            this.@__LoadRatingFilebutton.TabIndex = 7;
+            this.@__LoadRatingFilebutton.Text = "Load Ratings File";
+            this.@__LoadRatingFilebutton.UseVisualStyleBackColor = true;
+            this.@__LoadRatingFilebutton.Click += new System.EventHandler(this.@__LoadRatingFilebutton_Click);
+            // 
+            // __GenerateRatingsFile
+            // 
+            this.@__GenerateRatingsFile.Location = new System.Drawing.Point(563, 11);
+            this.@__GenerateRatingsFile.Name = "__GenerateRatingsFile";
+            this.@__GenerateRatingsFile.Size = new System.Drawing.Size(186, 23);
+            this.@__GenerateRatingsFile.TabIndex = 6;
+            this.@__GenerateRatingsFile.Text = "Generate Ratings File";
+            this.@__GenerateRatingsFile.UseVisualStyleBackColor = true;
+            this.@__GenerateRatingsFile.Click += new System.EventHandler(this.@__GenerateRatingsFile_Click);
             // 
             // __Codex_Pool_PvEOnly
             // 
@@ -295,6 +319,17 @@
             this.@__HTMLSummary.Size = new System.Drawing.Size(782, 547);
             this.@__HTMLSummary.TabIndex = 0;
             // 
+            // tabPage5
+            // 
+            this.tabPage5.Controls.Add(this.@__TemplateCodeParserTest);
+            this.tabPage5.Location = new System.Drawing.Point(4, 22);
+            this.tabPage5.Name = "tabPage5";
+            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage5.Size = new System.Drawing.Size(788, 553);
+            this.tabPage5.TabIndex = 4;
+            this.tabPage5.Text = "Template Code Parser";
+            this.tabPage5.UseVisualStyleBackColor = true;
+            // 
             // splitContainer1
             // 
             this.splitContainer1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
@@ -313,16 +348,6 @@
             this.splitContainer1.Size = new System.Drawing.Size(800, 704);
             this.splitContainer1.SplitterDistance = 117;
             this.splitContainer1.TabIndex = 1;
-            // 
-            // __GenerateRatingsFile
-            // 
-            this.@__GenerateRatingsFile.Location = new System.Drawing.Point(563, 11);
-            this.@__GenerateRatingsFile.Name = "__GenerateRatingsFile";
-            this.@__GenerateRatingsFile.Size = new System.Drawing.Size(186, 23);
-            this.@__GenerateRatingsFile.TabIndex = 6;
-            this.@__GenerateRatingsFile.Text = "Generate Ratings File";
-            this.@__GenerateRatingsFile.UseVisualStyleBackColor = true;
-            this.@__GenerateRatingsFile.Click += new System.EventHandler(this.@__GenerateRatingsFile_Click);
             // 
             // __CodexSkillInfo
             // 
@@ -345,15 +370,12 @@
             this.@__CodexSkillDisplay.Size = new System.Drawing.Size(776, 516);
             this.@__CodexSkillDisplay.TabIndex = 2;
             // 
-            // __LoadRatingFilebutton
+            // __TemplateCodeParserTest
             // 
-            this.@__LoadRatingFilebutton.Location = new System.Drawing.Point(563, 38);
-            this.@__LoadRatingFilebutton.Name = "__LoadRatingFilebutton";
-            this.@__LoadRatingFilebutton.Size = new System.Drawing.Size(186, 23);
-            this.@__LoadRatingFilebutton.TabIndex = 7;
-            this.@__LoadRatingFilebutton.Text = "Load Ratings File";
-            this.@__LoadRatingFilebutton.UseVisualStyleBackColor = true;
-            this.@__LoadRatingFilebutton.Click += new System.EventHandler(this.@__LoadRatingFilebutton_Click);
+            this.@__TemplateCodeParserTest.Location = new System.Drawing.Point(6, 6);
+            this.@__TemplateCodeParserTest.Name = "__TemplateCodeParserTest";
+            this.@__TemplateCodeParserTest.Size = new System.Drawing.Size(399, 130);
+            this.@__TemplateCodeParserTest.TabIndex = 0;
             // 
             // Form1
             // 
@@ -374,6 +396,7 @@
             this.groupBox1.PerformLayout();
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
+            this.tabPage5.ResumeLayout(false);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
@@ -407,6 +430,8 @@
         private System.Windows.Forms.CheckBox __Codex_UseRatings;
         private System.Windows.Forms.Button __GenerateRatingsFile;
         private System.Windows.Forms.Button __LoadRatingFilebutton;
+        private System.Windows.Forms.TabPage tabPage5;
+        private TemplateReaderDisplay __TemplateCodeParserTest;
     }
 }
 
