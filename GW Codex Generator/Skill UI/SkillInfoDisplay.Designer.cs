@@ -16,7 +16,15 @@
             if (disposing && (components != null))
             {
                 components.Dispose();
+                components = null;
             }
+
+            if(disposing && (NameFont != null))
+            {
+                NameFont.Dispose();
+                NameFont = null;
+            }
+
             base.Dispose(disposing);
         }
 
