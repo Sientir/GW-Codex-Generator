@@ -224,7 +224,11 @@ namespace GW_Codex_Generator
             return codex;
         }
 
-        internal static List<Skill> SmartBalance()
+        internal class SmartBalanceParameters
+        {
+
+        }
+        internal static List<Skill> SmartBalance(SmartBalanceParameters parameters)
         {
             List<Skill> codex = new List<Skill>();
 
@@ -234,6 +238,65 @@ namespace GW_Codex_Generator
             // - Include condition/hex/enchantment/stance removal
             // - Take ratings into account
             // - Add some skills that can actually heal party members for solid amounts
+
+
+            /*
+             Let's think about some categories of skills:
+             - Sword Attacks
+             - Axe Attacks
+             - Hammer Attacks
+             - Dagger Attacks
+             - Scythe Attacks
+             - Bow Attacks
+             - Spear Attacks
+             - Generic Melee Attacks
+             - Heal an ally (weak)
+             - Heal an ally (medium)
+             - Heal an ally (strong)
+             - Self heals
+             - Cure condition ally
+             - Cure condition self
+             - Protect an ally
+             - Protect self
+             - Protect party
+             - Heal party
+             - Cure conditions party
+             - Remove hex
+             - Increase attack speed
+             - Increase move speed ally
+             - Increase move speed self
+             - Increase move speed party
+             - Interrupt
+             - Pressure
+             - High damage AoE
+             - High Damage single-target
+             - Pet Skills
+             - General Utility
+             - Energy Denial
+             - Energy Management Self
+             - Energy Management Ally
+             - Control spells (e.g. snares, slower attack)
+             - Punisher Hexes?
+             
+             
+            Something I'm thinking is that it makes sense to introduce possible pushes and pulls. For example, maybe I want self healing to be
+            plentiful, but healing allies (e.g. Heal Other) to be weak. I also like the idea that sometimes you only get skills from one
+            warrior weapon, sometimes from all three. Basically, I want to move the focus around a bit, in different ways.
+
+            Maybe this could focus on different areas? Like, Protection is general through self skills or ally-targetting skills, etc.
+
+            I'm thinking I want a few axes to kinda sort between:
+            * Self-Heals <--> Ally Heals
+            * Self-Protection (e.g. Defensive Stance) <--> Ally Protection (e.g. Guardian)
+            * Spikes <--> Pressure
+            * Control (Inhibit, such as Blind or Snares) <--> Control Interrupt (KDs, interrupts, one-shot hexes such as Guilt)
+            * Control Strip
+            * Party Cleanse (can weight towards party-wide and self for conditions)
+            * Party Augments (barbs, conjure frost, etc.)
+            * Where do punish skills come in?
+            * A miscellaneous stuff category (for things like Warrior's Endurance)
+
+             */
 
             return codex;
         }

@@ -3392,7 +3392,7 @@ namespace GW_Codex_Generator
             Data.Add(new Skill("Orison of Healing", Properties.Resources.Orison_of_Healing, Skill.Attributes.Healing_Prayers, Skill.Professions.Monk, 2, "5E 1C 2R - Spell. Heals for 20...60...70."));
             Data.Add(new Skill("Word of Healing", Properties.Resources.Word_of_Healing, Skill.Attributes.Healing_Prayers, Skill.Professions.Monk, 3, "5E 3/4C 3R - Elite Spell. Heals for 5...81...100. Heals for 30...98...115 more if target ally is below 50% Health.", true));
             Data.Add(new Skill("Dwayna's Kiss", Properties.Resources.Dwayna_s_Kiss, Skill.Attributes.Healing_Prayers, Skill.Professions.Monk, 5, "5E 1C 3R - Spell. Heals for 15...51...60. Heals for 10...30...35 more for each enchantment and hex on target ally. Cannot self-target."));
-            Data.Add(new Skill("Divine Boon", Properties.Resources.Divine_Boon, Skill.Attributes.Divine_Favor, Skill.Professions.Monk, 2, "-1ER 5E 1/4C 10R - Enchantment Spell. Whenever you cast a Protection Prayer [sic] or Divine Favor spell on an ally, that ally is healed for 15...51...60. Heal cost: you lose 1 Energy."));
+            Data.Add(new Skill("Divine Boon", Properties.Resources.Divine_Boon, Skill.Attributes.Divine_Favor, Skill.Professions.Monk, 2, "-1ER 5E 1/4C 10R - Enchantment Spell. Whenever you cast a Protection Prayers or Divine Favor spell on an ally, that ally is healed for 15...51...60. Heal cost: you lose 1 Energy."));
             Data.Add(new Skill("Healing Hands", Properties.Resources.Healing_Hands, Skill.Attributes.Healing_Prayers, Skill.Professions.Monk, 3, "5E 1/4C 25R - Elite Enchantment Spell. (10 seconds.) Heals for 5...29...35 whenever target takes damage.", true));
             Data.Add(new Skill("Heal Other", Properties.Resources.Heal_Other, Skill.Attributes.Healing_Prayers, Skill.Professions.Monk, 1, "10E 3/4C 3R - Spell. Heals for 35...151...180. Cannot self-target."));
             Data.Add(new Skill("Heal Party", Properties.Resources.Heal_Party, Skill.Attributes.Healing_Prayers, Skill.Professions.Monk, 2, "15E 2C 2R - Spell. Heals entire party for 30...66...75."));
@@ -3608,7 +3608,7 @@ namespace GW_Codex_Generator
             Data.Add(new Skill("Grasping Was Kuurong", Properties.Resources.Grasping_Was_Kuurong, Skill.Attributes.Channeling_Magic, Skill.Professions.Ritualist, 3, "15E 1C 20R - Elite Item Spell. (15...51...60 seconds.) Drop effect: deal 15...63...75 damage and knocks-down all nearby foes.", true));
             Data.Add(new Skill("Vengeful Was Khanhei", Properties.Resources.Vengeful_Was_Khanhei, Skill.Attributes.Restoration_Magic, Skill.Professions.Ritualist, 2, "5E 3/4C 20R - Elite Item Spell. (5...10...11 seconds.) You steal 5...29...35 Health from every foe that hits you with an attack.", true));
             Data.Add(new Skill("Flesh of My Flesh", Properties.Resources.Flesh_of_My_Flesh, Skill.Attributes.Restoration_Magic, Skill.Professions.Ritualist, 4, "5E 4C - Spell. Resurrect target party member (half your current Health and 5...17...20% Energy). Lose half your Health."));
-            Data.Add(new Skill("Splinter Weapon", Properties.Resources.Splinter_Weapon, Skill.Attributes.Channeling_Magic, Skill.Professions.Ritualist, 5, "5E 1C 5R - Weapon Spell. (20 seconds.) Attacks deal 5...41...50 damage to 3 [sic] adjacent foes. Ends after 1...4...5 attack[s]."));
+            Data.Add(new Skill("Splinter Weapon", Properties.Resources.Splinter_Weapon, Skill.Attributes.Channeling_Magic, Skill.Professions.Ritualist, 5, "5E 1C 5R - Weapon Spell. (20 seconds.) Attacks deal 5...41...50 damage to 4 adjacent foes. Ends after 1...4...5 attack[s]."));
             Data.Add(new Skill("Weapon of Warding", Properties.Resources.Weapon_of_Warding, Skill.Attributes.Restoration_Magic, Skill.Professions.Ritualist, 3, "10E 1C 5R - Weapon Spell. (3...7...8 seconds.) +2...4...4 Health regeneration. 50% chance to block."));
             Data.Add(new Skill("Wailing Weapon", Properties.Resources.Wailing_Weapon, Skill.Attributes.Channeling_Magic, Skill.Professions.Ritualist, 1, "5E 1C 25R - Weapon Spell. (3...8...9 seconds.) Attacks interrupt attacking foes."));
             Data.Add(new Skill("Nightmare Weapon", Properties.Resources.Nightmare_Weapon, Skill.Attributes.Channeling_Magic, Skill.Professions.Ritualist, 4, "5E 1C 10R - Weapon Spell. (12 seconds.) Target ally's attacks steal 10...42...50 Health but deal 10...42...50 less damage. Ends after 3 attacks."));
@@ -3658,7 +3658,7 @@ namespace GW_Codex_Generator
             Data.Add(new Skill("Churning Earth", Properties.Resources.Churning_Earth, Skill.Attributes.Earth_Magic, Skill.Professions.Elementalist, 2, "15E 2C 30R - Spell. Deals 10...34...40 earth damage each second (5 seconds). Hits foes near target's initial location. Causes knock-down to foes moving faster than normal."));
             Data.Add(new Skill("Liquid Flame", Properties.Resources.Liquid_Flame, Skill.Attributes.Fire_Magic, Skill.Professions.Elementalist, 4, "10E 1C 15R - Spell. Deals 7...91...112 fire damage. Deals 7...91...112 fire damage to nearby foes if target was attacking or casting."));
             Data.Add(new Skill("Steam", Properties.Resources.Steam, Skill.Attributes.Water_Magic, Skill.Professions.Elementalist, 2, "5E 1C 8R - Spell. Deals 20...52...60 cold damage. Inflicts Blindness condition (5...9...10 seconds) if target foe is Burning."));
-            Data.Add(new Skill("Boon Signet", Properties.Resources.Boon_Signet, Skill.Attributes.Divine_Favor, Skill.Professions.Monk, 3, "1C 8R - Elite Signet. Heals for 20...68...80. Your next Healing or Protection Prayer [sic] spell that targets an ally heals for +20...68...80 Health.", true));
+            Data.Add(new Skill("Boon Signet", Properties.Resources.Boon_Signet, Skill.Attributes.Divine_Favor, Skill.Professions.Monk, 3, "1C 8R - Elite Signet. Heals for 20...68...80. Your next Healing or Protection Prayers spell that targets an ally heals for +20...68...80 Health.", true));
             Data.Add(new Skill("Reverse Hex", Properties.Resources.Reverse_Hex, Skill.Attributes.Protection_Prayers, Skill.Professions.Monk, 2, "10E 1/4C 10R - Enchantment Spell. (5...9...10 seconds.) Removes one hex from target ally. The next damage this ally takes is reduced by 5...41...50. No effect unless this ally is hexed."));
             Data.Add(new Skill("Lacerating Chop", Properties.Resources.Lacerating_Chop, Skill.Attributes.Axe_Mastery, Skill.Professions.Warrior, 1, "5A - Axe Attack. Deals +5...17...20 damage. Inflicts Bleeding condition (5...17...20 seconds) if target foe is knocked-down."));
             Data.Add(new Skill("Fierce Blow", Properties.Resources.Fierce_Blow, Skill.Attributes.Hammer_Mastery, Skill.Professions.Warrior, 5, "6A - Hammer Attack. Deals +5...17...20 damage. Inflicts Deep Wound (1...7...8 second[s]) if target foe is Weakened."));
@@ -4094,7 +4094,7 @@ namespace GW_Codex_Generator
             Data.Add(new Skill("Mystic Sandstorm", Properties.Resources.Mystic_Sandstorm, Skill.Attributes.Earth_Prayers, Skill.Professions.Dervish, 3, "5A 1C 8R - Spell. (3 seconds.) Deals 10...18...20 earth damage each second. Deals an additional 10...18...20 damage to attacking foes. Hits foes nearby your initial location. Lasts twice as long if you are enchanted."));
             Data.Add(new Skill("Winds of Disenchantment", Properties.Resources.Winds_of_Disenchantment, Skill.Attributes.Wind_Prayers, Skill.Professions.Dervish, 3, "10E 3/4C 15R - Spell. Remove one of your Dervish enchantments. Removal effect: all nearby foes lose 1 enchantment and take 20...68...80 cold damage."));
             Data.Add(new Skill("Rending Touch", Properties.Resources.Rending_Touch, Skill.Attributes.Mysticism, Skill.Professions.Dervish, 2, "5E 3/4C 12R - Touch Spell. Deals 15...55...65 cold damage. Lose 1 Dervish enchantment. Removal effect: target foe loses 1 enchantment and you gain 1 strike of adrenaline."));
-            Data.Add(new Skill("Crippling Sweep", Properties.Resources.Crippling_Sweep, Skill.Attributes.Scythe_Mastery, Skill.Professions.Dervish, 3, "5E 6R - Scythe Attack. (3...10...12 seconds.) Inflicts Cripple [sic] condition. Deals +3...13...15 damage to moving foes."));
+            Data.Add(new Skill("Crippling Sweep", Properties.Resources.Crippling_Sweep, Skill.Attributes.Scythe_Mastery, Skill.Professions.Dervish, 3, "5E 6R - Scythe Attack. (3...10...12 seconds.) Inflicts Crippled condition. Deals +3...13...15 damage to moving foes."));
             Data.Add(new Skill("Wounding Strike", Properties.Resources.Wounding_Strike, Skill.Attributes.Scythe_Mastery, Skill.Professions.Dervish, 3, "5E 3R - Elite Scythe Attack. Deals +5...17...20 damage. Inflict Bleeding condition (5...17...20 seconds). Removes 1 Dervish enchantment. Also inflicts Deep Wound condition (5...17...20 seconds) if an enchantment is removed.", true));
             Data.Add(new Skill("Wearying Strike", Properties.Resources.Wearying_Strike, Skill.Attributes.Scythe_Mastery, Skill.Professions.Dervish, 3, "6A - Scythe Attack. Remove 1 Dervish Enchantment. Removal Effect: Inflicts Deep Wound condition (3...9...10 seconds). You are Weakened (10 seconds) if an enchantment is not lost."));
             Data.Add(new Skill("Lyssa's Assault", Properties.Resources.Lyssa_s_Assault, Skill.Attributes.Scythe_Mastery, Skill.Professions.Dervish, 3, "5E 1/2C 15R - Scythe Attack. Interrupts an action. If you are enchanted, the interrupted skill is disabled for an additional 1...8...10 second[s]. This attack does 50% of normal damage."));
@@ -4295,7 +4295,7 @@ namespace GW_Codex_Generator
             Data.Add(new Skill("Lightbringer's Gaze", Properties.Resources.Lightbringer_s_Gaze, Skill.Attributes.PvE_Only, Skill.Professions.None, 2, "5E 1C 15R - Skill. Target demonic servant of Abaddon takes 100 holy damage and is interrupted. Hits one additional foe in the area for each rank of Lightbringer you have attained. This skill is disabled (15 seconds)."));
             Data.Add(new Skill("Lightbringer Signet", Properties.Resources.Lightbringer_Signet, Skill.Attributes.PvE_Only, Skill.Professions.None, 2, "1/4C 25R - Signet. You gain 4...5 strikes of adrenaline and 22...24 Energy if you are within the area of a demonic servant of Abaddon."));
             // Raondomly placed signet...:
-            Data.Add(new Skill("Sunspear Rebirth Signet", Properties.Resources.Sunspear_Rebirth_Signet, Skill.Attributes.PvE_Only, Skill.Professions.None, 2, "3C - Signet. Resurrect target dead ally [sic] at your location (full Health and 10% Energy for each Sunspear Rank attained). This signet only recharges when you gain a morale boost."));
+            Data.Add(new Skill("Sunspear Rebirth Signet", Properties.Resources.Sunspear_Rebirth_Signet, Skill.Attributes.PvE_Only, Skill.Professions.None, 2, "3C - Signet. Resurrect target dead party member at your location (full Health and 10% Energy for each Sunspear Rank attained). This signet only recharges when you gain a morale boost."));
             // Kurz/Lux title track skills:
             Data.Add(new Skill("Shadow Sanctuary (Luxon)", Properties.Resources.Shadow_Sanctuary_Luxon, Skill.Attributes.PvE_Only, Skill.Professions.Assassin, 2, "5E 1/4C 30R - Enchantment Spell. (10 seconds.) You gain +7...10 Health regeneration and +40 armor. You are Blind (5 seconds)."));
             Data.Add(new Skill("Ether Nightmare (Luxon)", Properties.Resources.Ether_Nightmare_Luxon, Skill.Attributes.PvE_Only, Skill.Professions.Mesmer, 3, "10E 3C 25R - Hex spell. Causes 5...8 Energy loss. Target and foes in the area have -1 Health degeneration for each point of Energy lost (10 seconds)."));
@@ -4375,7 +4375,7 @@ namespace GW_Codex_Generator
             Data.Add(new Skill("Rapid Fire", Properties.Resources.Rapid_Fire, Skill.Attributes.Marksmanship, Skill.Professions.Ranger, 3, "5E 2C 12R - Preparation. (5...21...25 seconds.) You attack 33% faster while wielding a bow."));
             Data.Add(new Skill("Sloth Hunter's Shot", Properties.Resources.Sloth_Hunter_s_Shot, Skill.Attributes.Marksmanship, Skill.Professions.Ranger, 4, "10E 8R - Bow Attack. Deals +10...22...25 damage. Deals +10...30...35 more damage if target foe is not using a skill."));
 
-            Data.Add(new Skill("Aura Slicer", Properties.Resources.Aura_Slicer, Skill.Attributes.Mysticism, Skill.Professions.Dervish, 3, "4A - Melee Attack. (5...13...15 seconds.)Inflicts [sic] Bleeding condition. Also inflicts Cracked Armor (1...8...10 second[s]) if you are enchanted."));
+            Data.Add(new Skill("Aura Slicer", Properties.Resources.Aura_Slicer, Skill.Attributes.Mysticism, Skill.Professions.Dervish, 3, "4A - Melee Attack. (5...13...15 seconds.) Inflicts Bleeding condition. Also inflicts Cracked Armor (1...8...10 second[s]) if you are enchanted."));
             Data.Add(new Skill("Zealous Sweep", Properties.Resources.Zealous_Sweep, Skill.Attributes.Scythe_Mastery, Skill.Professions.Dervish, 3, "5E 10R - Scythe Attack. Deals +5...17...20 damage. You gain 3 Energy and 1 adrenaline for each foe you hit."));
 
             Data.Add(new Skill("Pure Was Li Ming", Properties.Resources.Pure_Was_Li_Ming, Skill.Attributes.Restoration_Magic, Skill.Professions.Ritualist, 2, "10E 1C 20R - Item Spell. (5...17...20 seconds.) Conditions on you expire 10...42...50% faster. Drop effect: removes 1...3...4 condition[s] from allies in earshot."));
@@ -4423,7 +4423,7 @@ namespace GW_Codex_Generator
             Data.Add(new Skill("Volley", Properties.Resources.Volley, Skill.Attributes.Marksmanship, Skill.Professions.Ranger, 5, "5E 2R - Bow Attack. Deals +1...8...10 damage. Hits up to 3 foes adjacent to your target. All your preparations are removed."));
             Data.Add(new Skill("Expert Focus", Properties.Resources.Expert_Focus, Skill.Attributes.Expertise, Skill.Professions.Ranger, 3, "10E 2C 12R - Preparation. (24 seconds.) Your bow attack skills cost 1...2...2 less Energy and do +1...8...10 damage."));
 
-            Data.Add(new Skill("Pious Fury", Properties.Resources.Pious_Fury, Skill.Attributes.Mysticism, Skill.Professions.Dervish, 4, "5E 10R - Stance. (1...6...7 second[s].)You [sic] attack 25% faster and remove 1 of your Dervish enchantments. Removal effect: this stance lasts twice as long."));
+            Data.Add(new Skill("Pious Fury", Properties.Resources.Pious_Fury, Skill.Attributes.Mysticism, Skill.Professions.Dervish, 4, "5E 10R - Stance. (1...6...7 second[s].) You attack 25% faster and remove 1 of your Dervish enchantments. Removal effect: this stance lasts twice as long."));
             Data.Add(new Skill("Crippling Victory", Properties.Resources.Crippling_Victory, Skill.Attributes.Scythe_Mastery, Skill.Professions.Dervish, 3, "6A - Scythe Attack. (3...7...8 seconds) Cripples target foe. If your health is greater than target foe's, all adjacent foes take 10...26...30 earth damage."));
 
             Data.Add(new Skill("Sundering Weapon", Properties.Resources.Sundering_Weapon, Skill.Attributes.Communing, Skill.Professions.Ritualist, 3, "5E 1C 10R - Weapon Spell. (4...9...10 seconds.) Target ally's next 3 attacks inflict Cracked Armor condition (5...17...20 seconds) and have 10% armor penetration."));
@@ -4553,6 +4553,18 @@ namespace GW_Codex_Generator
 
             //Data.Add(new Skill("Pious Fury", Properties.Resources.Pious_Fury, Skill.Attributes.Mysticism, Skill.Professions.Dervish));
 
+            // 15th Anniversary PvE only elite skills. These don't have their proper attributes because PvE only overrides that.
+            Data.Add(new Skill("Time Ward", Properties.Resources.Time_Ward, Skill.Attributes.PvE_Only, Skill.Professions.Mesmer, 3, "10E 2C 30R - Elite Ward Spell. (3...13...15 seconds.) Allies in this ward cast spells 15...19...20% faster and recharge skills 15...19...20% faster. Allied spirits are not affected. PvE Fast-Casting Skill.", true));
+            Data.Add(new Skill("Soul Taker", Properties.Resources.Soul_Taker, Skill.Attributes.PvE_Only, Skill.Professions.Necromancer, 2, "5E 1C 15R - Elite Enchantment Spell. (3...25...30 seconds.) Attacks deal +15...19...20 damage and sacrifice 15...19...20 health. PvE Soul Reaping Skill.", true));
+            Data.Add(new Skill("Over the Limit", Properties.Resources.Over_the_Limit, Skill.Attributes.PvE_Only, Skill.Professions.Elementalist, 2, "-1ER 5E 1C 20R - Elite Enchantment Spell. Spells cast 15...19...20% faster and recharge 15...43...50% faster. Continuously gain Overcast while active. PvE Energy Storage Skill.", true));
+            Data.Add(new Skill("Judgment Strike", Properties.Resources.Judgment_Strike, Skill.Attributes.PvE_Only, Skill.Professions.Monk, 2, "5E 1C 8R - Elite Melee Attack. Attacks target and adjacent foes for +13...27...30 Holy damage. Causes knock down on attacking foes. PvE Divine Favor Skill.", true));
+            Data.Add(new Skill("Seven Weapons Stance", Properties.Resources.Seven_Weapons_Stance, Skill.Attributes.PvE_Only, Skill.Professions.Warrior, 2, "5E 20R - Elite Stance. (3...17...20 seconds.) Weapon attributes are increased by +1...12...15. You attack 33% faster. PvE Strength Skill.", true));
+            Data.Add(new Skill("\"Together as One!\"", Properties.Resources._Together_as_One__, Skill.Attributes.PvE_Only, Skill.Professions.Ranger, 4, "10E 15R - Elite Shout. (3...13...15 seconds.) All party members near you or your pet deal +5...13...15 damage with attacks and gain +1...6...7 Health regeneration. PvE Expertise Skill.", true));
+            Data.Add(new Skill("Shadow Theft", Properties.Resources.Shadow_Theft, Skill.Attributes.PvE_Only, Skill.Professions.Assassin, 4, "5E 1/4C 20R - Elite Skill. Shadow Step to target foe. For 5...17...20 seconds that foe's attributes are reduced by 1...4...5 and your attributes are increased by 1...4...5. Counts as a Lead Attack. PvE Critical Strikes Skill.", true));
+            Data.Add(new Skill("Weapons of Three Forges", Properties.Resources.Weapons_of_Three_Forges, Skill.Attributes.PvE_Only, Skill.Professions.Ritualist, 2, "10E 2C 15R - Elite Weapon Spell. (3...17...20 seconds.) Allies in earshot gain the effect of a random Weapon Spell. Allied spirits are not affected. PvE Spawning Power Skill.", true));
+            Data.Add(new Skill("Vow of Revolution", Properties.Resources.Vow_of_Revolution, Skill.Attributes.PvE_Only, Skill.Professions.Dervish, 2, "10E 1C 20R - Elite Enchantment Spell. (3...9...10 seconds.) Gain +1...4...5 energy regeneration. Renewal: whenever you use a non-Dervish skill. PvE Mysticism Skill.", true));
+            Data.Add(new Skill("Heroic Refrain", Properties.Resources.Heroic_Refrain, Skill.Attributes.PvE_Only, Skill.Professions.Paragon, 5, "5E 1C 10R - Elite Echo. (3...13...15 seconds.) Target ally gains +1...3...3 to all attributes. Renewal: every time a chant or shout ends on this ally. Cannot target spirits. PvE Leadership Skill.", true));
+
             // Give skills their IDs.
             for (int i = 0; i < Data.Count; ++i)
             {
@@ -4569,6 +4581,11 @@ namespace GW_Codex_Generator
             {
                 Attributes = new List<AttributeRank>();
                 ParseTemplateCode(code);
+            }
+
+            public TemplateInformation()
+            {
+                Attributes = new List<AttributeRank>();
             }
 
             public bool ValidTemplate { get; private set; }
@@ -4652,6 +4669,90 @@ namespace GW_Codex_Generator
                 }
 
                 return ValidTemplate;
+            }
+
+            public string DebugTemplateCode(string code)
+            {
+                int PrimaryProfessionID = 0;
+                int SecondaryProfessionID = 0;
+                AttributeRank[] AttributesArray = null;
+                int[] SkillbarIDs = new int[8];
+                try
+                {
+                    byte[] bytes = TranslateString(code);
+                    BitReader bits = new BitReader(bytes);
+
+                    // Get version information:
+                    int version = bits.Read(4);
+                    if (version == 0xE) bits.Read(4);
+
+                    // Professions:
+                    int bits_per_profession_id = bits.Read(2) * 2 + 4;
+                    PrimaryProfessionID = bits.Read(bits_per_profession_id);
+                    SecondaryProfessionID = bits.Read(bits_per_profession_id);
+
+                    // Attributes:
+                    int num_attributes = bits.Read(4);
+                    AttributesArray = new AttributeRank[num_attributes];
+                    int bits_per_attribute_id = bits.Read(4) + 4;
+                    for (int i = 0; i < num_attributes; ++i)
+                    {
+                        // Need to verify that my attributes are in the proper order and such.
+                        int attrID = bits.Read(bits_per_attribute_id);
+                        int rank = bits.Read(4);
+                        AttributesArray[i] = new AttributeRank(GetAttributeFromID(attrID), rank);
+                    }
+
+                    // Skills:
+                    int bits_per_skill_id = bits.Read(4) + 8;
+                    for (int i = 0; i < 8; ++i)
+                    {
+                        SkillbarIDs[i] = bits.Read(bits_per_skill_id);
+                    }
+
+                    ValidTemplate = true;
+                }
+                catch (IndexOutOfRangeException)
+                {
+                    ValidTemplate = false;
+                }
+
+                if (ValidTemplate)
+                {
+                    TemplateCode = code;
+                    Attributes.Clear();
+                    if (AttributesArray != null) Attributes.AddRange(AttributesArray);
+                    PrimaryProfession = GetProfessionFromID(PrimaryProfessionID);
+                    SecondaryProfession = GetProfessionFromID(SecondaryProfessionID);
+                    for (int i = 0; i < 8; ++i)
+                    {
+                        _SkillBar[i] = GetSkillByEngineID(SkillbarIDs[i]);
+                    }
+
+                    string Information = "Primary Profession: " + PrimaryProfession.ToString() + Environment.NewLine;
+                    Information += "Secondary Profession: " + SecondaryProfession.ToString() + Environment.NewLine;
+                    Information += Environment.NewLine + "Attributes: " + Environment.NewLine;
+
+
+                    foreach(AttributeRank attr in Attributes)
+                    {
+                        Information += attr.Attribute.ToString() + ": " + attr.Rank.ToString() + Environment.NewLine;
+                    }
+
+                    Information += Environment.NewLine + "Skills:" + Environment.NewLine;
+
+                    for(int i = 0; i < 8; ++i)
+                    {
+                        Information += "Skill Slot " + (i + 1).ToString() + ": Skill ID " + SkillbarIDs[i].ToString() + " (";
+                        if (_SkillBar[i] == null) Information += "[Unknown Skill]";
+                        else Information += _SkillBar[i].Name;
+                        Information += ")" + Environment.NewLine;
+                    }
+
+                    return Information;
+                }
+
+                return "Invalid Code";
             }
 
             #region Template parsing helper functions
@@ -6235,6 +6336,16 @@ namespace GW_Codex_Generator
                 case 2421: return Data[1315];
                 case 2422: return Data[1316];
                 case 2423: return Data[1317];
+                case 3422: return Data[1318]; // Time Ward
+                case 3423: return Data[1319]; // Soul Taker
+                case 3424: return Data[1320]; // Over the Limit
+                case 3425: return Data[1321]; // Judgment Strike
+                case 3426: return Data[1322]; // Seven Weapon Stance
+                case 3427: return Data[1323]; // "Together as One!"
+                case 3428: return Data[1324]; // Shadow Theft
+                case 3429: return Data[1325]; // Weapons of Three Forges
+                case 3430: return Data[1326]; // Vow of Revolution
+                case 3431: return Data[1327]; // Heroic Refrain
             }
         }
 

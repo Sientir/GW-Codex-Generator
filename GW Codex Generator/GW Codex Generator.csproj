@@ -146,6 +146,12 @@
     </Compile>
     <Compile Include="Skill.cs" />
     <Compile Include="SkillDatabase.cs" />
+    <Compile Include="TemplateCodeDebugger.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TemplateCodeDebugger.Designer.cs">
+      <DependentUpon>TemplateCodeDebugger.cs</DependentUpon>
+    </Compile>
     <Compile Include="TemplateReaderDisplay.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -214,6 +220,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Skill UI\SkillInfoDisplay.resx">
       <DependentUpon>SkillInfoDisplay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TemplateCodeDebugger.resx">
+      <DependentUpon>TemplateCodeDebugger.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TemplateReaderDisplay.resx">
       <DependentUpon>TemplateReaderDisplay.cs</DependentUpon>
@@ -4253,6 +4262,36 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\GWCodexGenIcon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Heroic_Refrain.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Vow_of_Revolution.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Weapons_of_Three_Forges.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Shadow_Theft.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\_Together_as_One!_.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Seven_Weapons_Stance.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Judgment_Strike.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Over_the_Limit.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Soul_Taker.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GW Skill Icons\Time_Ward.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

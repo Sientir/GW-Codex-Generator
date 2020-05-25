@@ -1738,6 +1738,9 @@
   <data name="Heket_s_Rampage" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\GW Skill Icons\Heket's_Rampage.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Heroic_Refrain" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\GW Skill Icons\Heroic_Refrain.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Hexbreaker_Aria" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\GW Skill Icons\Hexbreaker_Aria.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -1908,6 +1911,9 @@
   </data>
   <data name="Judge_s_Intervention" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\GW Skill Icons\Judge's_Intervention.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Judgment_Strike" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\GW Skill Icons\Judgment_Strike.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Jungle_Strike" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\GW Skill Icons\Jungle_Strike.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -2409,6 +2415,9 @@
   </data>
   <data name="Overload" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\GW Skill Icons\Overload.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Over_the_Limit" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\GW Skill Icons\Over_the_Limit.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Pacifism" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\GW Skill Icons\Pacifism.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -2917,6 +2926,9 @@
   <data name="Serpent_s_Quickness" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\GW Skill Icons\Serpent's_Quickness.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Seven_Weapons_Stance" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\GW Skill Icons\Seven_Weapons_Stance.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Sever_Artery" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\GW Skill Icons\Sever_Artery.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -2958,6 +2970,9 @@
   </data>
   <data name="Shadow_Strike" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\GW Skill Icons\Shadow_Strike.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Shadow_Theft" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\GW Skill Icons\Shadow_Theft.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Shadow_Walk" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\GW Skill Icons\Shadow_Walk.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -3283,6 +3298,9 @@
   <data name="Soul_Leech" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\GW Skill Icons\Soul_Leech.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Soul_Taker" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\GW Skill Icons\Soul_Taker.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Soul_Twisting" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\GW Skill Icons\Soul_Twisting.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -3580,6 +3598,9 @@
   <data name="Tiger_s_Fury" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\GW Skill Icons\Tiger's_Fury.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Time_Ward" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\GW Skill Icons\Time_Ward.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Touch_of_Agony" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\GW Skill Icons\Touch_of_Agony.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -3754,6 +3775,9 @@
   <data name="Vow_of_Piety" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\GW Skill Icons\Vow_of_Piety.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Vow_of_Revolution" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\GW Skill Icons\Vow_of_Revolution.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Vow_of_Silence" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\GW Skill Icons\Vow_of_Silence.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -3861,6 +3885,9 @@
   </data>
   <data name="Weakness_Trap" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\GW Skill Icons\Weakness_Trap.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Weapons_of_Three_Forges" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\GW Skill Icons\Weapons_of_Three_Forges.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Weapon_of_Aggression" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\GW Skill Icons\Weapon_of_Aggression.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -4128,6 +4155,9 @@
   </data>
   <data name="_The_Power_Is_Yours__" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\GW Skill Icons\-The_Power_Is_Yours!-.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_Together_as_One__" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\GW Skill Icons\_Together_as_One!_.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="_To_the_Limit__" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\GW Skill Icons\-To_the_Limit!-.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

@@ -32,6 +32,7 @@ namespace GW_Codex_Generator.Challenge_UI
                 _TemplateDisplays.Add(td);
                 __TemplatesPanel.Controls.Add(td);
             }
+            __IncludeInHTMLSummary.Checked = true;
             refreshHTML();
         }
 
@@ -60,6 +61,7 @@ namespace GW_Codex_Generator.Challenge_UI
 
         string IChallengeToHTML.GetHTML()
         {
+            if (__IncludeInHTMLSummary.Checked == false) return "";
             string ret = Environment.NewLine + "<h1>Required Template";
             if (_TemplateDisplays.Count == 1)
             {

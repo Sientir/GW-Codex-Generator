@@ -433,6 +433,16 @@ namespace GW_Codex_Generator.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _Together_as_One__ {
+            get {
+                object obj = ResourceManager.GetObject("_Together_as_One__", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _Victory_Is_Mine__ {
             get {
                 object obj = ResourceManager.GetObject("_Victory_Is_Mine__", resourceCulture);
@@ -5903,6 +5913,16 @@ namespace GW_Codex_Generator.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Heroic_Refrain {
+            get {
+                object obj = ResourceManager.GetObject("Heroic_Refrain", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Hex_Breaker {
             get {
                 object obj = ResourceManager.GetObject("Hex_Breaker", resourceCulture);
@@ -6466,6 +6486,16 @@ namespace GW_Codex_Generator.Properties {
         internal static System.Drawing.Bitmap Judge_s_Intervention {
             get {
                 object obj = ResourceManager.GetObject("Judge_s_Intervention", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Judgment_Strike {
+            get {
+                object obj = ResourceManager.GetObject("Judgment_Strike", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -8116,6 +8146,16 @@ namespace GW_Codex_Generator.Properties {
         internal static System.Drawing.Bitmap Otyugh_s_Cry {
             get {
                 object obj = ResourceManager.GetObject("Otyugh_s_Cry", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Over_the_Limit {
+            get {
+                object obj = ResourceManager.GetObject("Over_the_Limit", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -9833,6 +9873,16 @@ namespace GW_Codex_Generator.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Seven_Weapons_Stance {
+            get {
+                object obj = ResourceManager.GetObject("Seven_Weapons_Stance", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Sever_Artery {
             get {
                 object obj = ResourceManager.GetObject("Sever_Artery", resourceCulture);
@@ -9946,6 +9996,16 @@ namespace GW_Codex_Generator.Properties {
         internal static System.Drawing.Bitmap Shadow_Strike {
             get {
                 object obj = ResourceManager.GetObject("Shadow_Strike", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Shadow_Theft {
+            get {
+                object obj = ResourceManager.GetObject("Shadow_Theft", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -11053,6 +11113,16 @@ namespace GW_Codex_Generator.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Soul_Taker {
+            get {
+                object obj = ResourceManager.GetObject("Soul_Taker", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Soul_Twisting {
             get {
                 object obj = ResourceManager.GetObject("Soul_Twisting", resourceCulture);
@@ -12043,6 +12113,16 @@ namespace GW_Codex_Generator.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Time_Ward {
+            get {
+                object obj = ResourceManager.GetObject("Time_Ward", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Touch_of_Agony {
             get {
                 object obj = ResourceManager.GetObject("Touch_of_Agony", resourceCulture);
@@ -12623,6 +12703,16 @@ namespace GW_Codex_Generator.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Vow_of_Revolution {
+            get {
+                object obj = ResourceManager.GetObject("Vow_of_Revolution", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Vow_of_Silence {
             get {
                 object obj = ResourceManager.GetObject("Vow_of_Silence", resourceCulture);
@@ -13046,6 +13136,16 @@ namespace GW_Codex_Generator.Properties {
         internal static System.Drawing.Bitmap Weapon_of_Warding {
             get {
                 object obj = ResourceManager.GetObject("Weapon_of_Warding", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Weapons_of_Three_Forges {
+            get {
+                object obj = ResourceManager.GetObject("Weapons_of_Three_Forges", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

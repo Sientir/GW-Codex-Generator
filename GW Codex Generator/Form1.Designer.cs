@@ -29,9 +29,12 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.@__CodexSkillInfo = new GW_Codex_Generator.Skill_UI.SkillInfoDisplay();
             this.@__Tabs = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.@__CodexTabLayout = new System.Windows.Forms.TableLayoutPanel();
+            this.@__CodexSkillDisplay = new GW_Codex_Generator.Skill_UI.SkillDisplay();
             this.@__GenerateCodexButton = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.@__CodexSettingsLayoutTable = new System.Windows.Forms.TableLayoutPanel();
@@ -47,32 +50,65 @@
             this.@__Codex_SelectMethod = new System.Windows.Forms.ComboBox();
             this.@__Codex_UseRatings = new System.Windows.Forms.CheckBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.label1 = new System.Windows.Forms.Label();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.@__HTMLSummary = new System.Windows.Forms.TextBox();
             this.tabPage5 = new System.Windows.Forms.TabPage();
-            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.@__CodexSkillInfo = new GW_Codex_Generator.Skill_UI.SkillInfoDisplay();
-            this.@__CodexSkillDisplay = new GW_Codex_Generator.Skill_UI.SkillDisplay();
+            this.templateCodeDebugger1 = new GW_Codex_Generator.TemplateCodeDebugger();
             this.@__TemplateCodeParserTest = new GW_Codex_Generator.TemplateReaderDisplay();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
+            this.splitContainer1.Panel1.SuspendLayout();
+            this.splitContainer1.Panel2.SuspendLayout();
+            this.splitContainer1.SuspendLayout();
             this.@__Tabs.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.@__CodexTabLayout.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.@__CodexSettingsLayoutTable.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.tabPage6.SuspendLayout();
             this.tabPage4.SuspendLayout();
             this.tabPage5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
-            this.splitContainer1.Panel1.SuspendLayout();
-            this.splitContainer1.Panel2.SuspendLayout();
-            this.splitContainer1.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // splitContainer1
+            // 
+            this.splitContainer1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer1.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer1.Name = "splitContainer1";
+            this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer1.Panel1
+            // 
+            this.splitContainer1.Panel1.Controls.Add(this.@__CodexSkillInfo);
+            // 
+            // splitContainer1.Panel2
+            // 
+            this.splitContainer1.Panel2.Controls.Add(this.@__Tabs);
+            this.splitContainer1.Size = new System.Drawing.Size(800, 704);
+            this.splitContainer1.SplitterDistance = 117;
+            this.splitContainer1.TabIndex = 1;
+            // 
+            // __CodexSkillInfo
+            // 
+            this.@__CodexSkillInfo.BackColor = System.Drawing.Color.White;
+            this.@__CodexSkillInfo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.@__CodexSkillInfo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.@__CodexSkillInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.@__CodexSkillInfo.Location = new System.Drawing.Point(0, 0);
+            this.@__CodexSkillInfo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.@__CodexSkillInfo.Name = "__CodexSkillInfo";
+            this.@__CodexSkillInfo.Size = new System.Drawing.Size(796, 113);
+            this.@__CodexSkillInfo.TabIndex = 0;
             // 
             // __Tabs
             // 
             this.@__Tabs.Controls.Add(this.tabPage1);
             this.@__Tabs.Controls.Add(this.tabPage2);
             this.@__Tabs.Controls.Add(this.tabPage3);
+            this.@__Tabs.Controls.Add(this.tabPage6);
             this.@__Tabs.Controls.Add(this.tabPage4);
             this.@__Tabs.Controls.Add(this.tabPage5);
             this.@__Tabs.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -108,6 +144,15 @@
             this.@__CodexTabLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.@__CodexTabLayout.Size = new System.Drawing.Size(782, 547);
             this.@__CodexTabLayout.TabIndex = 0;
+            // 
+            // __CodexSkillDisplay
+            // 
+            this.@__CodexSkillDisplay.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.@__CodexSkillDisplay.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.@__CodexSkillDisplay.Location = new System.Drawing.Point(3, 28);
+            this.@__CodexSkillDisplay.Name = "__CodexSkillDisplay";
+            this.@__CodexSkillDisplay.Size = new System.Drawing.Size(776, 516);
+            this.@__CodexSkillDisplay.TabIndex = 2;
             // 
             // __GenerateCodexButton
             // 
@@ -297,6 +342,26 @@
             this.tabPage3.Text = "Challenge Settings";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // tabPage6
+            // 
+            this.tabPage6.Controls.Add(this.label1);
+            this.tabPage6.Location = new System.Drawing.Point(4, 22);
+            this.tabPage6.Name = "tabPage6";
+            this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage6.Size = new System.Drawing.Size(788, 553);
+            this.tabPage6.TabIndex = 5;
+            this.tabPage6.Text = "Template Draft";
+            this.tabPage6.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(111, 65);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(565, 143);
+            this.label1.TabIndex = 0;
+            this.label1.Text = resources.GetString("label1.Text");
+            // 
             // tabPage4
             // 
             this.tabPage4.Controls.Add(this.@__HTMLSummary);
@@ -321,6 +386,7 @@
             // 
             // tabPage5
             // 
+            this.tabPage5.Controls.Add(this.templateCodeDebugger1);
             this.tabPage5.Controls.Add(this.@__TemplateCodeParserTest);
             this.tabPage5.Location = new System.Drawing.Point(4, 22);
             this.tabPage5.Name = "tabPage5";
@@ -330,51 +396,18 @@
             this.tabPage5.Text = "Template Code Parser";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
-            // splitContainer1
+            // templateCodeDebugger1
             // 
-            this.splitContainer1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer1.Name = "splitContainer1";
-            this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            // 
-            // splitContainer1.Panel1
-            // 
-            this.splitContainer1.Panel1.Controls.Add(this.@__CodexSkillInfo);
-            // 
-            // splitContainer1.Panel2
-            // 
-            this.splitContainer1.Panel2.Controls.Add(this.@__Tabs);
-            this.splitContainer1.Size = new System.Drawing.Size(800, 704);
-            this.splitContainer1.SplitterDistance = 117;
-            this.splitContainer1.TabIndex = 1;
-            // 
-            // __CodexSkillInfo
-            // 
-            this.@__CodexSkillInfo.BackColor = System.Drawing.Color.White;
-            this.@__CodexSkillInfo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.@__CodexSkillInfo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.@__CodexSkillInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.@__CodexSkillInfo.Location = new System.Drawing.Point(0, 0);
-            this.@__CodexSkillInfo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.@__CodexSkillInfo.Name = "__CodexSkillInfo";
-            this.@__CodexSkillInfo.Size = new System.Drawing.Size(796, 113);
-            this.@__CodexSkillInfo.TabIndex = 0;
-            // 
-            // __CodexSkillDisplay
-            // 
-            this.@__CodexSkillDisplay.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.@__CodexSkillDisplay.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.@__CodexSkillDisplay.Location = new System.Drawing.Point(3, 28);
-            this.@__CodexSkillDisplay.Name = "__CodexSkillDisplay";
-            this.@__CodexSkillDisplay.Size = new System.Drawing.Size(776, 516);
-            this.@__CodexSkillDisplay.TabIndex = 2;
+            this.templateCodeDebugger1.Location = new System.Drawing.Point(6, 202);
+            this.templateCodeDebugger1.Name = "templateCodeDebugger1";
+            this.templateCodeDebugger1.Size = new System.Drawing.Size(454, 345);
+            this.templateCodeDebugger1.TabIndex = 1;
             // 
             // __TemplateCodeParserTest
             // 
             this.@__TemplateCodeParserTest.Location = new System.Drawing.Point(6, 6);
             this.@__TemplateCodeParserTest.Name = "__TemplateCodeParserTest";
-            this.@__TemplateCodeParserTest.Size = new System.Drawing.Size(399, 130);
+            this.@__TemplateCodeParserTest.Size = new System.Drawing.Size(524, 190);
             this.@__TemplateCodeParserTest.TabIndex = 0;
             // 
             // Form1
@@ -386,6 +419,10 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Text = "Guild Wars Codex & Challenges Generator";
+            this.splitContainer1.Panel1.ResumeLayout(false);
+            this.splitContainer1.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
+            this.splitContainer1.ResumeLayout(false);
             this.@__Tabs.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.@__CodexTabLayout.ResumeLayout(false);
@@ -394,13 +431,11 @@
             this.@__CodexSettingsLayoutTable.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.tabPage6.ResumeLayout(false);
+            this.tabPage6.PerformLayout();
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
             this.tabPage5.ResumeLayout(false);
-            this.splitContainer1.Panel1.ResumeLayout(false);
-            this.splitContainer1.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
-            this.splitContainer1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -432,6 +467,9 @@
         private System.Windows.Forms.Button __LoadRatingFilebutton;
         private System.Windows.Forms.TabPage tabPage5;
         private TemplateReaderDisplay __TemplateCodeParserTest;
+        private TemplateCodeDebugger templateCodeDebugger1;
+        private System.Windows.Forms.TabPage tabPage6;
+        private System.Windows.Forms.Label label1;
     }
 }
 

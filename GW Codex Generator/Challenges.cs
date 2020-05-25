@@ -602,6 +602,12 @@ O- Your Team have to distribute atleast 5 conditions
                     "• Every character must be either a Ritualist secondary or primary. (If professions aren't to be duplicated, all characters must be secondary Ritualist with no primary Ritualists, player characters excepted from primary restriction.)",
                     "• Every character must be either a Dervish secondary or primary. (If professions aren't to be duplicated, all characters must be secondary Dervish with no primary Dervishs, player characters excepted from primary restriction.)",
                     "• Every character must be either a Paragon secondary or primary. (If professions aren't to be duplicated, all characters must be secondary Paragon with no primary Paragons, player characters excepted from primary restriction.)"
+                },
+                new string[]
+                {
+                    "• Play in first person.",
+                    "• Play with the compass turned off.",
+                    "• Your party cannot have dedicated healers; no party member may have more than three healing or protection skills."
                 }
             };
         static public string[] BooleanRestrictions(int count)
