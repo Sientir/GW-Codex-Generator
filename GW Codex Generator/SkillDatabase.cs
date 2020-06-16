@@ -30,6 +30,8 @@ namespace GW_Codex_Generator
         public static List<Skill> Data = new List<Skill>();
         public static Random RNG = new Random();
 
+        public static string[] RarityLabels = { "Common", "Uncommon", "Rare" };
+
         private static List<Skill>[][] SkillsByProfession;
 
         private static List<Skill>[][] SkillsByCampaign;
@@ -950,6 +952,18 @@ namespace GW_Codex_Generator
             SkillsByCampaign[WithoutPvEOnly][index].Add(Data[198]);
             SkillsByCampaign[WithPvEOnly][index].Add(Data[1]);
             SkillsByCampaign[WithoutPvEOnly][index].Add(Data[1]);
+            // Technically, the PvE-only 15th anniversary elites are core skills:
+            SkillsByCampaign[WithPvEOnly][index].Add(Data[1318]);
+            SkillsByCampaign[WithPvEOnly][index].Add(Data[1319]);
+            SkillsByCampaign[WithPvEOnly][index].Add(Data[1320]);
+            SkillsByCampaign[WithPvEOnly][index].Add(Data[1321]);
+            SkillsByCampaign[WithPvEOnly][index].Add(Data[1322]);
+            SkillsByCampaign[WithPvEOnly][index].Add(Data[1323]);
+            SkillsByCampaign[WithPvEOnly][index].Add(Data[1324]);
+            SkillsByCampaign[WithPvEOnly][index].Add(Data[1325]);
+            SkillsByCampaign[WithPvEOnly][index].Add(Data[1326]);
+            SkillsByCampaign[WithPvEOnly][index].Add(Data[1327]);
+
             // Prophecies skills:
             index = GetCampaignIndex(Prophecies);
 
@@ -4572,6 +4586,8 @@ namespace GW_Codex_Generator
             }
 
             CheckRatingsFile();
+            RarityLabels = Properties.Settings.Default.RarityLabels.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
+            CheckRaritiesFile();
             PopulateLists();
         }
 
@@ -6469,6 +6485,52 @@ namespace GW_Codex_Generator
                 foreach (Pair<int, int> rating in ratings)
                 {
                     Data[rating.first].UpdateRating(rating.second);
+                }
+
+                return true;
+            }
+
+            return false;
+        }
+
+        static public bool CheckRaritiesFile()
+        {
+            if(System.IO.File.Exists(Form1.SkillRaritiesFilename))
+            {
+                System.IO.StreamReader input = new System.IO.StreamReader(Form1.SkillRaritiesFilename);
+                input.ReadLine(); // Toss out the instructions line.
+                List<Pair<int, int>> rarities = new List<Pair<int, int>>();
+
+                while (input.EndOfStream == false)
+                {
+                    string linecopy = input.ReadLine();
+                    string[] line = linecopy.Split(new char[] { '|' }, StringSplitOptions.RemoveEmptyEntries);
+                    if (line.Length < 2)
+                    {
+                        System.Windows.Forms.MessageBox.Show("Warning: Malformed line \"" + linecopy + "\".", "Malformed Line", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Warning);
+                    }
+
+                    int id = -1;
+                    int rarity = -1;
+                    try
+                    {
+                        id = Convert.ToInt32(line[0]);
+                        rarity = Convert.ToInt32(line[1]);
+                    }
+                    catch (Exception e)
+                    {
+                        System.Windows.Forms.MessageBox.Show("Warning: Malformed line \"" + linecopy + "\"" + Environment.NewLine + Environment.NewLine + "Error message: " + e.Message, "Malformed Line", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Warning);
+                        continue;
+                    }
+
+                    rarities.Add(new Pair<int, int>(id, rarity));
+                }
+
+                input.Close();
+
+                foreach (Pair<int, int> rating in rarities)
+                {
+                    Data[rating.first].Rarity = rating.second;
                 }
 
                 return true;

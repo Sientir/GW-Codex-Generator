@@ -132,6 +132,31 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Skill Boosters\NewBoostersForLeagueDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Skill Boosters\NewBoostersForLeagueDialog.Designer.cs">
+      <DependentUpon>NewBoostersForLeagueDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Skill Boosters\SkillBoosterLeagueUI.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Skill Boosters\SkillBoosterLeagueUI.Designer.cs">
+      <DependentUpon>SkillBoosterLeagueUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Skill Boosters\SkillBoosterPack.cs" />
+    <Compile Include="Skill Boosters\SkillBoosterPoolUI.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Skill Boosters\SkillBoosterPoolUI.Designer.cs">
+      <DependentUpon>SkillBoosterPoolUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Skill Boosters\SkillBoosterSetUI.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Skill Boosters\SkillBoosterSetUI.Designer.cs">
+      <DependentUpon>SkillBoosterSetUI.cs</DependentUpon>
+    </Compile>
     <Compile Include="Skill UI\SkillDisplay.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -146,6 +171,12 @@
     </Compile>
     <Compile Include="Skill.cs" />
     <Compile Include="SkillDatabase.cs" />
+    <Compile Include="SkillValueSetter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SkillValueSetter.Designer.cs">
+      <DependentUpon>SkillValueSetter.cs</DependentUpon>
+    </Compile>
     <Compile Include="TemplateCodeDebugger.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -215,11 +246,26 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Skill Boosters\NewBoostersForLeagueDialog.resx">
+      <DependentUpon>NewBoostersForLeagueDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Skill Boosters\SkillBoosterLeagueUI.resx">
+      <DependentUpon>SkillBoosterLeagueUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Skill Boosters\SkillBoosterPoolUI.resx">
+      <DependentUpon>SkillBoosterPoolUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Skill Boosters\SkillBoosterSetUI.resx">
+      <DependentUpon>SkillBoosterSetUI.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Skill UI\SkillDisplay.resx">
       <DependentUpon>SkillDisplay.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Skill UI\SkillInfoDisplay.resx">
       <DependentUpon>SkillInfoDisplay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SkillValueSetter.resx">
+      <DependentUpon>SkillValueSetter.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TemplateCodeDebugger.resx">
       <DependentUpon>TemplateCodeDebugger.cs</DependentUpon>
@@ -4292,6 +4338,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\GW Skill Icons\Time_Ward.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Template Draft\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

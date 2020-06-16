@@ -52,6 +52,8 @@ namespace GW_Codex_Generator
 
             SkillDatabase.LoadSkillInformation();
             SkillDatabase.LoadTemplatesFile();
+            Skill_Boosters.SkillBoosterSet.LoadSets();
+            UpdateSetsList();
 
             // Hook up skill info displays:
             __CodexSkillDisplay.DescriptionBox = __CodexSkillInfo;
@@ -60,6 +62,7 @@ namespace GW_Codex_Generator
             __Codex_SelectMethod.SelectedIndexChanged += __Codex_SelectMethod_SelectedIndexChanged;
             __Codex_SelectMethod.SelectedIndex = 3;
             __TemplateCodeParserTest.SkillInformationDisplay = __CodexSkillInfo;
+            __SkillBoosterLeagueUI.SetSkillDescriptionBox(__CodexSkillInfo);
 
             // Create challenge controls:
             Challenge_UI.BinaryChallenges binaryChallenges = new Challenge_UI.BinaryChallenges();
@@ -1770,6 +1773,135 @@ namespace GW_Codex_Generator
             {
                 MessageBox.Show("No ratings file found!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void __Button_EditRatings_Click(object sender, EventArgs e)
+        {
+            EditSkillRatingsDialog(Properties.Settings.Default.SetRatings_LastSkillIndex);
+        }
+
+        private void EditRatingsForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            // Save stuff!
+            __GenerateRatingsFile_Click(sender, null);
+
+            // Save the last skill looked at also, of course!
+            SkillValueSetter svs = (SkillValueSetter)sender;
+            if (svs.Done) Properties.Settings.Default.SetRatings_LastSkillIndex = 0;
+            else Properties.Settings.Default.SetRatings_LastSkillIndex = svs.SkillIndex;
+            Properties.Settings.Default.Save();
+            
+        }
+
+        void UpdateSkillRating(int index, int value)
+        {
+            // value is 0 based, ratings are 1 based.
+            SkillDatabase.Data[index].UpdateRating(value + 1);
+        }
+
+        private void button1_Click(object sender, EventArgs e) // Whoops, forgot to name the button before making the click function!
+        {
+            EditSkillRatingsDialog(0);
+        }
+
+        void EditSkillRatingsDialog(int startingIndex)
+        {
+            string[] ratings = { "1", "2", "3", "4", "5" };
+            SkillValueSetter EditRatingsForm = SkillValueSetter.Create("Ratings", UpdateSkillRating, ratings, startingIndex);
+            EditRatingsForm.FormClosing += EditRatingsForm_FormClosing;
+            EditRatingsForm.Show();
+            EditRatingsForm.BringToFront();
+        }
+
+        private void __Button_AssignRarities_Click(object sender, EventArgs e)
+        {
+            EditSkillRaritiesDialog(Properties.Settings.Default.SetRarity_LastSkillIndex);
+        }
+
+        private void __Button_AssignRaritiesFromBeginning_Click(object sender, EventArgs e)
+        {
+            EditSkillRaritiesDialog(0);
+        }
+
+        void EditSkillRaritiesDialog(int startingIndex)
+        {
+            // Grab them labels!
+            string[] rarities = __Rarities.Text.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
+            SkillDatabase.RarityLabels = rarities;
+            Properties.Settings.Default.RarityLabels = __Rarities.Text; // Store and save 'em, too!
+            Properties.Settings.Default.Save();
+
+            SkillValueSetter EditRaritiesForm = SkillValueSetter.Create("Rarities", UpdateSkillRarity, rarities, startingIndex);
+            EditRaritiesForm.FormClosing += EditRaritiesForm_FormClosing;
+            EditRaritiesForm.Show();
+            EditRaritiesForm.BringToFront();
+        }
+
+        private void EditRaritiesForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            // Make the rarities file:
+            SaveSkillRaritiesFile();
+
+            // Save last index:
+            SkillValueSetter svs = (SkillValueSetter)sender;
+            if (svs.Done) Properties.Settings.Default.SetRarity_LastSkillIndex = 0;
+            else Properties.Settings.Default.SetRarity_LastSkillIndex = svs.SkillIndex;
+            Properties.Settings.Default.Save();
+        }
+        void UpdateSkillRarity(int index, int value)
+        {
+            // value is 0 based, ratings are 1 based.
+            SkillDatabase.Data[index].Rarity = value;
+        }
+
+        public const string SkillRaritiesFilename = "GWCodexTool_SkillRarities.txt";
+        void SaveSkillRaritiesFile()
+        {
+            System.IO.StreamWriter output = new System.IO.StreamWriter(SkillRaritiesFilename);
+
+            output.WriteLine("You can edit rarities here. If you do, make sure to leave this line. Entries are in the form \"Skill Index|Rarity Index|Rarity Label & Skill Name\"; the rarity label is for your convenience only.");
+
+            foreach (Skill skill in SkillDatabase.Data)
+            {
+                output.WriteLine(skill.ID.ToString() + "|" + skill.Rarity.ToString() + "|" + skill.Name + " is " + skill.GetRarityLabel());
+            }
+
+            output.Close();
+            MessageBox.Show("Rarities saved to file " + Environment.CurrentDirectory + "\\" + SkillRaritiesFilename + ".", "Rarities Saved!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void __SaveInternalIDsFile_Click(object sender, EventArgs e)
+        {
+            System.IO.StreamWriter output = new System.IO.StreamWriter("GW Codex Tool Internal Skill IDs.txt");
+
+            output.WriteLine("This contains a list of skill IDs as used within Sientir's GW Codex tool. This IDs are not the ones used in Guild Wars, except perhaps by coincidence!");
+            output.WriteLine("This list is provided as a reference only. If you're using it to manually edit a file, I highly recommend using a search feature for the skill name you desire to know the ID of.");
+            output.WriteLine("---------- IDs -----------");
+            foreach(Skill skill in SkillDatabase.Data)
+            {
+                output.WriteLine(skill.Name + " = " + skill.ID);
+            }
+            output.Close();
+
+            MessageBox.Show("Internal skill IDs reference saved to " + Environment.CurrentDirectory + "\\GW Codex Tool Internal Skill IDs.txt.", "Reference File Created.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        void UpdateSetsList()
+        {
+            __SetSelector.Items.Clear();
+            foreach(Skill_Boosters.SkillBoosterSet set in Skill_Boosters.SkillBoosterSet.Sets)
+            {
+                __SetSelector.Items.Add(set.Name);
+            }
+        }
+
+        private void __Set_AddButton_Click(object sender, EventArgs e)
+        {
+            Skill_Boosters.SkillBoosterSet set = new Skill_Boosters.SkillBoosterSet();
+            set.Name = "Custom Set " + Skill_Boosters.SkillBoosterSet.Sets.Count.ToString();
+            __SetSelector.Items.Add(set.Name);
+            Skill_Boosters.SkillBoosterSet.Sets.Add(set);
+            __SetSelector.SelectedIndex = __SetSelector.Items.Count - 1; // Select the last added item, basically!
         }
     }
 }

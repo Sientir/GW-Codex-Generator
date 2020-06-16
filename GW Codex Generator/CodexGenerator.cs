@@ -296,6 +296,14 @@ namespace GW_Codex_Generator
             * Where do punish skills come in?
             * A miscellaneous stuff category (for things like Warrior's Endurance)
 
+
+            -----------------------
+            Thing to add:
+            - Skill booster packs, and a Skill League and Skill Drafting!
+            - Skills will need assigned rarities (just an int; let user specify number of rarities and names); also requires a way to assign rarities.
+            - Need to allow user to specify contents of a booster pack.
+                - This needs to include sourcing info, just like a Codex pool.
+            - System for tracking skill pools in the form of what skills are available and how many copies are available.
              */
 
             return codex;

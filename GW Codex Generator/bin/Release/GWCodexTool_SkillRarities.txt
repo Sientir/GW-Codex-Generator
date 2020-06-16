@@ -1,0 +1,1329 @@
+You can edit rarities here. If you do, make sure to leave this line. Entries are in the form "Skill Index|Rarity Index|Rarity Label & Skill Name"; the rarity label is for your convenience only.
+0|0|Healing Signet is Common
+1|0|Resurrection Signet is Common
+2|1|Power Block is Uncommon
+3|1|Mantra of Earth is Uncommon
+4|1|Mantra of Flame is Uncommon
+5|1|Mantra of Frost is Uncommon
+6|1|Mantra of Lightning is Uncommon
+7|1|Hex Breaker is Uncommon
+8|1|Distortion is Uncommon
+9|2|Mantra of Recovery is Rare
+10|1|Mantra of Persistence is Uncommon
+11|1|Mantra of Inscriptions is Uncommon
+12|0|Mantra of Concentration is Common
+13|1|Mantra of Resolve is Uncommon
+14|1|Mantra of Signets is Uncommon
+15|1|Fragility is Uncommon
+16|0|Inspired Enchantment is Common
+17|0|Inspired Hex is Common
+18|0|Power Spike is Common
+19|0|Power Leak is Common
+20|0|Power Drain is Common
+21|1|Empathy is Uncommon
+22|1|Shatter Delusions is Uncommon
+23|0|Backfire is Common
+24|1|Blackout is Uncommon
+25|0|Diversion is Common
+26|0|Conjure Phantasm is Common
+27|1|Illusion of Weakness is Uncommon
+28|2|Illusionary Weaponry is Rare
+29|1|Sympathetic Visage is Uncommon
+30|1|Ignorance is Uncommon
+31|0|Arcane Conundrum is Common
+32|1|Illusion of Haste is Uncommon
+33|0|Channeling is Common
+34|2|Energy Surge is Rare
+35|1|Ether Feast is Uncommon
+36|0|Ether Lord is Common
+37|0|Energy Burn is Common
+38|0|Clumsiness is Common
+39|0|Phantom Pain is Common
+40|0|Ethereal Burden is Common
+41|1|Guilt is Uncommon
+42|2|Ineptitude is Rare
+43|0|Spirit of Failure is Common
+44|0|Mind Wrack is Common
+45|1|Wastrel's Worry is Uncommon
+46|1|Shame is Uncommon
+47|2|Panic is Rare
+48|1|Migraine is Uncommon
+49|1|Crippling Anguish is Uncommon
+50|2|Fevered Dreams is Rare
+51|0|Soothing Images is Common
+52|1|Cry of Frustration is Uncommon
+53|1|Signet of Midnight is Uncommon
+54|1|Signet of Weariness is Uncommon
+55|0|Leech Signet is Common
+56|1|Signet of Humility is Uncommon
+57|2|Keystone Signet is Rare
+58|1|Arcane Mimicry is Uncommon
+59|0|Spirit Shackles is Common
+60|1|Shatter Hex is Uncommon
+61|1|Drain Enchantment is Uncommon
+62|1|Shatter Enchantment is Uncommon
+63|1|Elemental Resistance is Uncommon
+64|1|Physical Resistance is Uncommon
+65|2|Echo is Rare
+66|1|Arcane Echo is Uncommon
+67|0|Imagined Burden is Common
+68|1|Chaos Storm is Uncommon
+69|1|Epidemic is Uncommon
+70|2|Energy Drain is Rare
+71|1|Energy Tap is Uncommon
+72|1|Arcane Thievery is Uncommon
+73|2|Mantra of Recall is Rare
+74|0|Animate Bone Horror is Common
+75|1|Animate Bone Fiend is Uncommon
+76|1|Animate Bone Minions is Uncommon
+77|2|Grenth's Balance is Rare
+78|1|Verata's Gaze is Uncommon
+79|1|Verata's Aura is Uncommon
+80|0|Deathly Chill is Common
+81|1|Verata's Sacrifice is Uncommon
+82|1|Well of Power is Uncommon
+83|0|Well of Blood is Common
+84|0|Well of Suffering is Common
+85|1|Well of the Profane is Uncommon
+86|0|Putrid Explosion is Common
+87|0|Soul Feast is Common
+88|1|Necrotic Traversal is Uncommon
+89|1|Consume Corpse is Uncommon
+90|0|Parasitic Bond is Common
+91|0|Soul Barbs is Common
+92|1|Barbs is Uncommon
+93|0|Shadow Strike is Common
+94|0|Price of Failure is Common
+95|1|Death Nova is Uncommon
+96|0|Deathly Swarm is Common
+97|1|Rotting Flesh is Uncommon
+98|1|Virulence is Uncommon
+99|0|Suffering is Common
+100|0|Life Siphon is Common
+101|1|Unholy Feast is Uncommon
+102|1|Awaken the Blood is Uncommon
+103|0|Desecrate Enchantments is Common
+104|2|Tainted Flesh is Rare
+105|2|Aura of the Lich is Rare
+106|0|Blood Renewal is Common
+107|1|Dark Aura is Uncommon
+108|0|Enfeeble is Common
+109|1|Enfeebling Blood is Uncommon
+110|2|Blood is Power is Rare
+111|1|Blood of the Master is Uncommon
+112|2|Spiteful Spirit is Rare
+113|0|Malign Intervention is Common
+114|1|Insidious Parasite is Uncommon
+115|1|Spinal Shivers is Uncommon
+116|1|Wither is Uncommon
+117|1|Life Transfer is Uncommon
+118|1|Mark of Subversion is Uncommon
+119|2|Soul Leech is Rare
+120|1|Defile Flesh is Uncommon
+121|1|Demonic Flesh is Uncommon
+122|0|Barbed Signet is Common
+123|1|Plague Signet is Uncommon
+124|0|Dark Pact is Common
+125|1|Order of Pain is Uncommon
+126|0|Faintheartedness is Common
+127|0|Shadow of Fear is Common
+128|1|Rigor Mortis is Uncommon
+129|1|Dark Bond is Uncommon
+130|1|Infuse Condition is Uncommon
+131|1|Malaise is Uncommon
+132|1|Rend Enchantments is Uncommon
+133|2|Lingering Curse is Rare
+134|1|Strip Enchantment is Uncommon
+135|2|Chilblains is Rare
+136|1|Signet of Agony is Uncommon
+137|2|Offering of Blood is Rare
+138|1|Dark Fury is Uncommon
+139|2|Order of the Vampire is Rare
+140|1|Plague Sending is Uncommon
+141|1|Mark of Pain is Uncommon
+142|1|Feast of Corruption is Uncommon
+143|1|Taste of Death is Uncommon
+144|0|Vampiric Gaze is Common
+145|0|Plague Touch is Common
+146|0|Vile Touch is Common
+147|0|Vampiric Touch is Common
+148|1|Blood Ritual is Uncommon
+149|0|Touch of Agony is Common
+150|0|Weaken Armor is Common
+151|0|Windborne Speed is Common
+152|1|Gale is Uncommon
+153|0|Whirlwind is Common
+154|1|Elemental Attunement is Uncommon
+155|0|Armor of Earth is Common
+156|1|Kinetic Armor is Uncommon
+157|0|Eruption is Common
+158|0|Magnetic Aura is Common
+159|0|Earth Attunement is Common
+160|1|Earthquake is Uncommon
+161|0|Stoning is Common
+162|0|Stone Daggers is Common
+163|1|Grasping Earth is Uncommon
+164|1|Aftershock is Uncommon
+165|1|Ward Against Elements is Uncommon
+166|1|Ward Against Melee is Uncommon
+167|0|Ward Against Foes is Common
+168|2|Ether Prodigy is Rare
+169|0|Incendiary Bonds is Common
+170|1|Aura of Restoration is Uncommon
+171|2|Ether Renewal is Rare
+172|1|Conjure Flame is Uncommon
+173|0|Inferno is Common
+174|0|Fire Attunement is Common
+175|2|Mind Burn is Rare
+176|0|Fireball is Common
+177|1|Meteor is Uncommon
+178|1|Flame Burst is Uncommon
+179|2|Rodgort's Invocation is Rare
+180|1|Mark of Rodgort is Uncommon
+181|0|Immolate is Common
+182|1|Meteor Shower is Uncommon
+183|0|Phoenix is Common
+184|0|Flare is Common
+185|0|Lava Font is Common
+186|0|Searing Heat is Common
+187|0|Fire Storm is Common
+188|0|Glyph of Elemental Power is Common
+189|1|Glyph of Energy is Uncommon
+190|0|Glyph of Lesser Energy is Common
+191|1|Glyph of Concentration is Uncommon
+192|1|Glyph of Sacrifice is Uncommon
+193|2|Glyph of Renewal is Rare
+194|0|Rust is Common
+195|2|Lightning Surge is Rare
+196|0|Armor of Frost is Common
+197|1|Conjure Frost is Uncommon
+198|0|Water Attunement is Common
+199|2|Mind Freeze is Rare
+200|1|Ice Prison is Uncommon
+201|0|Ice Spikes is Common
+202|1|Frozen Burst is Uncommon
+203|0|Shard Storm is Common
+204|0|Ice Spear is Common
+205|2|Maelstrom is Rare
+206|1|Iron Mist is Uncommon
+207|1|Crystal Wave is Uncommon
+208|2|Obsidian Flesh is Rare
+209|0|Obsidian Flame is Common
+210|0|Blinding Flash is Common
+211|1|Conjure Lightning is Uncommon
+212|0|Lightning Strike is Common
+213|1|Chain Lightning is Uncommon
+214|0|Enervating Charge is Common
+215|0|Air Attunement is Common
+216|2|Mind Shock is Rare
+217|1|Glimmering Mark is Uncommon
+218|2|Thunderclap is Rare
+219|0|Lightning Orb is Common
+220|0|Lightning Javelin is Common
+221|1|Shock is Uncommon
+222|1|Lightning Touch is Uncommon
+223|0|Swirling Aura is Common
+224|1|Deep Freeze is Uncommon
+225|1|Blurred Vision is Uncommon
+226|2|Mist Form is Rare
+227|1|Water Trident is Uncommon
+228|0|Armor of Mist is Common
+229|2|Ward Against Harm is Rare
+230|0|Smite is Common
+231|2|Life Bond is Rare
+232|1|Balthazar's Spirit is Uncommon
+233|1|Strength of Honor is Uncommon
+234|1|Life Attunement is Uncommon
+235|0|Protective Spirit is Common
+236|0|Divine Intervention is Common
+237|0|Symbol of Wrath is Common
+238|0|Retribution is Common
+239|1|Holy Wrath is Uncommon
+240|1|Essence Bond is Uncommon
+241|1|Scourge Healing is Uncommon
+242|0|Banish is Common
+243|1|Scourge Sacrifice is Uncommon
+244|0|Vigorous Spirit is Common
+245|0|Watchful Spirit is Common
+246|1|Blessed Aura is Uncommon
+247|1|Aegis is Uncommon
+248|0|Guardian is Common
+249|1|Shield of Deflection is Uncommon
+250|1|Aura of Faith is Uncommon
+251|1|Shield of Regeneration is Uncommon
+252|1|Shield of Judgment is Uncommon
+253|1|Protective Bond is Uncommon
+254|1|Pacifism is Uncommon
+255|1|Amity is Uncommon
+256|2|Peace and Harmony is Rare
+257|1|Judge's Insight is Uncommon
+258|2|Unyielding Aura is Rare
+259|1|Mark of Protection is Uncommon
+260|1|Life Barrier is Uncommon
+261|1|Zealot's Fire is Uncommon
+262|1|Balthazar's Aura is Uncommon
+263|2|Spell Breaker is Rare
+264|0|Healing Seed is Common
+265|0|Mend Condition is Common
+266|1|Restore Condition is Uncommon
+267|0|Mend Ailment is Common
+268|1|Purge Conditions is Uncommon
+269|0|Divine Healing is Common
+270|1|Heal Area is Uncommon
+271|0|Orison of Healing is Common
+272|2|Word of Healing is Rare
+273|0|Dwayna's Kiss is Common
+274|1|Divine Boon is Uncommon
+275|1|Healing Hands is Uncommon
+276|0|Heal Other is Common
+277|1|Heal Party is Uncommon
+278|0|Healing Breeze is Common
+279|1|Vital Blessing is Uncommon
+280|1|Mending is Uncommon
+281|1|Live Vicariously is Uncommon
+282|1|Infuse Health is Uncommon
+283|0|Signet of Devotion is Common
+284|2|Signet of Judgment is Rare
+285|1|Purge Signet is Uncommon
+286|0|Bane Signet is Common
+287|1|Blessed Signet is Uncommon
+288|2|Martyr is Rare
+289|0|Shielding Hands is Common
+290|1|Contemplation of Purity is Uncommon
+291|0|Remove Hex is Common
+292|0|Smite Hex is Common
+293|1|Convert Hexes is Uncommon
+294|1|Light of Dwayna is Uncommon
+295|0|Resurrect is Common
+296|1|Rebirth is Uncommon
+297|0|Reversal of Fortune is Common
+298|1|Succor is Uncommon
+299|1|Holy Veil is Uncommon
+300|1|Divine Spirit is Uncommon
+301|1|Draw Conditions is Uncommon
+302|0|Holy Strike is Common
+303|1|Healing Touch is Uncommon
+304|0|Restore Life is Common
+305|0|Vengeance is Common
+306|0|"To the Limit!" is Common
+307|2|Battle Rage is Rare
+308|2|Defy Pain is Rare
+309|0|Rush is Common
+310|1|Hamstring is Uncommon
+311|1|Wild Blow is Uncommon
+312|0|Power Attack is Common
+313|1|Desperation Blow is Uncommon
+314|1|Thrill of Victory is Uncommon
+315|0|Distracting Blow is Common
+316|1|Protector's Strike is Uncommon
+317|0|Griffon's Sweep is Common
+318|0|Pure Strike is Common
+319|2|Skull Crack is Rare
+320|1|Cyclone Axe is Uncommon
+321|0|Hammer Bash is Common
+322|1|Bull's Strike is Uncommon
+323|1|"I Will Avenge You!" is Uncommon
+324|0|Axe Rake is Common
+325|1|Cleave is Uncommon
+326|0|Executioner's Strike is Common
+327|0|Dismember is Common
+328|2|Eviscerate is Rare
+329|0|Penetrating Blow is Common
+330|1|Disrupting Chop is Uncommon
+331|0|Swift Chop is Common
+332|0|Axe Twist is Common
+333|1|"For Great Justice!" is Uncommon
+334|0|Flurry is Common
+335|0|Defensive Stance is Common
+336|1|Frenzy is Uncommon
+337|0|Endure Pain is Common
+338|1|"Watch Yourself!" is Uncommon
+339|0|Sprint is Common
+340|1|Belly Smash is Uncommon
+341|0|Mighty Blow is Common
+342|1|Crushing Blow is Uncommon
+343|1|Crude Swing is Uncommon
+344|2|Earth Shaker is Rare
+345|1|Devastating Hammer is Uncommon
+346|0|Irresistible Blow is Common
+347|0|Counter Blow is Common
+348|2|Backbreaker is Rare
+349|1|Heavy Blow is Uncommon
+350|0|Staggering Blow is Common
+351|1|Dolyak Signet is Uncommon
+352|1|Warrior's Cunning is Uncommon
+353|1|Shield Bash is Uncommon
+354|1|"Charge!" is Uncommon
+355|1|"Victory Is Mine!" is Uncommon
+356|0|"Fear Me!" is Common
+357|0|"Shields Up!" is Common
+358|0|"I Will Survive!" is Common
+359|0|Berserker Stance is Common
+360|1|Balanced Stance is Uncommon
+361|1|Gladiator's Defense is Uncommon
+362|1|Deflect Arrows is Uncommon
+363|2|Warrior's Endurance is Rare
+364|2|Dwarven Battle Stance is Rare
+365|0|Disciplined Stance is Common
+366|1|Wary Stance is Uncommon
+367|0|Shield Stance is Common
+368|2|Bull's Charge is Rare
+369|1|Bonetti's Defense is Uncommon
+370|1|Hundred Blades is Uncommon
+371|0|Sever Artery is Common
+372|0|Galrath Slash is Common
+373|0|Gash is Common
+374|1|Final Thrust is Uncommon
+375|0|Seeking Blade is Common
+376|0|Riposte is Common
+377|1|Deadly Riposte is Uncommon
+378|2|Flourish is Rare
+379|0|Savage Slash is Common
+380|1|Hunter's Shot is Uncommon
+381|0|Pin Down is Common
+382|1|Crippling Shot is Uncommon
+383|0|Power Shot is Common
+384|2|Barrage is Rare
+385|1|Dual Shot is Uncommon
+386|1|Quick Shot is Uncommon
+387|0|Penetrating Attack is Common
+388|0|Distracting Shot is Common
+389|1|Precision Shot is Uncommon
+390|0|Determined Shot is Common
+391|1|Called Shot is Uncommon
+392|1|Poison Arrow is Uncommon
+393|2|Oath Shot is Rare
+394|1|Debilitating Shot is Uncommon
+395|1|Point Blank Shot is Uncommon
+396|1|Concussion Shot is Uncommon
+397|2|Punishing Shot is Rare
+398|1|Charm Animal is Uncommon
+399|1|Call of Protection is Uncommon
+400|1|Call of Haste is Uncommon
+401|1|Revive Animal is Uncommon
+402|1|Symbiotic Bond is Uncommon
+403|1|Throw Dirt is Uncommon
+404|0|Dodge is Common
+405|0|Savage Shot is Common
+406|1|Antidote Signet is Uncommon
+407|2|Incendiary Arrows is Rare
+408|1|Melandru's Arrows is Uncommon
+409|2|Marksman's Wager is Rare
+410|0|Ignite Arrows is Common
+411|1|Read the Wind is Uncommon
+412|0|Kindle Arrows is Common
+413|1|Choking Gas is Uncommon
+414|0|Apply Poison is Common
+415|0|Comfort Animal is Common
+416|1|Bestial Pounce is Uncommon
+417|0|Maiming Strike is Common
+418|0|Feral Lunge is Common
+419|0|Scavenger Strike is Common
+420|1|Melandru's Assault is Uncommon
+421|2|Ferocious Strike is Rare
+422|0|Predator's Pounce is Common
+423|1|Brutal Strike is Uncommon
+424|1|Disrupting Lunge is Uncommon
+425|0|Troll Unguent is Common
+426|1|Otyugh's Cry is Uncommon
+427|2|Escape is Rare
+428|2|Practiced Stance is Rare
+429|1|Whirling Defense is Uncommon
+430|1|Melandru's Resilience is Uncommon
+431|0|Dryder's Defenses is Common
+432|0|Lightning Reflexes is Common
+433|0|Tiger's Fury is Common
+434|0|Storm Chaser is Common
+435|1|Serpent's Quickness is Uncommon
+436|1|Dust Trap is Uncommon
+437|0|Barbed Trap is Common
+438|0|Flame Trap is Common
+439|1|Healing Spring is Uncommon
+440|1|Spike Trap is Uncommon
+441|1|Winter is Uncommon
+442|1|Winnowing is Uncommon
+443|1|Edge of Extinction is Uncommon
+444|1|Greater Conflagration is Uncommon
+445|1|Conflagration is Uncommon
+446|1|Fertile Season is Uncommon
+447|1|Symbiosis is Uncommon
+448|1|Primal Echoes is Uncommon
+449|1|Predatory Season is Uncommon
+450|1|Frozen Soil is Uncommon
+451|1|Favorable Winds is Uncommon
+452|1|Energizing Wind is Uncommon
+453|1|Quickening Zephyr is Uncommon
+454|1|Nature's Renewal is Uncommon
+455|1|Muddy Terrain is Uncommon
+456|2|Mark of Insecurity is Rare
+457|0|Disrupting Dagger is Common
+458|1|Deadly Paradox is Uncommon
+459|1|Jaundiced Gaze is Uncommon
+460|2|Wail of Doom is Rare
+461|0|Gaze of Contempt is Common
+462|0|Viper's Defense is Common
+463|1|Return is Uncommon
+464|2|Aura of Displacement is Rare
+465|1|Generous Was Tsungrai is Uncommon
+466|0|Mighty Was Vorizun is Common
+467|2|Death Blossom is Rare
+468|2|Twisting Fangs is Rare
+469|1|Horns of the Ox is Uncommon
+470|1|Falling Spider is Uncommon
+471|1|Black Lotus Strike is Uncommon
+472|0|Fox Fangs is Common
+473|1|Moebius Strike is Uncommon
+474|0|Jagged Strike is Common
+475|0|Unsuspecting Strike is Common
+476|0|Entangling Asp is Common
+477|1|Mark of Death is Uncommon
+478|0|Iron Palm is Common
+479|0|Resilient Weapon is Common
+480|1|Blind Was Mingson is Uncommon
+481|2|Grasping Was Kuurong is Rare
+482|2|Vengeful Was Khanhei is Rare
+483|1|Flesh of My Flesh is Uncommon
+484|2|Splinter Weapon is Rare
+485|0|Weapon of Warding is Common
+486|1|Wailing Weapon is Uncommon
+487|0|Nightmare Weapon is Common
+488|2|Beguiling Haze is Rare
+489|0|Enduring Toxin is Common
+490|1|Shroud of Silence is Uncommon
+491|1|Expose Defenses is Uncommon
+492|2|Power Leech is Rare
+493|2|Arcane Languor is Rare
+494|0|Animate Vampiric Horror is Common
+495|2|Cultist's Fervor is Rare
+496|1|Reaper's Mark is Uncommon
+497|2|Shatterstone is Rare
+498|1|Protector's Defense is Uncommon
+499|1|Run as One is Uncommon
+500|2|Defiant Was Xinrae is Rare
+501|2|Lyssa's Aura is Rare
+502|0|Shadow Refuge is Common
+503|1|Scorpion Wire is Uncommon
+504|1|Mirrored Stance is Uncommon
+505|2|Discord is Rare
+506|1|Well of Weariness is Uncommon
+507|1|Vampiric Spirit is Uncommon
+508|1|Depravity is Uncommon
+509|2|Icy Veins is Rare
+510|1|Weaken Knees is Uncommon
+511|1|Burning Speed is Uncommon
+512|0|Lava Arrows is Common
+513|0|Bed of Coals is Common
+514|2|Shadow Form is Rare
+515|1|Siphon Strength is Uncommon
+516|0|Vile Miasma is Common
+517|2|Ray of Judgment is Rare
+518|1|Primal Rage is Uncommon
+519|2|Animate Flesh Golem is Rare
+520|1|Reckless Haste is Uncommon
+521|0|Blood Bond is Common
+522|2|Ride the Lightning is Rare
+523|1|Energy Boon is Uncommon
+524|1|Dwayna's Sorrow is Uncommon
+525|1|"Retreat!" is Uncommon
+526|0|Poisoned Heart is Common
+527|0|Fetid Ground is Common
+528|0|Arc Lightning is Common
+529|2|Gust is Rare
+530|1|Churning Earth is Uncommon
+531|1|Liquid Flame is Uncommon
+532|0|Steam is Common
+533|1|Boon Signet is Uncommon
+534|1|Reverse Hex is Uncommon
+535|0|Lacerating Chop is Common
+536|1|Fierce Blow is Uncommon
+537|1|Sun and Moon Slash is Uncommon
+538|0|Splinter Shot is Common
+539|1|Melandru's Shot is Uncommon
+540|0|Snare is Common
+541|0|Dancing Daggers is Common
+542|1|Conjure Nightmare is Uncommon
+543|0|Signet of Disruption is Common
+544|2|Ravenous Gaze is Rare
+545|1|Order of Apostasy is Uncommon
+546|1|Oppressive Gaze is Uncommon
+547|1|Lightning Hammer is Uncommon
+548|0|Vapor Blade is Common
+549|1|Healing Light is Uncommon
+550|1|"Coward!" is Uncommon
+551|1|Pestilence is Uncommon
+552|1|Shadowsong is Uncommon
+553|1|Signet of Shadows is Uncommon
+554|0|Lyssa's Balance is Common
+555|2|Visions of Regret is Rare
+556|1|Illusion of Pain is Uncommon
+557|1|Stolen Speed is Uncommon
+558|0|Ether Signet is Common
+559|1|Signet of Disenchantment is Uncommon
+560|1|Vocal Minority is Uncommon
+561|2|Searing Flames is Rare
+562|0|Shield Guardian is Common
+563|0|Restful Breeze is Common
+564|0|Signet of Rejuvenation is Common
+565|1|Whirling Axe is Uncommon
+566|2|Forceful Blow is Rare
+567|0|"None Shall Pass!" is Common
+568|2|Quivering Blade is Rare
+569|1|Seeking Arrows is Uncommon
+570|0|Overload is Common
+571|0|Images of Remorse is Common
+572|2|Shared Burden is Rare
+573|2|Soul Bind is Rare
+574|0|Blood of the Aggressor is Common
+575|1|Icy Prism is Uncommon
+576|1|Furious Axe is Uncommon
+577|0|Auspicious Blow is Common
+578|1|"On Your Knees!" is Uncommon
+579|2|Dragon Slash is Rare
+580|1|Marauder's Shot is Uncommon
+581|1|Focused Shot is Uncommon
+582|0|Spirit Rift is Common
+583|1|Union is Uncommon
+584|1|Tranquil Was Tanasen is Uncommon
+585|1|Consume Soul is Uncommon
+586|1|Spirit Light is Uncommon
+587|1|Lamentation is Uncommon
+588|1|Rupture Soul is Uncommon
+589|1|Spirit to Flesh is Uncommon
+590|0|Spirit Burn is Common
+591|0|Destruction is Common
+592|1|Dissonance is Uncommon
+593|1|Disenchantment is Uncommon
+594|1|Recall is Uncommon
+595|1|Sharpen Daggers is Uncommon
+596|1|Shameful Fear is Uncommon
+597|2|Shadow Shroud is Rare
+598|0|Shadow of Haste is Common
+599|1|Auspicious Incantation is Uncommon
+600|0|Power Return is Common
+601|1|Complicate is Uncommon
+602|1|Shatter Storm is Uncommon
+603|1|Unnatural Signet is Uncommon
+604|1|Rising Bile is Uncommon
+605|1|Envenom Enchantments is Uncommon
+606|2|Shockwave is Rare
+607|1|Ward of Stability is Uncommon
+608|1|Icy Shackles is Uncommon
+609|2|Blessed Light is Rare
+610|2|Withdraw Hexes is Rare
+611|1|Extinguish is Uncommon
+612|0|Signet of Strength is Common
+613|1|Trapper's Focus is Uncommon
+614|1|Brambles is Uncommon
+615|0|Desperate Strike is Common
+616|1|Way of the Fox is Uncommon
+617|0|Shadowy Burden is Common
+618|0|Siphon Speed is Common
+619|1|Death's Charge is Uncommon
+620|1|Power Flux is Uncommon
+621|1|Expel Hexes is Uncommon
+622|0|Rip Enchantment is Common
+623|1|Spell Shield is Uncommon
+624|0|Healing Whisper is Common
+625|1|Ethereal Light is Uncommon
+626|1|Release Enchantments is Uncommon
+627|1|Lacerate is Uncommon
+628|0|Spirit Transfer is Common
+629|1|Restoration is Uncommon
+630|0|Vengeful Weapon is Common
+631|0|Blinding Powder is Common
+632|1|Mantis Touch is Uncommon
+633|1|Exhausting Assault is Uncommon
+634|1|Repeating Strike is Uncommon
+635|1|Way of the Lotus is Uncommon
+636|1|Mark of Instability is Uncommon
+637|2|Mistrust is Rare
+638|1|Feast of Souls is Uncommon
+639|1|Recuperation is Uncommon
+640|1|Shelter is Uncommon
+641|1|Weapon of Shadow is Uncommon
+642|0|Caltrops is Common
+643|1|Nine Tail Strike is Uncommon
+644|2|Way of the Empty Palm is Rare
+645|1|Temple Strike is Uncommon
+646|1|Golden Phoenix Strike is Uncommon
+647|1|Expunge Enchantments is Uncommon
+648|0|Deny Hexes is Common
+649|2|Triple Chop is Rare
+650|2|Enraged Smash is Rare
+651|1|Renewing Smash is Uncommon
+652|0|Tiger Stance is Common
+653|0|Standing Slash is Common
+654|1|Famine is Uncommon
+655|0|Critical Eye is Common
+656|1|Critical Strike is Uncommon
+657|1|Blades of Steel is Uncommon
+658|1|Jungle Strike is Uncommon
+659|1|Wild Strike is Uncommon
+660|0|Leaping Mantis Sting is Common
+661|0|Black Mantis Thrust is Common
+662|1|Disrupting Stab is Uncommon
+663|0|Golden Lotus Strike is Common
+664|1|Critical Defenses is Uncommon
+665|0|Way of Perfection is Common
+666|2|Dark Apostasy is Rare
+667|2|Locust's Fury is Rare
+668|1|Shroud of Distress is Uncommon
+669|0|Heart of Shadow is Common
+670|1|Impale is Uncommon
+671|2|Seeping Wound is Rare
+672|2|Assassin's Promise is Rare
+673|1|Signet of Malice is Uncommon
+674|1|Dark Escape is Uncommon
+675|0|Crippling Dagger is Common
+676|0|Spirit Walk is Common
+677|1|Unseen Fury is Uncommon
+678|2|Flashing Blades is Rare
+679|0|Dash is Common
+680|1|Dark Prison is Uncommon
+681|1|Palm Strike is Uncommon
+682|0|Revealed Enchantment is Common
+683|0|Revealed Hex is Common
+684|1|Accumulated Pain is Uncommon
+685|2|Psychic Distraction is Rare
+686|1|Ancestor's Visage is Uncommon
+687|1|Recurring Insecurity is Uncommon
+688|1|Kitah's Burden is Uncommon
+689|2|Psychic Instability is Rare
+690|1|Hex Eater Signet is Uncommon
+691|0|Feedback is Common
+692|1|Arcane Larceny is Uncommon
+693|2|Spoil Victor is Rare
+694|0|Lifebane Strike is Common
+695|0|Bitter Chill is Common
+696|0|Taste of Pain is Common
+697|0|Defile Enchantments is Common
+698|1|Shivers of Dread is Uncommon
+699|1|Vampiric Swarm is Uncommon
+700|0|Blood Drinker is Common
+701|0|Vampiric Bite is Common
+702|0|Wallow's Bite is Common
+703|1|Enfeebling Touch is Uncommon
+704|0|Teinai's Wind is Common
+705|0|Shock Arrow is Common
+706|1|Unsteady Ground is Uncommon
+707|1|Sliver Armor is Uncommon
+708|0|Ash Blast is Common
+709|1|Dragon's Stomp is Uncommon
+710|1|Second Wind is Uncommon
+711|0|Smoldering Embers is Common
+712|2|Double Dragon is Rare
+713|1|Teinai's Heat is Uncommon
+714|1|Breath of Fire is Uncommon
+715|2|Star Burst is Rare
+716|1|Glyph of Essence is Uncommon
+717|0|Teinai's Prison is Common
+718|2|Mirror of Ice is Rare
+719|1|Teinai's Crystals is Uncommon
+720|1|Kirin's Wrath is Uncommon
+721|1|Spirit Bond is Uncommon
+722|1|Air of Enchantment is Uncommon
+723|1|Heaven's Delight is Uncommon
+724|2|Healing Burst is Rare
+725|1|Karei's Healing Circle is Uncommon
+726|0|Jamei's Gaze is Common
+727|1|Gift of Health is Uncommon
+728|2|Life Sheath is Rare
+729|1|Empathic Removal is Uncommon
+730|1|Resurrection Chant is Uncommon
+731|1|Word of Censure is Uncommon
+732|0|Spear of Light is Common
+733|0|Stonesoul Strike is Common
+734|1|Drunken Blow is Uncommon
+735|0|Leviathan's Sweep is Common
+736|0|Jaizhenju Strike is Common
+737|0|Penetrating Chop is Common
+738|1|Yeti Smash is Uncommon
+739|1|"You Will Die!" is Uncommon
+740|1|Auspicious Parry is Uncommon
+741|0|Silverwing Slash is Common
+742|2|Shove is Rare
+743|0|Sundering Attack is Common
+744|1|Zojun's Shot is Uncommon
+745|0|Predatory Bond is Common
+746|1|Heal as One is Uncommon
+747|0|Zojun's Haste is Common
+748|0|Needling Shot is Common
+749|2|Broad Head Arrow is Rare
+750|2|Glass Arrows is Rare
+751|1|Archer's Signet is Uncommon
+752|1|Savage Pounce is Uncommon
+753|2|Enraged Lunge is Rare
+754|1|Bestial Mauling is Uncommon
+755|0|Poisonous Bite is Common
+756|0|Pounce is Common
+757|1|Bestial Fury is Uncommon
+758|0|Viper's Nest is Common
+759|1|Equinox is Uncommon
+760|1|Tranquility is Uncommon
+761|1|Clamor of Souls is Uncommon
+762|2|Ritual Lord is Rare
+763|1|Cruel Was Daoshen is Uncommon
+764|1|Protective Was Kaolai is Uncommon
+765|2|Attuned Was Songkai is Rare
+766|0|Resilient Was Xiko is Common
+767|1|Lively Was Naomei is Uncommon
+768|1|Anguished Was Lingwah is Uncommon
+769|1|Draw Spirit is Uncommon
+770|0|Channeled Strike is Common
+771|0|Spirit Boon Strike is Common
+772|0|Essence Strike is Common
+773|1|Spirit Siphon is Uncommon
+774|1|Explosive Growth is Uncommon
+775|1|Boon of Creation is Uncommon
+776|2|Spirit Channeling is Rare
+777|1|Armor of Unfeeling is Uncommon
+778|0|Soothing Memories is Common
+779|1|Mend Body and Soul is Uncommon
+780|1|Dulled Weapon is Uncommon
+781|0|Binding Chains is Common
+782|1|Painful Bond is Uncommon
+783|1|Signet of Creation is Uncommon
+784|2|Signet of Spirits is Rare
+785|2|Soul Twisting is Rare
+786|1|Ghostly Haste is Uncommon
+787|0|Gaze from Beyond is Common
+788|1|Ancestors' Rage is Uncommon
+789|0|Pain is Common
+790|1|Displacement is Uncommon
+791|1|Preservation is Uncommon
+792|0|Life is Common
+793|1|Earthbind is Uncommon
+794|1|Bloodsong is Uncommon
+795|1|Wanderlust is Uncommon
+796|1|Spirit Light Weapon is Uncommon
+797|0|Brutal Weapon is Common
+798|1|Guided Weapon is Uncommon
+799|1|Meekness is Uncommon
+800|1|Frigid Armor is Uncommon
+801|1|Healing Ring is Uncommon
+802|1|Renew Life is Uncommon
+803|1|Doom is Uncommon
+804|0|Wielder's Boon is Common
+805|1|Soothing is Uncommon
+806|1|Vital Weapon is Uncommon
+807|2|Weapon of Quickening is Rare
+808|1|Signet of Rage is Uncommon
+809|2|Extend Conditions is Rare
+810|1|Hypochondria is Uncommon
+811|0|Wastrel's Demise is Common
+812|1|Spiritual Pain is Uncommon
+813|1|Drain Delusions is Uncommon
+814|1|Persistence of Memory is Uncommon
+815|1|Symbols of Inspiration is Uncommon
+816|1|Symbolic Celerity is Uncommon
+817|1|Frustration is Uncommon
+818|1|Tease is Uncommon
+819|1|Ether Phantom is Uncommon
+820|1|Web of Disruption is Uncommon
+821|2|Enchanter's Conundrum is Rare
+822|2|Signet of Illusions is Rare
+823|0|Discharge Enchantment is Common
+824|2|Hex Eater Vortex is Rare
+825|1|Mirror of Disenchantment is Uncommon
+826|1|Simple Thievery is Uncommon
+827|1|Animate Shambling Horror is Uncommon
+828|2|Order of Undeath is Rare
+829|1|Putrid Flesh is Uncommon
+830|1|Feast for the Dead is Uncommon
+831|2|Jagged Bones is Rare
+832|1|Contagion is Uncommon
+833|1|Ulcerous Lungs is Uncommon
+834|1|Pain of Disenchantment is Uncommon
+835|1|Mark of Fury is Uncommon
+836|2|Corrupt Enchantment is Rare
+837|1|Signet of Sorrow is Uncommon
+838|1|Signet of Suffering is Uncommon
+839|1|Signet of Lost Souls is Uncommon
+840|0|Well of Darkness is Common
+841|2|Blinding Surge is Rare
+842|0|Chilling Winds is Common
+843|0|Lightning Bolt is Common
+844|1|Storm Djinn's Haste is Uncommon
+845|1|Stone Striker is Uncommon
+846|2|Sandstorm is Rare
+847|2|Stone Sheath is Rare
+848|0|Ebon Hawk is Common
+849|1|Stoneflesh Aura is Uncommon
+850|0|Glyph of Restoration is Common
+851|2|Ether Prism is Rare
+852|2|Master of Magic is Rare
+853|0|Glowing Gaze is Common
+854|2|Savannah Heat is Rare
+855|1|Flame Djinn's Haste is Uncommon
+856|0|Freezing Gust is Common
+857|1|Judge's Intervention is Uncommon
+858|1|Supportive Spirit is Uncommon
+859|0|Watchful Healing is Common
+860|2|Healer's Boon is Rare
+861|2|Healer's Covenant is Rare
+862|1|Balthazar's Pendulum is Uncommon
+863|0|Words of Comfort is Common
+864|2|Light of Deliverance is Rare
+865|1|Scourge Enchantment is Uncommon
+866|1|Shield of Absorption is Uncommon
+867|0|Reversal of Damage is Common
+868|0|Mending Touch is Common
+869|1|Critical Chop is Uncommon
+870|1|Agonizing Chop is Uncommon
+871|0|Flail is Common
+872|1|Charging Strike is Uncommon
+873|1|Headbutt is Uncommon
+874|0|Lion's Comfort is Common
+875|2|Rage of the Ntouka is Rare
+876|0|Mokele Smash is Common
+877|0|Overbearing Smash is Common
+878|1|Signet of Stamina is Uncommon
+879|2|"You're All Alone!" is Rare
+880|1|Burst of Aggression is Uncommon
+881|1|Enraging Charge is Uncommon
+882|1|Crippling Slash is Uncommon
+883|1|Barbarous Slice is Uncommon
+884|2|Prepared Shot is Rare
+885|2|Burning Arrow is Rare
+886|0|Arcing Shot is Common
+887|2|Strike as One is Rare
+888|0|Crossfire is Common
+889|1|Barbed Arrows is Uncommon
+890|1|Scavenger's Focus is Uncommon
+891|1|Toxicity is Uncommon
+892|1|Quicksand is Uncommon
+893|0|Storm's Embrace is Common
+894|1|Trapper's Speed is Uncommon
+895|0|Tripwire is Common
+896|0|Renewing Surge is Common
+897|1|Offering of Spirit is Uncommon
+898|1|Spirit's Gift is Uncommon
+899|1|Death Pact Signet is Uncommon
+900|1|Reclaim Essence is Uncommon
+901|0|Banishing Strike is Common
+902|0|Mystic Sweep is Common
+903|0|Eremite's Attack is Common
+904|1|Reap Impurities is Uncommon
+905|1|Twin Moon Sweep is Uncommon
+906|0|Victorious Sweep is Common
+907|1|Irresistible Sweep is Uncommon
+908|1|Pious Assault is Uncommon
+909|0|Mystic Twister is Common
+910|0|Grenth's Fingers is Common
+911|0|Aura of Thorns is Common
+912|0|Balthazar's Rage is Common
+913|1|Dust Cloak is Uncommon
+914|1|Staggering Force is Uncommon
+915|2|Pious Renewal is Rare
+916|1|Mirage Cloak is Uncommon
+917|1|Arcane Zeal is Uncommon
+918|0|Mystic Vigor is Common
+919|1|Watchful Intervention is Uncommon
+920|1|Vow of Piety is Uncommon
+921|0|Vital Boon is Common
+922|0|Heart of Holy Flame is Common
+923|1|Extend Enchantments is Uncommon
+924|1|Faithful Intervention is Uncommon
+925|1|Sand Shards is Uncommon
+926|0|Lyssa's Haste is Common
+927|0|Guiding Hands is Common
+928|0|Fleeting Stability is Common
+929|1|Armor of Sanctity is Uncommon
+930|1|Mystic Regeneration is Uncommon
+931|2|Vow of Silence is Rare
+932|2|Avatar of Balthazar is Rare
+933|2|Avatar of Dwayna is Rare
+934|2|Avatar of Grenth is Rare
+935|2|Avatar of Lyssa is Rare
+936|2|Avatar of Melandru is Rare
+937|1|Meditation is Uncommon
+938|1|Eremite's Zeal is Uncommon
+939|0|Natural Healing is Common
+940|1|Imbue Health is Uncommon
+941|1|Mystic Healing is Uncommon
+942|1|Dwayna's Touch is Uncommon
+943|1|Pious Restoration is Uncommon
+944|0|Signet of Pious Light is Common
+945|1|Intimidating Aura is Uncommon
+946|0|Mystic Sandstorm is Common
+947|1|Winds of Disenchantment is Uncommon
+948|1|Rending Touch is Uncommon
+949|1|Crippling Sweep is Uncommon
+950|2|Wounding Strike is Rare
+951|1|Wearying Strike is Uncommon
+952|0|Lyssa's Assault is Common
+953|0|Chilling Victory is Common
+954|0|Conviction is Common
+955|0|Enchanted Haste is Common
+956|1|Pious Concentration is Uncommon
+957|1|Pious Haste is Uncommon
+958|1|Whirling Charge is Uncommon
+959|0|Test of Faith is Common
+960|1|Blazing Spear is Uncommon
+961|0|Mighty Throw is Common
+962|1|Cruel Spear is Uncommon
+963|0|Harrier's Toss is Common
+964|1|Unblockable Throw is Uncommon
+965|0|Spear of Lightning is Common
+966|1|Wearying Spear is Uncommon
+967|2|Anthem of Fury is Rare
+968|1|Crippling Anthem is Uncommon
+969|2|Defensive Anthem is Rare
+970|0|Godspeed is Common
+971|0|Anthem of Flame is Common
+972|1|"Go for the Eyes!" is Uncommon
+973|0|Anthem of Envy is Common
+974|1|Song of Power is Uncommon
+975|1|Zealous Anthem is Uncommon
+976|1|Aria of Zeal is Uncommon
+977|0|Lyric of Zeal is Common
+978|0|Ballad of Restoration is Common
+979|1|Chorus of Restoration is Uncommon
+980|0|Aria of Restoration is Common
+981|1|Song of Concentration is Uncommon
+982|1|Anthem of Guidance is Uncommon
+983|1|Energizing Chorus is Uncommon
+984|1|Song of Purification is Uncommon
+985|0|Hexbreaker Aria is Common
+986|1|"Brace Yourself!" is Uncommon
+987|1|Awe is Uncommon
+988|1|Enduring Harmony is Uncommon
+989|1|Blazing Finale is Uncommon
+990|0|Burning Refrain is Common
+991|0|Finale of Restoration is Common
+992|0|Mending Refrain is Common
+993|0|Purifying Finale is Common
+994|1|Bladeturn Refrain is Uncommon
+995|1|Glowing Signet is Uncommon
+996|1|Leader's Zeal is Uncommon
+997|0|Leader's Comfort is Common
+998|0|Signet of Synergy is Common
+999|1|Angelic Protection is Uncommon
+1000|2|Angelic Bond is Rare
+1001|2|Cautery Signet is Rare
+1002|1|"Stand Your Ground!" is Uncommon
+1003|0|"Lead the Way!" is Common
+1004|0|"Make Haste!" is Common
+1005|1|"We Shall Return!" is Uncommon
+1006|1|"Never Give Up!" is Uncommon
+1007|0|"Help Me!" is Common
+1008|1|"Fall Back!" is Uncommon
+1009|1|"Incoming!" is Uncommon
+1010|1|"They're on Fire!" is Uncommon
+1011|1|"Never Surrender!" is Uncommon
+1012|1|"It's Just a Flesh Wound." is Uncommon
+1013|0|Barbed Spear is Common
+1014|0|Vicious Attack is Common
+1015|2|Stunning Strike is Rare
+1016|1|Merciless Spear is Uncommon
+1017|0|Disrupting Throw is Common
+1018|1|Wild Throw is Uncommon
+1019|1|Malicious Strike is Uncommon
+1020|2|Shattering Assault is Rare
+1021|1|Golden Skull Strike is Uncommon
+1022|1|Black Spider Strike is Uncommon
+1023|1|Golden Fox Strike is Uncommon
+1024|1|Deadly Haste is Uncommon
+1025|1|Assassin's Remedy is Uncommon
+1026|1|Fox's Promise is Uncommon
+1027|1|Feigned Neutrality is Uncommon
+1028|1|Hidden Caltrops is Uncommon
+1029|2|Assault Enchantments is Rare
+1030|1|Wastrel's Collapse is Uncommon
+1031|0|Lift Enchantment is Common
+1032|1|Augury of Death is Uncommon
+1033|1|Signet of Toxic Shock is Uncommon
+1034|1|Signet of Twilight is Uncommon
+1035|1|Way of the Assassin is Uncommon
+1036|1|Shadow Walk is Uncommon
+1037|0|Death's Retreat is Common
+1038|2|Shadow Prison is Rare
+1039|1|Swap is Uncommon
+1040|1|Shadow Meld is Uncommon
+1041|1|Price of Pride is Uncommon
+1042|1|Air of Disenchantment is Uncommon
+1043|0|Signet of Clumsiness is Common
+1044|1|Symbolic Posture is Uncommon
+1045|1|Toxic Chill is Uncommon
+1046|1|Well of Silence is Uncommon
+1047|0|Glowstone is Common
+1048|1|Mind Blast is Uncommon
+1049|1|Elemental Flame is Uncommon
+1050|2|Invoke Lightning is Rare
+1051|1|Pensive Guardian is Uncommon
+1052|1|Scribe's Insight is Uncommon
+1053|1|Holy Haste is Uncommon
+1054|1|Glimmer of Light is Uncommon
+1055|2|Zealous Benediction is Rare
+1056|1|Defender's Zeal is Uncommon
+1057|0|Signet of Mystic Wrath is Common
+1058|1|Signet of Removal is Uncommon
+1059|1|Dismiss Condition is Uncommon
+1060|2|Divert Hexes is Rare
+1061|0|Counterattack is Common
+1062|1|Magehunter Strike is Uncommon
+1063|0|Soldier's Strike is Common
+1064|2|Decapitate is Rare
+1065|2|Magehunter's Smash is Rare
+1066|2|Soldier's Stance is Rare
+1067|1|Soldier's Defense is Uncommon
+1068|0|Frenzied Defense is Common
+1069|2|Steady Stance is Rare
+1070|1|Steelfang Slash is Uncommon
+1071|1|Screaming Shot is Uncommon
+1072|1|Keen Arrow is Uncommon
+1073|2|Rampage as One is Rare
+1074|1|Forked Arrow is Uncommon
+1075|1|Disrupting Accuracy is Uncommon
+1076|2|Expert's Dexterity is Rare
+1077|1|Roaring Winds is Uncommon
+1078|1|Magebane Shot is Uncommon
+1079|0|Natural Stride is Common
+1080|0|Heket's Rampage is Common
+1081|1|Smoke Trap is Uncommon
+1082|1|Infuriating Heat is Uncommon
+1083|1|Vocal Was Sogolon is Uncommon
+1084|2|Destructive Was Glaive is Rare
+1085|1|Wielder's Strike is Uncommon
+1086|1|Gaze of Fury is Uncommon
+1087|2|Spirit's Strength is Rare
+1088|2|Wielder's Zeal is Rare
+1089|1|Sight Beyond Sight is Uncommon
+1090|1|Renewing Memories is Uncommon
+1091|0|Wielder's Remedy is Common
+1092|1|Ghostmirror Light is Uncommon
+1093|2|Signet of Ghostly Might is Rare
+1094|1|Signet of Binding is Uncommon
+1095|0|Caretaker's Charge is Common
+1096|1|Anguish is Uncommon
+1097|1|Empowerment is Uncommon
+1098|0|Recovery is Common
+1099|1|Weapon of Fury is Uncommon
+1100|1|Xinrae's Weapon is Uncommon
+1101|1|Warmonger's Weapon is Uncommon
+1102|1|Weapon of Remedy is Uncommon
+1103|1|Rending Sweep is Uncommon
+1104|2|Onslaught is Rare
+1105|0|Mystic Corruption is Common
+1106|1|Grenth's Grasp is Uncommon
+1107|1|Veil of Thorns is Uncommon
+1108|0|Harrier's Grasp is Common
+1109|2|Vow of Strength is Rare
+1110|1|Ebon Dust Aura is Uncommon
+1111|2|Zealous Vow is Rare
+1112|0|Heart of Fury is Common
+1113|0|Zealous Renewal is Common
+1114|1|Attacker's Insight is Uncommon
+1115|0|Rending Aura is Common
+1116|1|Featherfoot Grace is Uncommon
+1117|1|Reaper's Sweep is Uncommon
+1118|0|Harrier's Haste is Common
+1119|2|Focused Anger is Rare
+1120|1|Natural Temper is Uncommon
+1121|1|Song of Restoration is Uncommon
+1122|1|Lyric of Purification is Uncommon
+1123|1|Soldier's Fury is Uncommon
+1124|1|Aggressive Refrain is Uncommon
+1125|1|Energizing Finale is Uncommon
+1126|0|Signet of Aggression is Common
+1127|0|Remedy Signet is Common
+1128|0|Signet of Return is Common
+1129|1|"Make Your Time!" is Uncommon
+1130|1|"Can't Touch This!" is Uncommon
+1131|1|"Find Their Weakness!" is Uncommon
+1132|1|"The Power Is Yours!" is Uncommon
+1133|1|Slayer's Spear is Uncommon
+1134|0|Swift Javelin is Common
+1135|1|Lightbringer's Gaze is Uncommon
+1136|1|Lightbringer Signet is Uncommon
+1137|0|Sunspear Rebirth Signet is Common
+1138|1|Shadow Sanctuary (Luxon) is Uncommon
+1139|1|Ether Nightmare (Luxon) is Uncommon
+1140|1|Signet of Corruption (Luxon) is Uncommon
+1141|1|Elemental Lord (Luxon) is Uncommon
+1142|1|Selfless Spirit (Luxon) is Uncommon
+1143|1|Triple Shot (Luxon) is Uncommon
+1144|1|"Save Yourselves!" (Luxon) is Uncommon
+1145|1|Aura of Holy Might (Luxon) is Uncommon
+1146|1|Spear of Fury (Luxon) is Uncommon
+1147|1|Vampiric Assault is Uncommon
+1148|0|Lotus Strike is Common
+1149|1|Golden Fang Strike is Uncommon
+1150|1|Falling Lotus Strike is Uncommon
+1151|1|Sadist's Signet is Uncommon
+1152|0|Signet of Distraction is Common
+1153|1|Signet of Recall is Uncommon
+1154|0|Power Lock is Common
+1155|0|Waste Not, Want Not is Common
+1156|0|Sum of All Fears is Common
+1157|1|Withering Aura is Uncommon
+1158|1|Cacophony is Uncommon
+1159|0|Winter's Embrace is Common
+1160|1|Earthen Shackles is Uncommon
+1161|1|Ward of Weakness is Uncommon
+1162|1|Glyph of Swiftness is Uncommon
+1163|1|Cure Hex is Uncommon
+1164|0|Smite Condition is Common
+1165|1|Smiter's Boon is Uncommon
+1166|0|Castigation Signet is Common
+1167|1|Purifying Veil is Uncommon
+1168|1|Pulverizing Smash is Uncommon
+1169|1|Keen Chop is Uncommon
+1170|1|Knee Cutter is Uncommon
+1171|0|Grapple is Common
+1172|0|Radiant Scythe is Common
+1173|1|Grenth's Aura is Uncommon
+1174|1|Signet of Pious Restraint is Uncommon
+1175|0|Farmer's Scythe is Common
+1176|1|Energetic Was Lee Sa is Uncommon
+1177|0|Anthem of Weariness is Common
+1178|0|Anthem of Disruption is Common
+1179|1|Summon Spirits (Luxon) is Uncommon
+1180|0|Shadow Fang is Common
+1181|0|Calculated Risk is Common
+1182|0|Shrinking Armor is Common
+1183|1|Aneurysm is Uncommon
+1184|1|Wandering Eye is Uncommon
+1185|0|Foul Feast is Common
+1186|1|Putrid Bile is Uncommon
+1187|0|Shell Shock is Common
+1188|0|Glyph of Immolation is Common
+1189|1|Patient Spirit is Uncommon
+1190|1|Healing Ribbon is Uncommon
+1191|1|Aura of Stability is Uncommon
+1192|1|Spotless Mind is Uncommon
+1193|1|Spotless Soul is Uncommon
+1194|1|Disarm is Uncommon
+1195|1|"I Meant to Do That!" is Uncommon
+1196|0|Rapid Fire is Common
+1197|1|Sloth Hunter's Shot is Uncommon
+1198|1|Aura Slicer is Uncommon
+1199|1|Zealous Sweep is Uncommon
+1200|1|Pure Was Li Ming is Uncommon
+1201|1|Weapon of Aggression is Uncommon
+1202|1|Chest Thumper is Uncommon
+1203|0|Hasty Refrain is Common
+1204|1|Shadow Sanctuary (Kurzick) is Uncommon
+1205|1|Ether Nightmare (Kurzick) is Uncommon
+1206|1|Signet of Corruption (Kurzick) is Uncommon
+1207|1|Elemental Lord (Kurzick) is Uncommon
+1208|1|Selfless Spirit (Kurzick) is Uncommon
+1209|1|Triple Shot (Kurzick) is Uncommon
+1210|1|"Save Yourselves!" (Kurzick) is Uncommon
+1211|1|Aura of Holy Might (Kurzick) is Uncommon
+1212|1|Spear of Fury (Kurzick) is Uncommon
+1213|1|Summon Spirits (Kurzick) is Uncommon
+1214|1|Critical Agility is Uncommon
+1215|1|Cry of Pain is Uncommon
+1216|1|Necrosis is Uncommon
+1217|1|Intensity is Uncommon
+1218|1|Seed of Life is Uncommon
+1219|1|Whirlwind Attack is Uncommon
+1220|1|Never Rampage Alone is Uncommon
+1221|1|Eternal Aura is Uncommon
+1222|1|Vampirism is Uncommon
+1223|1|"There's Nothing to Fear!" is Uncommon
+1224|1|Sneak Attack is Uncommon
+1225|1|Trampling Ox is Uncommon
+1226|0|Smoke Powder Defense is Common
+1227|1|Confusing Images is Uncommon
+1228|0|Hexer's Vigor is Common
+1229|1|Masochism is Uncommon
+1230|0|Piercing Trap is Common
+1231|1|Companionship is Uncommon
+1232|1|Feral Aggression is Uncommon
+1233|0|Disrupting Shot is Common
+1234|1|Volley is Uncommon
+1235|1|Expert Focus is Uncommon
+1236|0|Pious Fury is Common
+1237|0|Crippling Victory is Common
+1238|0|Sundering Weapon is Common
+1239|1|Weapon of Renewal is Uncommon
+1240|0|Maiming Spear is Common
+1241|0|Signet of Deadly Corruption is Common
+1242|1|Way of the Master is Uncommon
+1243|0|Defile Defenses is Common
+1244|0|Angorodon's Gaze is Common
+1245|0|Magnetic Surge is Common
+1246|1|Slippery Ground is Uncommon
+1247|0|Glowing Ice is Common
+1248|0|Energy Blast is Common
+1249|0|Distracting Strike is Common
+1250|1|Symbolic Strike is Uncommon
+1251|0|Soldier's Speed is Common
+1252|2|Body Blow is Rare
+1253|1|Body Shot is Uncommon
+1254|0|Poison Tip Signet is Common
+1255|1|Signet of Mystic Speed is Uncommon
+1256|0|Shield of Force is Common
+1257|1|Mending Grip is Uncommon
+1258|1|Spiritleech Aura is Uncommon
+1259|0|Rejuvenation is Common
+1260|0|Agony is Common
+1261|1|Ghostly Weapon is Uncommon
+1262|1|Inspirational Speech is Uncommon
+1263|1|Burning Shield is Uncommon
+1264|0|Holy Spear is Common
+1265|0|Spear Swipe is Common
+1266|1|Alkar's Alchemical Acid is Uncommon
+1267|0|Light of Deldrimor is Common
+1268|0|Ear Bite is Common
+1269|0|Low Blow is Common
+1270|0|Brawling Headbutt is Common
+1271|0|"Don't Trip!" is Common
+1272|0|"By Ural's Hammer!" is Common
+1273|1|Drunken Master is Uncommon
+1274|2|Great Dwarf Weapon is Rare
+1275|0|Great Dwarf Armor is Common
+1276|1|Breath of the Great Dwarf is Uncommon
+1277|0|Snow Storm is Common
+1278|0|Black Powder Mine is Common
+1279|1|Summon Mursaat is Uncommon
+1280|1|Summon Ruby Djinn is Uncommon
+1281|1|Summon Ice Imp is Uncommon
+1282|1|Summon Naga Shaman is Uncommon
+1283|1|Deft Strike is Uncommon
+1284|0|Signet of Infection is Common
+1285|2|Tryptophan Signet is Rare
+1286|1|Ebon Battle Standard of Courage is Uncommon
+1287|1|Ebon Battle Standard of Wisdom is Uncommon
+1288|1|Ebon Battle Standard of Honor is Uncommon
+1289|1|Ebon Vanguard Sniper Support is Uncommon
+1290|2|Ebon Vanguard Assassin Support is Rare
+1291|1|Well of Ruin is Uncommon
+1292|1|Atrophy is Uncommon
+1293|0|Spear of Redemption is Common
+1294|1|"Finish Him!" is Uncommon
+1295|0|"Dodge This!" is Common
+1296|1|"I Am the Strongest!" is Uncommon
+1297|1|"I Am Unstoppable!" is Uncommon
+1298|0|A Touch of Guile is Common
+1299|2|"You Move Like a Dwarf!" is Rare
+1300|1|"You Are All Weaklings!" is Uncommon
+1301|0|Feel No Pain is Common
+1302|1|Club of a Thousand Bears is Uncommon
+1303|2|Ursan Blessing is Rare
+1304|2|Volfen Blessing is Rare
+1305|2|Raven Blessing is Rare
+1306|0|Mindbender is Common
+1307|0|Smooth Criminal is Common
+1308|1|Technobabble is Uncommon
+1309|0|Radiation Field is Common
+1310|1|Asuran Scan is Uncommon
+1311|1|Air of Superiority is Uncommon
+1312|0|Mental Block is Common
+1313|2|Pain Inverter is Rare
+1314|1|Ebon Escape is Uncommon
+1315|0|Weakness Trap is Common
+1316|1|Winds is Uncommon
+1317|1|Dwarven Stability is Uncommon
+1318|2|Time Ward is Rare
+1319|2|Soul Taker is Rare
+1320|2|Over the Limit is Rare
+1321|2|Judgment Strike is Rare
+1322|2|Seven Weapons Stance is Rare
+1323|2|"Together as One!" is Rare
+1324|2|Shadow Theft is Rare
+1325|2|Weapons of Three Forges is Rare
+1326|2|Vow of Revolution is Rare
+1327|2|Heroic Refrain is Rare

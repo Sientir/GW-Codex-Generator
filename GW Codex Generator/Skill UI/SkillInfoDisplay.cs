@@ -38,7 +38,7 @@ namespace GW_Codex_Generator.Skill_UI
             float x = Padding.Left;
             SizeF NameSize = e.Graphics.MeasureString(CurrentSkill.Name, NameFont);
 
-            e.Graphics.DrawString(CurrentSkill.Name + " (" + CurrentSkill.AttributeName + "—Rating: " + CurrentSkill.Rating.ToString() + ")", NameFont, TextColor, x, y);
+            e.Graphics.DrawString(CurrentSkill.Name + " (" + CurrentSkill.AttributeName + "—Rating: " + CurrentSkill.Rating.ToString() + " | Rarity: " + CurrentSkill.GetRarityLabel() + ")", NameFont, TextColor, x, y);
 
             y += NameSize.Height + 3;
 

@@ -57,6 +57,20 @@
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.templateCodeDebugger1 = new GW_Codex_Generator.TemplateCodeDebugger();
             this.@__TemplateCodeParserTest = new GW_Codex_Generator.TemplateReaderDisplay();
+            this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.@__SaveInternalIDsFile = new System.Windows.Forms.Button();
+            this.@__Button_EditSkillRatingsFromBeginning = new System.Windows.Forms.Button();
+            this.@__Button_EditRatings = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.@__Button_AssignRaritiesFromBeginning = new System.Windows.Forms.Button();
+            this.@__Button_AssignRarities = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.@__Rarities = new System.Windows.Forms.TextBox();
+            this.tabPage8 = new System.Windows.Forms.TabPage();
+            this.@__SkillBoosterLeagueUI = new GW_Codex_Generator.Skill_Boosters.SkillBoosterLeagueUI();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.@__Set_AddButton = new System.Windows.Forms.Button();
+            this.@__SetSelector = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -70,6 +84,10 @@
             this.tabPage6.SuspendLayout();
             this.tabPage4.SuspendLayout();
             this.tabPage5.SuspendLayout();
+            this.tabPage7.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.tabPage8.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -111,6 +129,8 @@
             this.@__Tabs.Controls.Add(this.tabPage6);
             this.@__Tabs.Controls.Add(this.tabPage4);
             this.@__Tabs.Controls.Add(this.tabPage5);
+            this.@__Tabs.Controls.Add(this.tabPage7);
+            this.@__Tabs.Controls.Add(this.tabPage8);
             this.@__Tabs.Dock = System.Windows.Forms.DockStyle.Fill;
             this.@__Tabs.Location = new System.Drawing.Point(0, 0);
             this.@__Tabs.Name = "__Tabs";
@@ -410,6 +430,150 @@
             this.@__TemplateCodeParserTest.Size = new System.Drawing.Size(524, 190);
             this.@__TemplateCodeParserTest.TabIndex = 0;
             // 
+            // tabPage7
+            // 
+            this.tabPage7.Controls.Add(this.groupBox3);
+            this.tabPage7.Controls.Add(this.@__SaveInternalIDsFile);
+            this.tabPage7.Controls.Add(this.@__Button_EditSkillRatingsFromBeginning);
+            this.tabPage7.Controls.Add(this.@__Button_EditRatings);
+            this.tabPage7.Controls.Add(this.groupBox2);
+            this.tabPage7.Location = new System.Drawing.Point(4, 22);
+            this.tabPage7.Name = "tabPage7";
+            this.tabPage7.Size = new System.Drawing.Size(788, 553);
+            this.tabPage7.TabIndex = 6;
+            this.tabPage7.Text = "Settings";
+            this.tabPage7.UseVisualStyleBackColor = true;
+            // 
+            // __SaveInternalIDsFile
+            // 
+            this.@__SaveInternalIDsFile.Location = new System.Drawing.Point(129, 5);
+            this.@__SaveInternalIDsFile.Name = "__SaveInternalIDsFile";
+            this.@__SaveInternalIDsFile.Size = new System.Drawing.Size(90, 67);
+            this.@__SaveInternalIDsFile.TabIndex = 3;
+            this.@__SaveInternalIDsFile.Text = "Save file containing internal skill IDs.";
+            this.@__SaveInternalIDsFile.UseVisualStyleBackColor = true;
+            this.@__SaveInternalIDsFile.Click += new System.EventHandler(this.@__SaveInternalIDsFile_Click);
+            // 
+            // __Button_EditSkillRatingsFromBeginning
+            // 
+            this.@__Button_EditSkillRatingsFromBeginning.Location = new System.Drawing.Point(6, 34);
+            this.@__Button_EditSkillRatingsFromBeginning.Name = "__Button_EditSkillRatingsFromBeginning";
+            this.@__Button_EditSkillRatingsFromBeginning.Size = new System.Drawing.Size(117, 38);
+            this.@__Button_EditSkillRatingsFromBeginning.TabIndex = 2;
+            this.@__Button_EditSkillRatingsFromBeginning.Text = "Edit Skill Ratings From Beginning";
+            this.@__Button_EditSkillRatingsFromBeginning.UseVisualStyleBackColor = true;
+            this.@__Button_EditSkillRatingsFromBeginning.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // __Button_EditRatings
+            // 
+            this.@__Button_EditRatings.Location = new System.Drawing.Point(6, 5);
+            this.@__Button_EditRatings.Name = "__Button_EditRatings";
+            this.@__Button_EditRatings.Size = new System.Drawing.Size(117, 23);
+            this.@__Button_EditRatings.TabIndex = 1;
+            this.@__Button_EditRatings.Text = "Edit Skill Ratings";
+            this.@__Button_EditRatings.UseVisualStyleBackColor = true;
+            this.@__Button_EditRatings.Click += new System.EventHandler(this.@__Button_EditRatings_Click);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.@__Button_AssignRaritiesFromBeginning);
+            this.groupBox2.Controls.Add(this.@__Button_AssignRarities);
+            this.groupBox2.Controls.Add(this.label2);
+            this.groupBox2.Controls.Add(this.@__Rarities);
+            this.groupBox2.Location = new System.Drawing.Point(6, 90);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(147, 236);
+            this.groupBox2.TabIndex = 0;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Edit Rarities for Boosters";
+            // 
+            // __Button_AssignRaritiesFromBeginning
+            // 
+            this.@__Button_AssignRaritiesFromBeginning.Location = new System.Drawing.Point(6, 48);
+            this.@__Button_AssignRaritiesFromBeginning.Name = "__Button_AssignRaritiesFromBeginning";
+            this.@__Button_AssignRaritiesFromBeginning.Size = new System.Drawing.Size(135, 40);
+            this.@__Button_AssignRaritiesFromBeginning.TabIndex = 3;
+            this.@__Button_AssignRaritiesFromBeginning.Text = "Assign Rarities From Beginning";
+            this.@__Button_AssignRaritiesFromBeginning.UseVisualStyleBackColor = true;
+            this.@__Button_AssignRaritiesFromBeginning.Click += new System.EventHandler(this.@__Button_AssignRaritiesFromBeginning_Click);
+            // 
+            // __Button_AssignRarities
+            // 
+            this.@__Button_AssignRarities.Location = new System.Drawing.Point(6, 19);
+            this.@__Button_AssignRarities.Name = "__Button_AssignRarities";
+            this.@__Button_AssignRarities.Size = new System.Drawing.Size(135, 23);
+            this.@__Button_AssignRarities.TabIndex = 2;
+            this.@__Button_AssignRarities.Text = "Assign Rarities";
+            this.@__Button_AssignRarities.UseVisualStyleBackColor = true;
+            this.@__Button_AssignRarities.Click += new System.EventHandler(this.@__Button_AssignRarities_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(19, 91);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(109, 39);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Rarities, one per line\r\nAssign rarities to save\r\nrarity labels.";
+            // 
+            // __Rarities
+            // 
+            this.@__Rarities.Location = new System.Drawing.Point(6, 133);
+            this.@__Rarities.Multiline = true;
+            this.@__Rarities.Name = "__Rarities";
+            this.@__Rarities.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.@__Rarities.Size = new System.Drawing.Size(135, 97);
+            this.@__Rarities.TabIndex = 0;
+            this.@__Rarities.Text = "Common\r\nUncommon\r\nRare";
+            // 
+            // tabPage8
+            // 
+            this.tabPage8.Controls.Add(this.@__SkillBoosterLeagueUI);
+            this.tabPage8.Location = new System.Drawing.Point(4, 22);
+            this.tabPage8.Name = "tabPage8";
+            this.tabPage8.Size = new System.Drawing.Size(788, 553);
+            this.tabPage8.TabIndex = 7;
+            this.tabPage8.Text = "Skill Booster League";
+            this.tabPage8.UseVisualStyleBackColor = true;
+            // 
+            // __SkillBoosterLeagueUI
+            // 
+            this.@__SkillBoosterLeagueUI.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.@__SkillBoosterLeagueUI.Location = new System.Drawing.Point(0, 0);
+            this.@__SkillBoosterLeagueUI.Name = "__SkillBoosterLeagueUI";
+            this.@__SkillBoosterLeagueUI.Size = new System.Drawing.Size(788, 553);
+            this.@__SkillBoosterLeagueUI.TabIndex = 0;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.@__SetSelector);
+            this.groupBox3.Controls.Add(this.@__Set_AddButton);
+            this.groupBox3.Location = new System.Drawing.Point(159, 90);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(320, 236);
+            this.groupBox3.TabIndex = 4;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Define Sets";
+            // 
+            // __Set_AddButton
+            // 
+            this.@__Set_AddButton.Location = new System.Drawing.Point(278, 19);
+            this.@__Set_AddButton.Name = "__Set_AddButton";
+            this.@__Set_AddButton.Size = new System.Drawing.Size(36, 23);
+            this.@__Set_AddButton.TabIndex = 0;
+            this.@__Set_AddButton.Text = "Add";
+            this.@__Set_AddButton.UseVisualStyleBackColor = true;
+            this.@__Set_AddButton.Click += new System.EventHandler(this.@__Set_AddButton_Click);
+            // 
+            // __SetSelector
+            // 
+            this.@__SetSelector.FormattingEnabled = true;
+            this.@__SetSelector.Location = new System.Drawing.Point(6, 19);
+            this.@__SetSelector.Name = "__SetSelector";
+            this.@__SetSelector.Size = new System.Drawing.Size(266, 21);
+            this.@__SetSelector.TabIndex = 1;
+            this.@__SetSelector.Text = "Select Set to Edit";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -436,6 +600,11 @@
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
             this.tabPage5.ResumeLayout(false);
+            this.tabPage7.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            this.tabPage8.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -470,6 +639,20 @@
         private TemplateCodeDebugger templateCodeDebugger1;
         private System.Windows.Forms.TabPage tabPage6;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TabPage tabPage7;
+        private System.Windows.Forms.TabPage tabPage8;
+        private System.Windows.Forms.Button __Button_EditRatings;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Button __Button_EditSkillRatingsFromBeginning;
+        private System.Windows.Forms.TextBox __Rarities;
+        private System.Windows.Forms.Button __Button_AssignRaritiesFromBeginning;
+        private System.Windows.Forms.Button __Button_AssignRarities;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button __SaveInternalIDsFile;
+        private Skill_Boosters.SkillBoosterLeagueUI __SkillBoosterLeagueUI;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.ComboBox __SetSelector;
+        private System.Windows.Forms.Button __Set_AddButton;
     }
 }
 

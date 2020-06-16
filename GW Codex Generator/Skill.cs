@@ -92,6 +92,10 @@ namespace GW_Codex_Generator
             Attributes.Mysticism
         };
 
+        static Font QuantityFont = new Font("Arial", 16);
+        static SolidBrush QuantityBrush = new SolidBrush(Color.White);
+        static SolidBrush QuantityBackgroundBrush = new SolidBrush(Color.FromArgb(192, 0, 0, 0));
+
         static public string[] AttributeNames =
         {
             "Axe Mastery",
@@ -147,6 +151,7 @@ namespace GW_Codex_Generator
         Attributes _Attribute = Attributes.None;
         bool Elite = false;
         string _Description = "I am a skill.";
+        public int Rarity = 0;
 
         #region Costs
         public string Cost_Energy { get; private set; }
@@ -228,6 +233,15 @@ namespace GW_Codex_Generator
             g.DrawImage(Icon, x, y);
         }
 
+        public void Draw(Graphics g, int x, int y, int quantity)
+        {
+            g.DrawImage(Icon, x, y);
+            string quantity_string = quantity.ToString();
+            SizeF dimensions = g.MeasureString(quantity_string, QuantityFont);
+            g.FillRectangle(QuantityBackgroundBrush, x, y, dimensions.Width + 2, dimensions.Height);
+            g.DrawString(quantity.ToString(), QuantityFont, QuantityBrush, x + 1, y + 1);
+        }
+
         public void AddToBag(GrabBag bag)
         {
             bag.Skills.Add(this);
@@ -268,9 +282,20 @@ namespace GW_Codex_Generator
         public bool IsElite { get { return Elite; } }
         public Image Icon { get { return _Icon; } private set { _Icon = value; } }
 
+        public int Compare(Skill y)
+        {
+            return (int)(Profession == y.Profession ? (Attribute == y.Attribute ? (Name.CompareTo(y.Name)) : Attribute - y.Attribute) : Profession - y.Profession);
+        }
+
         public void UpdateRating(int newRating)
         {
             _Rating = newRating;
+        }
+
+        public string GetRarityLabel()
+        {
+            if (Rarity < 0 || Rarity >= SkillDatabase.RarityLabels.Length) return "Unknown Rarity";
+            else return SkillDatabase.RarityLabels[Rarity];
         }
     }
 
