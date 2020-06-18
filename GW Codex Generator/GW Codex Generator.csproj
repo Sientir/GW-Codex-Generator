@@ -157,6 +157,12 @@
     <Compile Include="Skill Boosters\SkillBoosterSetUI.Designer.cs">
       <DependentUpon>SkillBoosterSetUI.cs</DependentUpon>
     </Compile>
+    <Compile Include="Skill Boosters\SkillSetEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Skill Boosters\SkillSetEditor.Designer.cs">
+      <DependentUpon>SkillSetEditor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Skill UI\SkillDisplay.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -257,6 +263,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Skill Boosters\SkillBoosterSetUI.resx">
       <DependentUpon>SkillBoosterSetUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Skill Boosters\SkillSetEditor.resx">
+      <DependentUpon>SkillSetEditor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Skill UI\SkillDisplay.resx">
       <DependentUpon>SkillDisplay.cs</DependentUpon>

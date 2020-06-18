@@ -122,5 +122,12 @@ namespace GW_Codex_Generator.Skill_Boosters
             League.SortByRating();
             __LeaguePoolDisplay.Redraw();
         }
+
+        private void __Button_NewLeague_Click(object sender, EventArgs e)
+        {
+            __SaveBoosterLeagueDialog.FileName = "Untitled League.gwsbl";
+            League.Clear();
+            __LeaguePoolDisplay.Redraw();
+        }
     }
 }

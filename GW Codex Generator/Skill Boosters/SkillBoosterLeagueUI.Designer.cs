@@ -40,6 +40,7 @@
             this.@__SortButton_Standard = new System.Windows.Forms.Button();
             this.@__SortButton_Rarity = new System.Windows.Forms.Button();
             this.@__SortButton_Rating = new System.Windows.Forms.Button();
+            this.@__Button_NewLeague = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.@__NumberOfBoostersToAdd)).BeginInit();
             this.SuspendLayout();
             // 
@@ -167,10 +168,21 @@
             this.@__SortButton_Rating.UseVisualStyleBackColor = true;
             this.@__SortButton_Rating.Click += new System.EventHandler(this.@__SortButton_Rating_Click);
             // 
+            // __Button_NewLeague
+            // 
+            this.@__Button_NewLeague.Location = new System.Drawing.Point(583, 3);
+            this.@__Button_NewLeague.Name = "__Button_NewLeague";
+            this.@__Button_NewLeague.Size = new System.Drawing.Size(101, 23);
+            this.@__Button_NewLeague.TabIndex = 10;
+            this.@__Button_NewLeague.Text = "New League";
+            this.@__Button_NewLeague.UseVisualStyleBackColor = true;
+            this.@__Button_NewLeague.Click += new System.EventHandler(this.@__Button_NewLeague_Click);
+            // 
             // SkillBoosterLeagueUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.@__Button_NewLeague);
             this.Controls.Add(this.@__SortButton_Rating);
             this.Controls.Add(this.@__SortButton_Rarity);
             this.Controls.Add(this.@__SortButton_Standard);
@@ -182,7 +194,7 @@
             this.Controls.Add(this.@__Button_RefreshSetList);
             this.Controls.Add(this.@__SelectedSet);
             this.Name = "SkillBoosterLeagueUI";
-            this.Size = new System.Drawing.Size(594, 545);
+            this.Size = new System.Drawing.Size(902, 545);
             ((System.ComponentModel.ISupportInitialize)(this.@__NumberOfBoostersToAdd)).EndInit();
             this.ResumeLayout(false);
 
@@ -202,5 +214,6 @@
         private System.Windows.Forms.Button __SortButton_Standard;
         private System.Windows.Forms.Button __SortButton_Rarity;
         private System.Windows.Forms.Button __SortButton_Rating;
+        private System.Windows.Forms.Button __Button_NewLeague;
     }
 }

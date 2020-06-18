@@ -39,17 +39,12 @@ namespace GW_Codex_Generator.Skill_Boosters
             SkillBoosterSet set = SkillBoosterSet.Sets[set_index]; // Gotta grab this!
 
             // Do some stuff!
-            List<Skill> base_pool = SkillDatabase.GetSkillsByCampaign(set.AllowedCampaigns, set.AllowPvE_OnlySkills);
-            foreach (Skill s in base_pool)
+            foreach (int i in set.SetSkills)
             {
                 // But, like, actually do the thing!
                 // At this point, skills have been excluded based on what campaigns are allowed and whether or not PvE only skills are included.
                 // That leaves the ratings filter.
-                if (set.PermittedRatings.Contains(s.Rating))
-                {
-                    // Add it to the proper category based on rarity!
-                    skills_per_rarity[s.Rarity].Add(s.ID);
-                }
+                skills_per_rarity[SkillDatabase.Data[i].Rarity].Add(i);
             }
 
             return skills_per_rarity;
@@ -95,22 +90,48 @@ namespace GW_Codex_Generator.Skill_Boosters
         public static List<SkillBoosterSet> Sets = new List<SkillBoosterSet>();
         public int[] PackRarityContents = { 11, 3, 1 }; // Just defaulting to standard MTG booster pack ratios.
         public string Name = "Standard";
+        public List<int> SetSkills = new List<int>();
         // Need to define allowed sets, if PvE only are included, and permitted ratings.
-        public int AllowedCampaigns = 0x1F; // Should be all five campaigns if I've got my bit math correct...
-        public bool AllowPvE_OnlySkills = false; // Disable PvE only skills by default.
-        public List<int> PermittedRatings = new List<int>(new int[] { 1, 2, 3, 4, 5 }); // Default to all ratings.
+        //public int AllowedCampaigns = 0x1F; // Should be all five campaigns if I've got my bit math correct...
+        //public bool AllowPvE_OnlySkills = false; // Disable PvE only skills by default.
+        //public List<int> PermittedRatings = new List<int>(new int[] { 1, 2, 3, 4, 5 }); // Default to all ratings.
 
+        public List<Skill> GetPool()
+        {
+            List<Skill> pool = new List<Skill>();
+            foreach (int id in SetSkills)
+            {
+                pool.Add(SkillDatabase.Data[id]);
+            }
+
+            return pool;
+        }
+
+        /*
+         Maybe consider adding finer controls, such as allowing the specification of certain attributes/professions, or even
+         listing a select set of skills included!
+             */
         static public void LoadSets()
         {
             // Make the default set.
-            Sets.Add(new SkillBoosterSet());
-            if(System.IO.Directory.Exists("\\GW Codex Skill Sets"))
+            SkillBoosterSet defaultset = new SkillBoosterSet();
+            foreach (Skill skill in SkillDatabase.Data)
             {
-                string[] setFiles = System.IO.Directory.GetFiles("\\GW Codex Skill Sets", "*.gwset");
-                foreach(string file in setFiles)
+                if (skill.Attribute != Skill.Attributes.PvE_Only)
+                {
+                    defaultset.SetSkills.Add(skill.ID);
+                }
+            }
+            Sets.Add(defaultset);
+
+            // Load any other sets:
+            if (System.IO.Directory.Exists(Environment.CurrentDirectory + "\\GW Codex Skill Sets"))
+            {
+                string[] setFiles = System.IO.Directory.GetFiles(Environment.CurrentDirectory + "\\GW Codex Skill Sets", "*.gwset");
+                foreach (string file in setFiles)
                 {
                     SkillBoosterSet set = Read(file);
-                    if(set != null)
+                    if (set != null)
                     {
                         Sets.Add(set);
                     }
@@ -120,21 +141,16 @@ namespace GW_Codex_Generator.Skill_Boosters
 
         public void Save(string filename)
         {
-            System.IO.BinaryWriter output = new System.IO.BinaryWriter(System.IO.File.Create(filename));
+            System.IO.StreamWriter output = new System.IO.StreamWriter(filename);
 
-            output.Write(0); // Version number, always include one of these, you never know when you'll want it with a binary file!
-            // Name:
-            output.Write(Name);
-            // Contents:
-            output.Write(PackRarityContents.Length);
-            foreach (int content in PackRarityContents) output.Write(content);
-            // Allowed campaigns:
-            output.Write(AllowedCampaigns);
-            // PvE only skills?
-            output.Write(AllowPvE_OnlySkills);
-            // Permitted ratings:
-            output.Write(PermittedRatings.Count);
-            foreach (int rating in PermittedRatings) output.Write(rating);
+            output.WriteLine("File format: Instruct line (this line), set name, quantities per rarity (lowest rarity|middle|...|highest), then remaining lines are internal IDs of skills included in the set.");
+            output.WriteLine(Name);
+            // The rarities quantities!
+            if (PackRarityContents.Length > 0) output.Write(PackRarityContents[0].ToString());
+            for (int i = 1; i < PackRarityContents.Length; ++i) output.Write("|" + PackRarityContents[i].ToString());
+            output.Write(Environment.NewLine);
+            // The included skills!
+            foreach (int id in SetSkills) output.WriteLine(id.ToString());
 
             output.Close();
             System.Windows.Forms.MessageBox.Show("Skill Booster Set saved to " + filename + "!", "Save Complete", System.Windows.Forms.MessageBoxButtons.OK);
@@ -142,33 +158,52 @@ namespace GW_Codex_Generator.Skill_Boosters
 
         static public SkillBoosterSet Read(string filename)
         {
-            System.IO.BinaryReader input = new System.IO.BinaryReader(System.IO.File.OpenRead(filename));
+            System.IO.StreamReader input = new System.IO.StreamReader(filename);
             SkillBoosterSet set = new SkillBoosterSet();
 
-            input.ReadInt32(); // version number...
+            input.ReadLine(); // Instruction line, undeeded.
 
             // Read name:
-            set.Name = input.ReadString();
+            set.Name = input.ReadLine();
 
-            // Read the contents:
-            int contents = input.ReadInt32();
-            set.PackRarityContents = new int[contents];
-
-            for (int i = 0; i < contents; ++i)
+            // Read rarity counts:
+            string linecopy = input.ReadLine();
+            string[] raritycontents = linecopy.Split(new char[] { '|' }, StringSplitOptions.RemoveEmptyEntries);
+            List<int> translated_raritycontents = new List<int>();
+            foreach (string str in raritycontents)
             {
-                set.PackRarityContents[i] = input.ReadInt32();
+                try
+                {
+                    translated_raritycontents.Add(Convert.ToInt32(str));
+                }
+                catch (Exception e)
+                {
+                    System.Windows.Forms.MessageBox.Show("Warning: Malformed number \"" + str + "\" in line \"" + linecopy + "\" in Skill Set file: " + filename + Environment.NewLine + Environment.NewLine + "Error message: " + e.Message, "Malformed Line", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Warning);
+                }
             }
 
-            // Allowed campaigns:
-            set.AllowedCampaigns = input.ReadInt32();
-            // PvE only skills?
-            set.AllowPvE_OnlySkills = input.ReadBoolean();
-
-            // Read permitted ratings:
-            int totalRatings = input.ReadInt32();
-            for (int i = 0; i < totalRatings; ++i)
+            // Read included skills:
+            while (input.EndOfStream == false)
             {
-                set.PermittedRatings.Add(input.ReadInt32());
+                string line = input.ReadLine();
+                int id = -1;
+                try
+                {
+                    id = Convert.ToInt32(line);
+                }
+                catch (Exception e)
+                {
+                    System.Windows.Forms.MessageBox.Show("Warning: Malformed line \"" + line + "\" in Skill Set file: " + filename + Environment.NewLine + Environment.NewLine + "Error message: " + e.Message, "Malformed Line", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Warning);
+                }
+
+                if (id < 0 || id >= SkillDatabase.Data.Count)
+                {
+                    System.Windows.Forms.MessageBox.Show("Warning: Internal skill ID \"" + id.ToString() + "\" is out of bounds in Skill Set file: " + filename);
+                }
+                else
+                {
+                    set.SetSkills.Add(id);
+                }
             }
 
             input.Close();
@@ -184,6 +219,11 @@ namespace GW_Codex_Generator.Skill_Boosters
         public int Count { get { return Pool.Count; } }
         public int QuantityAt(int i) { return Pool[i].second; }
         public Skill SkillAt(int i) { return SkillDatabase.Data[Pool[i].first]; }
+
+        public void Clear()
+        {
+            Pool.Clear();
+        }
 
         public void AddPack(SkillBoosterPack pack)
         {

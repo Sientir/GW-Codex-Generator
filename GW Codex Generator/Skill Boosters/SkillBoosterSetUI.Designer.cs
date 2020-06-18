@@ -28,43 +28,35 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.@__SaveSetButton = new System.Windows.Forms.Button();
-            this.@__Name = new System.Windows.Forms.TextBox();
+            this.@__ScrollBar = new System.Windows.Forms.VScrollBar();
             this.SuspendLayout();
             // 
-            // __SaveSetButton
+            // __ScrollBar
             // 
-            this.@__SaveSetButton.Location = new System.Drawing.Point(248, 3);
-            this.@__SaveSetButton.Name = "__SaveSetButton";
-            this.@__SaveSetButton.Size = new System.Drawing.Size(45, 23);
-            this.@__SaveSetButton.TabIndex = 0;
-            this.@__SaveSetButton.Text = "Sa&ve";
-            this.@__SaveSetButton.UseVisualStyleBackColor = true;
-            this.@__SaveSetButton.Click += new System.EventHandler(this.@__SaveSetButton_Click);
-            // 
-            // __Name
-            // 
-            this.@__Name.Location = new System.Drawing.Point(3, 5);
-            this.@__Name.Name = "__Name";
-            this.@__Name.Size = new System.Drawing.Size(239, 20);
-            this.@__Name.TabIndex = 1;
+            this.@__ScrollBar.Dock = System.Windows.Forms.DockStyle.Right;
+            this.@__ScrollBar.LargeChange = 1;
+            this.@__ScrollBar.Location = new System.Drawing.Point(765, 0);
+            this.@__ScrollBar.Maximum = 0;
+            this.@__ScrollBar.Name = "__ScrollBar";
+            this.@__ScrollBar.Size = new System.Drawing.Size(17, 665);
+            this.@__ScrollBar.TabIndex = 0;
             // 
             // SkillBoosterSetUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.@__Name);
-            this.Controls.Add(this.@__SaveSetButton);
+            this.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Controls.Add(this.@__ScrollBar);
+            this.DoubleBuffered = true;
             this.Name = "SkillBoosterSetUI";
-            this.Size = new System.Drawing.Size(296, 273);
+            this.Size = new System.Drawing.Size(782, 665);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button __SaveSetButton;
-        private System.Windows.Forms.TextBox __Name;
+        private System.Windows.Forms.VScrollBar __ScrollBar;
     }
 }

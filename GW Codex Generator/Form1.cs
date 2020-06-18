@@ -1903,5 +1903,66 @@ namespace GW_Codex_Generator
             Skill_Boosters.SkillBoosterSet.Sets.Add(set);
             __SetSelector.SelectedIndex = __SetSelector.Items.Count - 1; // Select the last added item, basically!
         }
+
+        private void __EditCurrentSkillSet_Click(object sender, EventArgs e)
+        {
+            Skill_Boosters.SkillSetEditor editor = new Skill_Boosters.SkillSetEditor(Skill_Boosters.SkillBoosterSet.Sets[__SetSelector.SelectedIndex]);
+            editor.Show();
+            editor.BringToFront();
+            editor.FormClosed += Editor_FormClosed;
+            editor.UpdateName += Editor_UpdateName;
+            __EditCurrentSkillSet.Enabled = false;
+        }
+
+        private void Editor_UpdateName(object sender, string e)
+        {
+            Skill_Boosters.SkillBoosterSet set = (Skill_Boosters.SkillBoosterSet)sender;
+            int index = Skill_Boosters.SkillBoosterSet.Sets.IndexOf(set);
+            __SetSelector.Items[index] = e;
+        }
+
+        private void Editor_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            __EditCurrentSkillSet.Enabled = true;
+        }
+
+        private void __SetSelector_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            __EditCurrentSkillSet.Enabled = __SetSelector.SelectedIndex > 0; // Not the first item or no item.
+            // Grab set information!
+            if(__SetSelector.SelectedIndex >= 0)
+            {
+                Skill_Boosters.SkillBoosterSet set = Skill_Boosters.SkillBoosterSet.Sets[__SetSelector.SelectedIndex];
+                __CurrentSetDescription.Text = "Set: " + set.Name + Environment.NewLine;
+                __CurrentSetDescription.Text += "Pack Contents:";
+                for(int i = 0; i < SkillDatabase.RarityLabels.Length; ++i)
+                {
+                    if (i < set.PackRarityContents.Length)
+                    {
+                        __CurrentSetDescription.Text += Environment.NewLine + '\t' + SkillDatabase.RarityLabels[i] + ": " + set.PackRarityContents[i].ToString();
+                    }
+                }
+                __CurrentSetDescription.Text += Environment.NewLine + "Set Contents:";
+
+                // Count skills for each rarity:
+                int[] counts = new int[SkillDatabase.RarityLabels.Length];
+                for (int i = 0; i < counts.Length; ++i) counts[i] = 0;
+                foreach (int skill in set.SetSkills)
+                {
+                    // Count it if it is included and also if it fits in the rarity range:
+                    int rarity = SkillDatabase.Data[skill].Rarity;
+                    if (rarity >= 0 && rarity < counts.Length)
+                    {
+                        counts[rarity]++;
+                    }
+                }
+
+                // Display the skills per rarity:
+                for (int i = 0; i < counts.Length; ++i)
+                {
+                    __CurrentSetDescription.Text += Environment.NewLine + '\t' + SkillDatabase.RarityLabels[i] + ": " + counts[i].ToString();
+                }
+            }
+        }
     }
 }

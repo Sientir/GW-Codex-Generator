@@ -92,6 +92,15 @@ namespace GW_Codex_Generator
             Attributes.Mysticism
         };
 
+        public enum Campaigns
+        {
+            Core,
+            Prophecies,
+            Factions,
+            Nightfall,
+            Eye_of_the_North
+        }
+
         static Font QuantityFont = new Font("Arial", 16);
         static SolidBrush QuantityBrush = new SolidBrush(Color.White);
         static SolidBrush QuantityBackgroundBrush = new SolidBrush(Color.FromArgb(192, 0, 0, 0));
@@ -152,6 +161,7 @@ namespace GW_Codex_Generator
         bool Elite = false;
         string _Description = "I am a skill.";
         public int Rarity = 0;
+        public Campaigns Campaign = Campaigns.Core;
 
         #region Costs
         public string Cost_Energy { get; private set; }
@@ -230,12 +240,12 @@ namespace GW_Codex_Generator
 
         public void Draw(Graphics g, int x, int y)
         {
-            g.DrawImage(Icon, x, y);
+            g.DrawImage(Icon, x, y, Icon.Width, Icon.Height);
         }
 
         public void Draw(Graphics g, int x, int y, int quantity)
         {
-            g.DrawImage(Icon, x, y);
+            Draw(g, x, y); // Just use this for consistency...
             string quantity_string = quantity.ToString();
             SizeF dimensions = g.MeasureString(quantity_string, QuantityFont);
             g.FillRectangle(QuantityBackgroundBrush, x, y, dimensions.Width + 2, dimensions.Height);

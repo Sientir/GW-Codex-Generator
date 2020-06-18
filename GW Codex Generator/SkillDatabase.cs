@@ -3047,6 +3047,24 @@ namespace GW_Codex_Generator
             SkillsByCampaign[WithPvEOnly][index].Add(Data[1316]);
 
             #endregion
+
+            // Assign skills their campaign! -- Skipping Core, since that is the default assingment, and I can save an iteration, so why not?
+            foreach(Skill skill in GetSkillsByCampaign(Prophecies, true))
+            {
+                skill.Campaign = Skill.Campaigns.Prophecies;
+            }
+            foreach (Skill skill in GetSkillsByCampaign(Factions, true))
+            {
+                skill.Campaign = Skill.Campaigns.Factions;
+            }
+            foreach (Skill skill in GetSkillsByCampaign(Nightfall, true))
+            {
+                skill.Campaign = Skill.Campaigns.Nightfall;
+            }
+            foreach (Skill skill in GetSkillsByCampaign(EyeOfTheNorth, true))
+            {
+                skill.Campaign = Skill.Campaigns.Eye_of_the_North;
+            }
         }
 
         static private int GetCampaignIndex(int campaignID)

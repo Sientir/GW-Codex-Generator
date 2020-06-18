@@ -58,6 +58,11 @@
             this.templateCodeDebugger1 = new GW_Codex_Generator.TemplateCodeDebugger();
             this.@__TemplateCodeParserTest = new GW_Codex_Generator.TemplateReaderDisplay();
             this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.@__CurrentSetDescription = new System.Windows.Forms.TextBox();
+            this.@__EditCurrentSkillSet = new System.Windows.Forms.Button();
+            this.@__SetSelector = new System.Windows.Forms.ComboBox();
+            this.@__Set_AddButton = new System.Windows.Forms.Button();
             this.@__SaveInternalIDsFile = new System.Windows.Forms.Button();
             this.@__Button_EditSkillRatingsFromBeginning = new System.Windows.Forms.Button();
             this.@__Button_EditRatings = new System.Windows.Forms.Button();
@@ -68,9 +73,6 @@
             this.@__Rarities = new System.Windows.Forms.TextBox();
             this.tabPage8 = new System.Windows.Forms.TabPage();
             this.@__SkillBoosterLeagueUI = new GW_Codex_Generator.Skill_Boosters.SkillBoosterLeagueUI();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.@__Set_AddButton = new System.Windows.Forms.Button();
-            this.@__SetSelector = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -85,9 +87,9 @@
             this.tabPage4.SuspendLayout();
             this.tabPage5.SuspendLayout();
             this.tabPage7.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.tabPage8.SuspendLayout();
-            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -444,6 +446,60 @@
             this.tabPage7.Text = "Settings";
             this.tabPage7.UseVisualStyleBackColor = true;
             // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.@__CurrentSetDescription);
+            this.groupBox3.Controls.Add(this.@__EditCurrentSkillSet);
+            this.groupBox3.Controls.Add(this.@__SetSelector);
+            this.groupBox3.Controls.Add(this.@__Set_AddButton);
+            this.groupBox3.Location = new System.Drawing.Point(159, 90);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(320, 236);
+            this.groupBox3.TabIndex = 4;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Define Sets";
+            // 
+            // __CurrentSetDescription
+            // 
+            this.@__CurrentSetDescription.Location = new System.Drawing.Point(6, 75);
+            this.@__CurrentSetDescription.Multiline = true;
+            this.@__CurrentSetDescription.Name = "__CurrentSetDescription";
+            this.@__CurrentSetDescription.ReadOnly = true;
+            this.@__CurrentSetDescription.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.@__CurrentSetDescription.Size = new System.Drawing.Size(308, 155);
+            this.@__CurrentSetDescription.TabIndex = 3;
+            // 
+            // __EditCurrentSkillSet
+            // 
+            this.@__EditCurrentSkillSet.Enabled = false;
+            this.@__EditCurrentSkillSet.Location = new System.Drawing.Point(6, 46);
+            this.@__EditCurrentSkillSet.Name = "__EditCurrentSkillSet";
+            this.@__EditCurrentSkillSet.Size = new System.Drawing.Size(308, 23);
+            this.@__EditCurrentSkillSet.TabIndex = 2;
+            this.@__EditCurrentSkillSet.Text = "Edit Selected Set...";
+            this.@__EditCurrentSkillSet.UseVisualStyleBackColor = true;
+            this.@__EditCurrentSkillSet.Click += new System.EventHandler(this.@__EditCurrentSkillSet_Click);
+            // 
+            // __SetSelector
+            // 
+            this.@__SetSelector.FormattingEnabled = true;
+            this.@__SetSelector.Location = new System.Drawing.Point(6, 19);
+            this.@__SetSelector.Name = "__SetSelector";
+            this.@__SetSelector.Size = new System.Drawing.Size(266, 21);
+            this.@__SetSelector.TabIndex = 1;
+            this.@__SetSelector.Text = "Select Set to Edit";
+            this.@__SetSelector.SelectedIndexChanged += new System.EventHandler(this.@__SetSelector_SelectedIndexChanged);
+            // 
+            // __Set_AddButton
+            // 
+            this.@__Set_AddButton.Location = new System.Drawing.Point(278, 19);
+            this.@__Set_AddButton.Name = "__Set_AddButton";
+            this.@__Set_AddButton.Size = new System.Drawing.Size(36, 23);
+            this.@__Set_AddButton.TabIndex = 0;
+            this.@__Set_AddButton.Text = "Add";
+            this.@__Set_AddButton.UseVisualStyleBackColor = true;
+            this.@__Set_AddButton.Click += new System.EventHandler(this.@__Set_AddButton_Click);
+            // 
             // __SaveInternalIDsFile
             // 
             this.@__SaveInternalIDsFile.Location = new System.Drawing.Point(129, 5);
@@ -544,36 +600,6 @@
             this.@__SkillBoosterLeagueUI.Size = new System.Drawing.Size(788, 553);
             this.@__SkillBoosterLeagueUI.TabIndex = 0;
             // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.@__SetSelector);
-            this.groupBox3.Controls.Add(this.@__Set_AddButton);
-            this.groupBox3.Location = new System.Drawing.Point(159, 90);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(320, 236);
-            this.groupBox3.TabIndex = 4;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Define Sets";
-            // 
-            // __Set_AddButton
-            // 
-            this.@__Set_AddButton.Location = new System.Drawing.Point(278, 19);
-            this.@__Set_AddButton.Name = "__Set_AddButton";
-            this.@__Set_AddButton.Size = new System.Drawing.Size(36, 23);
-            this.@__Set_AddButton.TabIndex = 0;
-            this.@__Set_AddButton.Text = "Add";
-            this.@__Set_AddButton.UseVisualStyleBackColor = true;
-            this.@__Set_AddButton.Click += new System.EventHandler(this.@__Set_AddButton_Click);
-            // 
-            // __SetSelector
-            // 
-            this.@__SetSelector.FormattingEnabled = true;
-            this.@__SetSelector.Location = new System.Drawing.Point(6, 19);
-            this.@__SetSelector.Name = "__SetSelector";
-            this.@__SetSelector.Size = new System.Drawing.Size(266, 21);
-            this.@__SetSelector.TabIndex = 1;
-            this.@__SetSelector.Text = "Select Set to Edit";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -601,10 +627,11 @@
             this.tabPage4.PerformLayout();
             this.tabPage5.ResumeLayout(false);
             this.tabPage7.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.tabPage8.ResumeLayout(false);
-            this.groupBox3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -653,6 +680,8 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.ComboBox __SetSelector;
         private System.Windows.Forms.Button __Set_AddButton;
+        private System.Windows.Forms.TextBox __CurrentSetDescription;
+        private System.Windows.Forms.Button __EditCurrentSkillSet;
     }
 }
 
