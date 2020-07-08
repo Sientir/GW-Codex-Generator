@@ -182,6 +182,8 @@ namespace GW_Codex_Generator.Skill_Boosters
                 }
             }
 
+            set.PackRarityContents = translated_raritycontents.ToArray();
+
             // Read included skills:
             while (input.EndOfStream == false)
             {

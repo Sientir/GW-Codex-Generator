@@ -320,7 +320,7 @@ namespace GW_Codex_Generator
             "Recuperation", "Resilient Was Xiko", "Resilient Weapon", "Restoration", "Ritual Lord", "Rupture Soul", "Shadowsong", "Shelter", "Signet of Creation", "Signet of Spirits", "Soothing",
             "Soothing Memories", "Soul Twisting", "Spirit Boon Strike", "Spirit Burn", "Spirit Channeling", "Spirit Light", "Spirit Light Weapon", "Spirit Rift", "Spirit Siphon", "Spirit Transfer",
             "Spirit to Flesh", "Splinter Weapon", "Summon Spirits (Luxon)", "Summon Spirits (Kurzick)", "Tranquil Was Tanasen", "Union", "Vengeful Was Khanhei", "Vengeful Weapon", "Vital Weapon", "Wailing Weapon", "Wanderlust",
-            "Weapon of Quickening", "Weapon of Shadow", "Wielder's Boon", "Spear of Fury (Luxon)", "Spear of Fury (Kurzick)", "Aura of Holy Might (Luxon)", "Aura of Holy Might (Kurzick)"
+            "Weapon of Quickening", "Weapon of Warding", "Weapon of Shadow", "Wielder's Boon", "Spear of Fury (Luxon)", "Spear of Fury (Kurzick)", "Aura of Holy Might (Luxon)", "Aura of Holy Might (Kurzick)"
         };
         static public string[] NightfallSkillNames =
         {
@@ -1400,6 +1400,8 @@ namespace GW_Codex_Generator
 
             SkillsByCampaign[WithPvEOnly][index].Add(Data[550]);
             SkillsByCampaign[WithoutPvEOnly][index].Add(Data[550]);
+            SkillsByCampaign[WithPvEOnly][index].Add(Data[485]);
+            SkillsByCampaign[WithoutPvEOnly][index].Add(Data[485]);
             SkillsByCampaign[WithPvEOnly][index].Add(Data[567]);
             SkillsByCampaign[WithoutPvEOnly][index].Add(Data[567]);
             SkillsByCampaign[WithPvEOnly][index].Add(Data[578]);
