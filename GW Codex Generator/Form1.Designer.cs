@@ -51,6 +51,7 @@
             this.@__Codex_UseRatings = new System.Windows.Forms.CheckBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.@__TemplateDraftUI = new GW_Codex_Generator.Template_Draft.TemplateDraftUI();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.@__HTMLSummary = new System.Windows.Forms.TextBox();
             this.tabPage5 = new System.Windows.Forms.TabPage();
@@ -81,7 +82,6 @@
             this.@__OpenTemplateDeck = new System.Windows.Forms.OpenFileDialog();
             this.@__FolderSelectorForTemplatesToDeckFile = new System.Windows.Forms.FolderBrowserDialog();
             this.@__SaveDirectoryToDeckFileDialog = new System.Windows.Forms.SaveFileDialog();
-            this.templateDraftUI1 = new GW_Codex_Generator.Template_Draft.TemplateDraftUI();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -376,7 +376,7 @@
             // 
             // tabPage6
             // 
-            this.tabPage6.Controls.Add(this.templateDraftUI1);
+            this.tabPage6.Controls.Add(this.@__TemplateDraftUI);
             this.tabPage6.Location = new System.Drawing.Point(4, 22);
             this.tabPage6.Name = "tabPage6";
             this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
@@ -384,6 +384,14 @@
             this.tabPage6.TabIndex = 5;
             this.tabPage6.Text = "Template Draft";
             this.tabPage6.UseVisualStyleBackColor = true;
+            // 
+            // __TemplateDraftUI
+            // 
+            this.@__TemplateDraftUI.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.@__TemplateDraftUI.Location = new System.Drawing.Point(3, 3);
+            this.@__TemplateDraftUI.Name = "__TemplateDraftUI";
+            this.@__TemplateDraftUI.Size = new System.Drawing.Size(782, 547);
+            this.@__TemplateDraftUI.TabIndex = 0;
             // 
             // tabPage4
             // 
@@ -455,7 +463,7 @@
             this.@__CompileTemplateFolderIntoFileButton.Name = "__CompileTemplateFolderIntoFileButton";
             this.@__CompileTemplateFolderIntoFileButton.Size = new System.Drawing.Size(118, 67);
             this.@__CompileTemplateFolderIntoFileButton.TabIndex = 6;
-            this.@__CompileTemplateFolderIntoFileButton.Text = "Compile Template\'s in folder into a Template Database/Deck";
+            this.@__CompileTemplateFolderIntoFileButton.Text = "Compile Templates in folder into a Template Database/Deck";
             this.@__CompileTemplateFolderIntoFileButton.UseVisualStyleBackColor = true;
             this.@__CompileTemplateFolderIntoFileButton.Click += new System.EventHandler(this.@__CompileTemplateFolderIntoFileButton_Click);
             // 
@@ -680,14 +688,6 @@
             this.@__SaveDirectoryToDeckFileDialog.Title = "Save Directory As File Named...";
             this.@__SaveDirectoryToDeckFileDialog.FileOk += new System.ComponentModel.CancelEventHandler(this.@__SaveDirectoryToDeckFileDialog_FileOk);
             // 
-            // templateDraftUI1
-            // 
-            this.templateDraftUI1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.templateDraftUI1.Location = new System.Drawing.Point(3, 3);
-            this.templateDraftUI1.Name = "templateDraftUI1";
-            this.templateDraftUI1.Size = new System.Drawing.Size(782, 547);
-            this.templateDraftUI1.TabIndex = 0;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -779,7 +779,7 @@
         private System.Windows.Forms.FolderBrowserDialog __FolderSelectorForTemplatesToDeckFile;
         private System.Windows.Forms.SaveFileDialog __SaveDirectoryToDeckFileDialog;
         private System.Windows.Forms.Button __CompileTemplateFolderIntoFileButton;
-        private Template_Draft.TemplateDraftUI templateDraftUI1;
+        private Template_Draft.TemplateDraftUI __TemplateDraftUI;
     }
 }
 

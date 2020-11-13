@@ -64,6 +64,7 @@ namespace GW_Codex_Generator
             __Codex_SelectMethod.SelectedIndex = 3;
             __TemplateCodeParserTest.SkillInformationDisplay = __CodexSkillInfo;
             __SkillBoosterLeagueUI.SetSkillDescriptionBox(__CodexSkillInfo);
+            __TemplateDraftUI.SkillInfoDisplay = __CodexSkillInfo;
 
             // Create challenge controls:
             Challenge_UI.BinaryChallenges binaryChallenges = new Challenge_UI.BinaryChallenges();

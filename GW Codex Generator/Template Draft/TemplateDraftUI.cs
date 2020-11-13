@@ -56,7 +56,25 @@ namespace GW_Codex_Generator.Template_Draft
         {
             if (MessageBox.Show("Start a Template Draft using the currently loaded deck, \"" + SkillDatabase.TemplateDeckName + "\"?" + Environment.NewLine + Environment.NewLine + "This draft will always use this deck, even if you change it later. Decks can be selected in Settings tab. It will also override the current draft, if one is ongoing. Make sure to save it first if you wish to continue it later!", "Start Draft?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
+                // Start a new actual draft:
                 Draft = TemplateDraft.Create();
+
+                // Clear the contents of the old draft:
+                __PoolContainer.Controls.Clear();
+                PoolTemplates.Clear();
+                PoolButtons.Clear();
+                __DraftHandContainer.Controls.Clear();
+                DraftHandButtons.Clear();
+                DraftHandTemplates.Clear();
+
+                // Reset draft control values:
+                DraftHandCount = 0;
+                SavedFromPoolFirst = SavedFromPoolSecond = -1;
+
+                // Re-enable some controls if in the middle of a draft round (where they get turned off):
+                startDraftRoundToolStripMenuItem.Enabled = setPartySizeToolStripMenuItem.Enabled = __PartySize4.Enabled = __PartySize6.Enabled = __PartySize8.Enabled = true;
+
+                // Note: Not touching party size here, as that's connected to an entirely separate thing!
             }
         }
 
@@ -172,10 +190,11 @@ namespace GW_Codex_Generator.Template_Draft
                 DraftHandTemplates.Clear();
 
                 // Now we need to enable and make visible the buttons in the pool for saving up to two items:
-                foreach (Control c in PoolButtons)
+                for(int i = 0; i < PoolButtons.Count; ++i)
                 {
-                    c.Enabled = true;
-                    c.Visible = true;
+                    PoolButtons[i].Enabled = true;
+                    PoolButtons[i].Visible = true;
+                    PoolButtons[i].Top = PoolTemplates[i].Top; // Reposition them in case scrolling has happened, since invisible controls seem to get...lost.
                 }
 
                 // Next, tell the draft the round is done:
@@ -195,7 +214,10 @@ namespace GW_Codex_Generator.Template_Draft
             TemplateDisplay td = new TemplateDisplay();
             td.SetTemplateInformation(template);
 
-            y += id * (td.Height + 3);
+            if(id > 0)
+            {
+                y = PoolTemplates[id - 1].Bottom + 3;
+            }
             td.Location = new Point(x, y);
             td.SkillInfoDisplay = SkillInfoDisplay;
 

@@ -58,15 +58,15 @@ namespace GW_Codex_Generator.Template_Draft
             _Rejecteds.Clear();
 
             // Fill the deck with indices to draw from randomly:
-            for(int i = 0; i < _Templates.Count; ++i) { _Deck.Add(i); }
+            for (int i = 0; i < _Templates.Count; ++i) { _Deck.Add(i); }
         }
 
         int Draw()
         {
             // Need to reconstitute the deck:
-            if(_Deck.Count <= 0)
+            if (_Deck.Count <= 0)
             {
-                if(_Trashed.Count > 0)
+                if (_Trashed.Count > 0)
                 {
                     _Deck = _Trashed;
                     _Trashed = new List<int>();
@@ -92,15 +92,22 @@ namespace GW_Codex_Generator.Template_Draft
 
         public void StartDraftRound(int saveFirst, int saveSecond)
         {
-            if(_Pool.Count > 0)
+            if (_Pool.Count > 0)
             {
+                // Here are a couple of safety checks to make sure you can't pass negative values into this.
+                //  If you do (by not selecting templates to save), random ones will be selected for you.
+                //  By using "while" loops, I'm basically doing an if() that also makes sure the two don't match each other.
+                //  The first one needs a while in case something has happened to set the second value but not the first.
+                //  I don't want them to converge.
+                while (saveFirst < 0 || saveFirst == saveSecond) saveFirst = SkillDatabase.RNG.Next(_Pool.Count);
+                while (saveSecond < 0 || saveSecond == saveFirst) saveSecond = SkillDatabase.RNG.Next(_Pool.Count);
                 // Save the items indicated:
                 int first = _Pool[saveFirst];
                 int second = _Pool[saveSecond];
                 _Pool[saveFirst] = _Pool[saveSecond] = -1; // Setting these to skip 'em in a moment.
 
                 // Move the not-saved values to the trash:
-                foreach(int i in _Pool) { if (i >= 0) _Trashed.Add(i); }
+                foreach (int i in _Pool) { if (i >= 0) _Trashed.Add(i); }
                 _Pool.Clear();
 
                 // Restore the saved items to the pool:
@@ -138,9 +145,9 @@ namespace GW_Codex_Generator.Template_Draft
             string template = _Templates[_DraftHand[number]];
 
             // Add the rejected picks to the rejecteds pile:
-            for(int i = 0; i < _DraftHand.Count; ++i)
+            for (int i = 0; i < _DraftHand.Count; ++i)
             {
-                if(i != number) // Obviously, don't add the picked template!
+                if (i != number) // Obviously, don't add the picked template!
                 {
                     _Rejecteds.Add(_DraftHand[i]);
                 }
@@ -175,7 +182,7 @@ namespace GW_Codex_Generator.Template_Draft
         public List<string> GetDraftHand()
         {
             List<string> cards = new List<string>();
-            foreach(int i in _DraftHand)
+            foreach (int i in _DraftHand)
             {
                 cards.Add(_Templates[i]);
             }
