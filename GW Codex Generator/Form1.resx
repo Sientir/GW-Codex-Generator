@@ -117,19 +117,15 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="label1.Text" xml:space="preserve">
-    <value>See: Wooden Potatoes monster draft.
-
-The idea is you get presented 3 templates for each character slot. You pick one and pass on the other two (they'll
-get put back into the "deck"--the pool of available templates--at the end of the draft round).
-
-The drafted templates get put into your current selection pool, then you pick N templates from that pool to use.
-
-Before the next round, you put two templates back into the pool, then the remaining N-2 templates you used get tossed
-to the winds. Presumably, they get shuffled back into the deck if the deck runs empty.
-
-Then you do another round of drafting.</value>
-  </data>
+  <metadata name="__OpenTemplateDeck.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <metadata name="__FolderSelectorForTemplatesToDeckFile.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>187, 17</value>
+  </metadata>
+  <metadata name="__SaveDirectoryToDeckFileDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>460, 17</value>
+  </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

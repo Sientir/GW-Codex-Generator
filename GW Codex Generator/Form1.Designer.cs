@@ -51,13 +51,18 @@
             this.@__Codex_UseRatings = new System.Windows.Forms.CheckBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage6 = new System.Windows.Forms.TabPage();
-            this.label1 = new System.Windows.Forms.Label();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.@__HTMLSummary = new System.Windows.Forms.TextBox();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.templateCodeDebugger1 = new GW_Codex_Generator.TemplateCodeDebugger();
             this.@__TemplateCodeParserTest = new GW_Codex_Generator.TemplateReaderDisplay();
             this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.@__CompileTemplateFolderIntoFileButton = new System.Windows.Forms.Button();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.@__TemplateDraft_LoadChallengeTemplatesAsDeckButton = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.@__LoadTemplateDeckButton = new System.Windows.Forms.Button();
+            this.@__ViewTemplateDeckButton = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.@__CurrentSetDescription = new System.Windows.Forms.TextBox();
             this.@__EditCurrentSkillSet = new System.Windows.Forms.Button();
@@ -73,6 +78,10 @@
             this.@__Rarities = new System.Windows.Forms.TextBox();
             this.tabPage8 = new System.Windows.Forms.TabPage();
             this.@__SkillBoosterLeagueUI = new GW_Codex_Generator.Skill_Boosters.SkillBoosterLeagueUI();
+            this.@__OpenTemplateDeck = new System.Windows.Forms.OpenFileDialog();
+            this.@__FolderSelectorForTemplatesToDeckFile = new System.Windows.Forms.FolderBrowserDialog();
+            this.@__SaveDirectoryToDeckFileDialog = new System.Windows.Forms.SaveFileDialog();
+            this.templateDraftUI1 = new GW_Codex_Generator.Template_Draft.TemplateDraftUI();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -87,6 +96,7 @@
             this.tabPage4.SuspendLayout();
             this.tabPage5.SuspendLayout();
             this.tabPage7.SuspendLayout();
+            this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.tabPage8.SuspendLayout();
@@ -366,7 +376,7 @@
             // 
             // tabPage6
             // 
-            this.tabPage6.Controls.Add(this.label1);
+            this.tabPage6.Controls.Add(this.templateDraftUI1);
             this.tabPage6.Location = new System.Drawing.Point(4, 22);
             this.tabPage6.Name = "tabPage6";
             this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
@@ -374,15 +384,6 @@
             this.tabPage6.TabIndex = 5;
             this.tabPage6.Text = "Template Draft";
             this.tabPage6.UseVisualStyleBackColor = true;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(111, 65);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(565, 143);
-            this.label1.TabIndex = 0;
-            this.label1.Text = resources.GetString("label1.Text");
             // 
             // tabPage4
             // 
@@ -434,6 +435,8 @@
             // 
             // tabPage7
             // 
+            this.tabPage7.Controls.Add(this.@__CompileTemplateFolderIntoFileButton);
+            this.tabPage7.Controls.Add(this.groupBox4);
             this.tabPage7.Controls.Add(this.groupBox3);
             this.tabPage7.Controls.Add(this.@__SaveInternalIDsFile);
             this.tabPage7.Controls.Add(this.@__Button_EditSkillRatingsFromBeginning);
@@ -445,6 +448,69 @@
             this.tabPage7.TabIndex = 6;
             this.tabPage7.Text = "Settings";
             this.tabPage7.UseVisualStyleBackColor = true;
+            // 
+            // __CompileTemplateFolderIntoFileButton
+            // 
+            this.@__CompileTemplateFolderIntoFileButton.Location = new System.Drawing.Point(225, 5);
+            this.@__CompileTemplateFolderIntoFileButton.Name = "__CompileTemplateFolderIntoFileButton";
+            this.@__CompileTemplateFolderIntoFileButton.Size = new System.Drawing.Size(118, 67);
+            this.@__CompileTemplateFolderIntoFileButton.TabIndex = 6;
+            this.@__CompileTemplateFolderIntoFileButton.Text = "Compile Template\'s in folder into a Template Database/Deck";
+            this.@__CompileTemplateFolderIntoFileButton.UseVisualStyleBackColor = true;
+            this.@__CompileTemplateFolderIntoFileButton.Click += new System.EventHandler(this.@__CompileTemplateFolderIntoFileButton_Click);
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.@__TemplateDraft_LoadChallengeTemplatesAsDeckButton);
+            this.groupBox4.Controls.Add(this.label3);
+            this.groupBox4.Controls.Add(this.@__LoadTemplateDeckButton);
+            this.groupBox4.Controls.Add(this.@__ViewTemplateDeckButton);
+            this.groupBox4.Location = new System.Drawing.Point(6, 332);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(325, 139);
+            this.groupBox4.TabIndex = 5;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Template Draft Info";
+            // 
+            // __TemplateDraft_LoadChallengeTemplatesAsDeckButton
+            // 
+            this.@__TemplateDraft_LoadChallengeTemplatesAsDeckButton.Location = new System.Drawing.Point(6, 77);
+            this.@__TemplateDraft_LoadChallengeTemplatesAsDeckButton.Name = "__TemplateDraft_LoadChallengeTemplatesAsDeckButton";
+            this.@__TemplateDraft_LoadChallengeTemplatesAsDeckButton.Size = new System.Drawing.Size(106, 56);
+            this.@__TemplateDraft_LoadChallengeTemplatesAsDeckButton.TabIndex = 3;
+            this.@__TemplateDraft_LoadChallengeTemplatesAsDeckButton.Text = "Load Challenge Templates As Deck";
+            this.@__TemplateDraft_LoadChallengeTemplatesAsDeckButton.UseVisualStyleBackColor = true;
+            this.@__TemplateDraft_LoadChallengeTemplatesAsDeckButton.Click += new System.EventHandler(this.@__TemplateDraft_LoadChallengeTemplatesAsDeckButton_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(130, 16);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(180, 65);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Template draft decks consist of rows\r\nof templates, one per row, in the\r\nfollowin" +
+    "g format:\r\n\r\nTemplate Name|Template_Code";
+            // 
+            // __LoadTemplateDeckButton
+            // 
+            this.@__LoadTemplateDeckButton.Location = new System.Drawing.Point(6, 48);
+            this.@__LoadTemplateDeckButton.Name = "__LoadTemplateDeckButton";
+            this.@__LoadTemplateDeckButton.Size = new System.Drawing.Size(106, 23);
+            this.@__LoadTemplateDeckButton.TabIndex = 1;
+            this.@__LoadTemplateDeckButton.Text = "Load Deck";
+            this.@__LoadTemplateDeckButton.UseVisualStyleBackColor = true;
+            this.@__LoadTemplateDeckButton.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // __ViewTemplateDeckButton
+            // 
+            this.@__ViewTemplateDeckButton.Location = new System.Drawing.Point(6, 19);
+            this.@__ViewTemplateDeckButton.Name = "__ViewTemplateDeckButton";
+            this.@__ViewTemplateDeckButton.Size = new System.Drawing.Size(106, 23);
+            this.@__ViewTemplateDeckButton.TabIndex = 0;
+            this.@__ViewTemplateDeckButton.Text = "View Current Deck";
+            this.@__ViewTemplateDeckButton.UseVisualStyleBackColor = true;
+            this.@__ViewTemplateDeckButton.Click += new System.EventHandler(this.@__ViewTemplateDeckButton_Click);
             // 
             // groupBox3
             // 
@@ -600,6 +666,28 @@
             this.@__SkillBoosterLeagueUI.Size = new System.Drawing.Size(788, 553);
             this.@__SkillBoosterLeagueUI.TabIndex = 0;
             // 
+            // __OpenTemplateDeck
+            // 
+            this.@__OpenTemplateDeck.DefaultExt = "txt";
+            this.@__OpenTemplateDeck.Filter = "Text Documents|*.txt";
+            this.@__OpenTemplateDeck.Title = "Open Template Deck Document";
+            this.@__OpenTemplateDeck.FileOk += new System.ComponentModel.CancelEventHandler(this.@__OpenTemplateDeck_FileOk);
+            // 
+            // __SaveDirectoryToDeckFileDialog
+            // 
+            this.@__SaveDirectoryToDeckFileDialog.DefaultExt = "txt";
+            this.@__SaveDirectoryToDeckFileDialog.Filter = "Text Document|*.txt";
+            this.@__SaveDirectoryToDeckFileDialog.Title = "Save Directory As File Named...";
+            this.@__SaveDirectoryToDeckFileDialog.FileOk += new System.ComponentModel.CancelEventHandler(this.@__SaveDirectoryToDeckFileDialog_FileOk);
+            // 
+            // templateDraftUI1
+            // 
+            this.templateDraftUI1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.templateDraftUI1.Location = new System.Drawing.Point(3, 3);
+            this.templateDraftUI1.Name = "templateDraftUI1";
+            this.templateDraftUI1.Size = new System.Drawing.Size(782, 547);
+            this.templateDraftUI1.TabIndex = 0;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -622,11 +710,12 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.tabPage6.ResumeLayout(false);
-            this.tabPage6.PerformLayout();
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
             this.tabPage5.ResumeLayout(false);
             this.tabPage7.ResumeLayout(false);
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -665,7 +754,6 @@
         private TemplateReaderDisplay __TemplateCodeParserTest;
         private TemplateCodeDebugger templateCodeDebugger1;
         private System.Windows.Forms.TabPage tabPage6;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TabPage tabPage7;
         private System.Windows.Forms.TabPage tabPage8;
         private System.Windows.Forms.Button __Button_EditRatings;
@@ -682,6 +770,16 @@
         private System.Windows.Forms.Button __Set_AddButton;
         private System.Windows.Forms.TextBox __CurrentSetDescription;
         private System.Windows.Forms.Button __EditCurrentSkillSet;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.Button __ViewTemplateDeckButton;
+        private System.Windows.Forms.Button __TemplateDraft_LoadChallengeTemplatesAsDeckButton;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button __LoadTemplateDeckButton;
+        private System.Windows.Forms.OpenFileDialog __OpenTemplateDeck;
+        private System.Windows.Forms.FolderBrowserDialog __FolderSelectorForTemplatesToDeckFile;
+        private System.Windows.Forms.SaveFileDialog __SaveDirectoryToDeckFileDialog;
+        private System.Windows.Forms.Button __CompileTemplateFolderIntoFileButton;
+        private Template_Draft.TemplateDraftUI templateDraftUI1;
     }
 }
 

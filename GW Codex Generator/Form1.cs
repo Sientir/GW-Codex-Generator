@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace GW_Codex_Generator
 {
@@ -1963,6 +1964,84 @@ namespace GW_Codex_Generator
                     __CurrentSetDescription.Text += Environment.NewLine + '\t' + SkillDatabase.RarityLabels[i] + ": " + counts[i].ToString();
                 }
             }
+        }
+
+        Template_Draft.TemplateDraftDeckViewer _TemplateDraftDeckViewer = null;
+        private void __ViewTemplateDeckButton_Click(object sender, EventArgs e)
+        {
+            if(_TemplateDraftDeckViewer == null)
+            {
+                _TemplateDraftDeckViewer = new Template_Draft.TemplateDraftDeckViewer();
+                _TemplateDraftDeckViewer.FormClosed += _TemplateDraftDeckViewer_FormClosed;
+            }
+            else
+            {
+                _TemplateDraftDeckViewer.LoadTemplateDeck();
+            }
+
+            _TemplateDraftDeckViewer.Show();
+            _TemplateDraftDeckViewer.BringToFront();
+        }
+
+        private void _TemplateDraftDeckViewer_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            _TemplateDraftDeckViewer = null;
+        }
+
+        private void __TemplateDraft_LoadChallengeTemplatesAsDeckButton_Click(object sender, EventArgs e)
+        {
+            SkillDatabase.LoadTemplatesDatabaseAsDeck();
+            MessageBox.Show("Challenge templates have been loaded as the Template Draft Deck.", "Operation Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void __OpenTemplateDeck_FileOk(object sender, CancelEventArgs e)
+        {
+            SkillDatabase.LoadTemplateDeck(__OpenTemplateDeck.FileName);
+            MessageBox.Show("Loaded Template Deck \"" + __OpenTemplateDeck.FileName.Substring(__OpenTemplateDeck.FileName.LastIndexOf('\\') + 1) + " as the current deck.", "Operation Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if (_TemplateDraftDeckViewer != null) _TemplateDraftDeckViewer.LoadTemplateDeck();
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            __OpenTemplateDeck.ShowDialog();
+        }
+
+        private void __SaveDirectoryToDeckFileDialog_FileOk(object sender, CancelEventArgs e)
+        {
+            // This finds all text documents in a folder and puts their contents in a single file. The idea is that this can be used
+            //  to easily convert a directory of template files into a template deck file.
+            string[] files = Directory.GetFiles(__FolderSelectorForTemplatesToDeckFile.SelectedPath, "*.txt");
+
+            // Output target:
+            StreamWriter output = File.CreateText(__SaveDirectoryToDeckFileDialog.FileName);
+
+            // Process the directory:
+            foreach(string filename in files)
+            {
+                StreamReader input = File.OpenText(filename);
+                string code = input.ReadLine();
+                input.Close();
+                if(code.Length > 0) // "valid code" as far as this is concerned!
+                {
+                    // Remove the path of the file's name:
+                    string name = filename.Substring(filename.LastIndexOf('\\') + 1);
+
+                    // Remove the ".txt" of the file's name:
+                    name = name.Substring(0, name.Length - 4);
+
+                    // Write the entry:
+                    output.WriteLine(name + "|" + code);
+                }
+            }
+
+            output.Close();
+            MessageBox.Show("Text files found in \"" + __FolderSelectorForTemplatesToDeckFile.SelectedPath + "\" have been compiled together in the file \"" + __SaveDirectoryToDeckFileDialog.FileName + "\".", "Operation Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void __CompileTemplateFolderIntoFileButton_Click(object sender, EventArgs e)
+        {
+            if (__FolderSelectorForTemplatesToDeckFile.ShowDialog() != DialogResult.OK) return;
+            __SaveDirectoryToDeckFileDialog.ShowDialog();
         }
     }
 }

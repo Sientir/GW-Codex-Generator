@@ -30,6 +30,9 @@ namespace GW_Codex_Generator
         public static List<Skill> Data = new List<Skill>();
         public static Random RNG = new Random();
 
+        public static string TemplateDeckName = "None";
+        public static List<string> TemplateDeck = new List<string>();
+
         public static string[] RarityLabels = { "Common", "Uncommon", "Rare" };
 
         private static List<Skill>[][] SkillsByProfession;
@@ -6398,6 +6401,8 @@ namespace GW_Codex_Generator
                     if (line.Length > 0) TemplatesDatabase.Add(line);
                 }
                 input.Close();
+
+                LoadTemplatesDatabaseAsDeck();
                 return true;
             }
             else // If there is no file, then just populate with stuff.
@@ -6463,8 +6468,36 @@ namespace GW_Codex_Generator
                 TemplatesDatabase.Add("Crippling Song (P/Rt)|OQikIilqJiqzDOIvjtwS4Lc5EHD"); // PRt
                 //TemplatesDatabase.Add("|"); // TEMPLATE EXTRA
 
+                LoadTemplatesDatabaseAsDeck();
                 return false;
             }
+        }
+
+        static public void LoadTemplatesDatabaseAsDeck()
+        {
+            TemplateDeck.Clear();
+            foreach (string str in TemplatesDatabase)
+            {
+                TemplateDeck.Add(str);
+            }
+
+            TemplateDeckName = "Challenges Templates";
+        }
+
+        static public void LoadTemplateDeck(string filename)
+        {
+            List<string> templateDeck = new List<string>();
+            System.IO.StreamReader input = new System.IO.StreamReader(filename);
+            while (input.EndOfStream == false)
+            {
+                string line = input.ReadLine();
+                if (line.Length > 0) templateDeck.Add(line);
+            }
+            input.Close();
+
+            TemplateDeck.Clear();
+            TemplateDeck = templateDeck;
+            TemplateDeckName = filename.Substring(filename.LastIndexOf('\\') + 1);
         }
 
         static public bool CheckRatingsFile()

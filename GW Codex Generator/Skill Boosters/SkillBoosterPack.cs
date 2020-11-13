@@ -69,10 +69,25 @@ namespace GW_Codex_Generator.Skill_Boosters
             {
                 for (int i = 0; i < set.PackRarityContents[rarity]; ++i)
                 {
+                    // Do a safety check:
+                    //  This check verifies there are still skills available at the given rarity. If not,
+                    //  it'll check the lower rarities, then the higher ones. If no skills are found, it just returns the pack.
+                    int pullRarity = rarity;
+                    int searchDir = -1;
+                    while(clone_pool[pullRarity].Count < set.PackRarityContents[pullRarity])
+                    {
+                        // Search down...
+                        pullRarity += searchDir;
+                        // If we exhaust down, move up:
+                        if (pullRarity < 0) searchDir = 1;
+                        // If we move up beyond the end of available rarities, just return the pack as-is:
+                        if (pullRarity >= set.PackRarityContents.Length) return pack;
+                    }
+
                     // Grab a random item and add it to the pack, then remove it from the pool so I can't get duplicates:
-                    int index = SkillDatabase.RNG.Next(clone_pool[rarity].Count);
-                    pack.Contents.Add(clone_pool[rarity][index]);
-                    clone_pool[rarity].RemoveAt(index);
+                    int index = SkillDatabase.RNG.Next(clone_pool[pullRarity].Count);
+                    pack.Contents.Add(clone_pool[pullRarity][index]);
+                    clone_pool[pullRarity].RemoveAt(index);
                 }
             }
 

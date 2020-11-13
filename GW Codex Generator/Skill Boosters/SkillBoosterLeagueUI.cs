@@ -86,7 +86,19 @@ namespace GW_Codex_Generator.Skill_Boosters
 
         private void __NumberOfBoostersToAdd_ValueChanged(object sender, EventArgs e)
         {
-            __Button_AddBoosters.Text = "Add " + __NumberOfBoostersToAdd.Value.ToString("N0") + " Boosters";
+            // Convert the quantity to a string:
+            string quantity = __NumberOfBoostersToAdd.Value.ToString("N0");
+            // Prepare types that can become plural!
+            string booster = " Booster";
+            string card = " Skill";
+            // Make things plural:
+            if (__NumberOfBoostersToAdd.Value != 1)
+            {
+                booster += "s";
+                card += "s";
+            }
+            __Button_AddBoosters.Text = "Add " + quantity + booster;
+            __AddCardsButton.Text = "Add " + quantity + card;
         }
 
         private void __Button_AddBoosters_Click(object sender, EventArgs e)
@@ -128,6 +140,34 @@ namespace GW_Codex_Generator.Skill_Boosters
             __SaveBoosterLeagueDialog.FileName = "Untitled League.gwsbl";
             League.Clear();
             __LeaguePoolDisplay.Redraw();
+        }
+
+        private void __AddCardsButton_Click(object sender, EventArgs e)
+        {
+            // Convert the set to a pool of skills:
+            List<Skill> pool = new List<Skill>();
+            SkillBoosterSet set = SkillBoosterSet.Sets[__SelectedSet.SelectedIndex < 0 ? 0 : __SelectedSet.SelectedIndex];
+            foreach(int i in set.SetSkills)
+            {
+                pool.Add(SkillDatabase.Data[i]);
+            }
+
+            // Pool is now added to a grab bag:
+            GrabBag bag = new GrabBag(pool);
+
+            // Now I need to grab some number of skills and add 'em to the league!
+            BoosterLeaguePool newBooster = new BoosterLeaguePool();
+            foreach (Skill skill in bag.PullXFromBag((int)__NumberOfBoostersToAdd.Value))
+            {
+                League.AddSkill(skill);
+                newBooster.AddSkill(skill);
+            }
+
+            // And redraw the league pool:
+            __LeaguePoolDisplay.Redraw();
+
+            // Let's show the player what they got!
+            NewBoostersForLeagueDialog.ShowAddedBoostersDialog(1, newBooster);
         }
     }
 }

@@ -183,6 +183,19 @@
     <Compile Include="SkillValueSetter.Designer.cs">
       <DependentUpon>SkillValueSetter.cs</DependentUpon>
     </Compile>
+    <Compile Include="Template Draft\TemplateDraft.cs" />
+    <Compile Include="Template Draft\TemplateDraftDeckViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Template Draft\TemplateDraftDeckViewer.Designer.cs">
+      <DependentUpon>TemplateDraftDeckViewer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Template Draft\TemplateDraftUI.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Template Draft\TemplateDraftUI.Designer.cs">
+      <DependentUpon>TemplateDraftUI.cs</DependentUpon>
+    </Compile>
     <Compile Include="TemplateCodeDebugger.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -275,6 +288,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SkillValueSetter.resx">
       <DependentUpon>SkillValueSetter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Template Draft\TemplateDraftDeckViewer.resx">
+      <DependentUpon>TemplateDraftDeckViewer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Template Draft\TemplateDraftUI.resx">
+      <DependentUpon>TemplateDraftUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TemplateCodeDebugger.resx">
       <DependentUpon>TemplateCodeDebugger.cs</DependentUpon>
@@ -4348,8 +4367,6 @@
   <ItemGroup>
     <None Include="Resources\GW Skill Icons\Time_Ward.jpg" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Template Draft\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -41,6 +41,7 @@
             this.@__SortButton_Rarity = new System.Windows.Forms.Button();
             this.@__SortButton_Rating = new System.Windows.Forms.Button();
             this.@__Button_NewLeague = new System.Windows.Forms.Button();
+            this.@__AddCardsButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.@__NumberOfBoostersToAdd)).BeginInit();
             this.SuspendLayout();
             // 
@@ -101,7 +102,7 @@
             // 
             this.@__Button_AddBoosters.Location = new System.Drawing.Point(75, 30);
             this.@__Button_AddBoosters.Name = "__Button_AddBoosters";
-            this.@__Button_AddBoosters.Size = new System.Drawing.Size(181, 23);
+            this.@__Button_AddBoosters.Size = new System.Drawing.Size(87, 23);
             this.@__Button_AddBoosters.TabIndex = 4;
             this.@__Button_AddBoosters.Text = "Add 1 Booster";
             this.@__Button_AddBoosters.UseVisualStyleBackColor = true;
@@ -178,10 +179,21 @@
             this.@__Button_NewLeague.UseVisualStyleBackColor = true;
             this.@__Button_NewLeague.Click += new System.EventHandler(this.@__Button_NewLeague_Click);
             // 
+            // __AddCardsButton
+            // 
+            this.@__AddCardsButton.Location = new System.Drawing.Point(168, 30);
+            this.@__AddCardsButton.Name = "__AddCardsButton";
+            this.@__AddCardsButton.Size = new System.Drawing.Size(88, 23);
+            this.@__AddCardsButton.TabIndex = 11;
+            this.@__AddCardsButton.Text = "Add 1 Card";
+            this.@__AddCardsButton.UseVisualStyleBackColor = true;
+            this.@__AddCardsButton.Click += new System.EventHandler(this.@__AddCardsButton_Click);
+            // 
             // SkillBoosterLeagueUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.@__AddCardsButton);
             this.Controls.Add(this.@__Button_NewLeague);
             this.Controls.Add(this.@__SortButton_Rating);
             this.Controls.Add(this.@__SortButton_Rarity);
@@ -215,5 +227,6 @@
         private System.Windows.Forms.Button __SortButton_Rarity;
         private System.Windows.Forms.Button __SortButton_Rating;
         private System.Windows.Forms.Button __Button_NewLeague;
+        private System.Windows.Forms.Button __AddCardsButton;
     }
 }
