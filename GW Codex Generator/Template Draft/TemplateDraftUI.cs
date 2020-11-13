@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using GW_Codex_Generator.Challenge_UI;
+using System.IO;
 
 namespace GW_Codex_Generator.Template_Draft
 {
@@ -57,6 +58,8 @@ namespace GW_Codex_Generator.Template_Draft
             if (MessageBox.Show("Start a Template Draft using the currently loaded deck, \"" + SkillDatabase.TemplateDeckName + "\"?" + Environment.NewLine + Environment.NewLine + "This draft will always use this deck, even if you change it later. Decks can be selected in Settings tab. It will also override the current draft, if one is ongoing. Make sure to save it first if you wish to continue it later!", "Start Draft?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 // Start a new actual draft:
+
+
                 Draft = TemplateDraft.Create();
 
                 // Clear the contents of the old draft:
@@ -190,7 +193,7 @@ namespace GW_Codex_Generator.Template_Draft
                 DraftHandTemplates.Clear();
 
                 // Now we need to enable and make visible the buttons in the pool for saving up to two items:
-                for(int i = 0; i < PoolButtons.Count; ++i)
+                for (int i = 0; i < PoolButtons.Count; ++i)
                 {
                     PoolButtons[i].Enabled = true;
                     PoolButtons[i].Visible = true;
@@ -214,7 +217,7 @@ namespace GW_Codex_Generator.Template_Draft
             TemplateDisplay td = new TemplateDisplay();
             td.SetTemplateInformation(template);
 
-            if(id > 0)
+            if (id > 0)
             {
                 y = PoolTemplates[id - 1].Bottom + 3;
             }
@@ -282,6 +285,142 @@ namespace GW_Codex_Generator.Template_Draft
                     if (c.BackColor != SystemColors.Highlight) c.Enabled = false;
                 }
             }
+        }
+
+        private void saveDraftToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            __SaveTemplateDraftDialog.ShowDialog();
+        }
+
+        private void loadDraftToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("The current draft will be unloaded and any unsaved progress will be lost." + Environment.NewLine + Environment.NewLine + "Are you sure you want to continue?", "Confirm Operation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+                __OpenTemplateDraftDialog.ShowDialog();
+            }
+        }
+
+        private void __OpenTemplateDraftDialog_FileOk(object sender, CancelEventArgs e)
+        {
+            LoadDraft(__OpenTemplateDraftDialog.FileName);
+        }
+
+        private void __SaveTemplateDraftDialog_FileOk(object sender, CancelEventArgs e)
+        {
+            SaveDraft(__SaveTemplateDraftDialog.FileName);
+        }
+
+        void SaveDraft(string filename)
+        {
+            int VERSION = 0;
+
+            BinaryWriter output = new BinaryWriter(File.Create(filename));
+
+            // Start with the version number:
+            output.Write(VERSION);
+            output.Write(DraftHandSize); // Yes, this is a constant, but I want to backwards account for if I want to make it an option to change in the future.
+
+            // Let's start with this, so that we have all of the core, underlying data loaded in first on the load phase:
+            Draft.Write(output);
+
+            // Now, let's record whether or not we are in the middle of drafting:
+            output.Write(startDraftRoundToolStripMenuItem.Enabled == false); // If this is false, then we're in a draft round!
+
+            // Now to record all of the tracking variables:
+            output.Write(PartySize);
+            output.Write(DraftHandCount);
+            output.Write(SavedFromPoolFirst);
+            output.Write(SavedFromPoolSecond);
+
+            // And that's it!
+            output.Close();
+        }
+
+        void LoadDraft(string filename)
+        {
+            BinaryReader input = new BinaryReader(File.OpenRead(filename));
+            int version = input.ReadInt32(); // Needed for if a new version needs to happen. ALWAYS include a version number! It'll save headaches in the future if needed!
+            int handsize = input.ReadInt32(); // Don't care about this right now...here for ease of backwards compatibility in a theoretical future.
+
+            // OK, let's clear some stuff out:
+            __PoolContainer.Controls.Clear();
+            PoolTemplates.Clear();
+            PoolButtons.Clear();
+            __DraftHandContainer.Controls.Clear();
+            DraftHandButtons.Clear();
+            DraftHandTemplates.Clear();
+            startDraftRoundToolStripMenuItem.Enabled = setPartySizeToolStripMenuItem.Enabled = __PartySize4.Enabled = __PartySize6.Enabled = __PartySize8.Enabled = true;
+
+            // Now, let's load the draft:
+            Draft = TemplateDraft.Read(input);
+
+            // Now, load in these values:
+            bool MidDraft = input.ReadBoolean();
+
+            // And load in the tracking values:
+            PartySize = input.ReadInt32();
+            DraftHandCount = input.ReadInt32();
+            SavedFromPoolFirst = input.ReadInt32();
+            SavedFromPoolSecond = input.ReadInt32();
+
+            // OK, we've loaded everything, so we can close the stream:
+            input.Close();
+
+            // Now we need to set up the UI according to how things were when it was saved!
+
+            // First, let's set the party size on the UI:
+            __PartySize4.Checked = PartySize == 4;
+            __PartySize6.Checked = PartySize == 6;
+            __PartySize8.Checked = PartySize == 8;
+
+            // Next, let's load in the pool:
+            List<string> pool = Draft.GetPool();
+            for (int i = 0; i < pool.Count; ++i)
+            {
+                AddTemplateToPool(pool[i], i);
+            }
+
+            // Let's set up "save" values:
+            if (SavedFromPoolFirst >= 0)
+            {
+                PoolButtons[SavedFromPoolFirst].Text = "Saved";
+                PoolButtons[SavedFromPoolFirst].BackColor = SystemColors.Highlight;
+            }
+            if (SavedFromPoolSecond >= 0)
+            {
+                PoolButtons[SavedFromPoolSecond].Text = "Saved";
+                PoolButtons[SavedFromPoolSecond].BackColor = SystemColors.Highlight;
+            }
+
+            // If both slots are full, disable the non-saving buttons:
+            if (SavedFromPoolFirst >= 0 && SavedFromPoolSecond >= 0)
+            {
+                foreach (Control c in PoolButtons)
+                {
+                    // Enable the highlighted ones and disable the rest:
+                    c.Enabled = c.BackColor == SystemColors.Highlight;
+                }
+            }
+            else
+            {
+                foreach(Control c in PoolButtons)
+                {
+                    c.Enabled = true;
+                }
+            }
+
+            // Now, let's set up the draft if we're in the middle of it!
+            if (MidDraft)
+            {
+                startDraftRoundToolStripMenuItem.Enabled = setPartySizeToolStripMenuItem.Enabled = __PartySize4.Enabled = __PartySize6.Enabled = __PartySize8.Enabled = false;
+                DisplayDraftHand(Draft.GetDraftHand());
+            }
+            else // Not drafting? Gotta show those save buttons!
+            {
+                foreach (Control c in PoolButtons) c.Visible = true;
+            }
+
+            MessageBox.Show("Finished loading Template Draft using deck \"" + Draft.GetDeckName() + "\".", "Operation Complete", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

@@ -37,9 +37,13 @@
             this.@__PartySize8 = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.@__DraftHandContainer = new System.Windows.Forms.Panel();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.@__PoolContainer = new System.Windows.Forms.Panel();
+            this.saveDraftToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.loadDraftToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.@__OpenTemplateDraftDialog = new System.Windows.Forms.OpenFileDialog();
+            this.@__SaveTemplateDraftDialog = new System.Windows.Forms.SaveFileDialog();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -54,7 +58,9 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.newToolStripMenuItem,
             this.startDraftRoundToolStripMenuItem,
-            this.setPartySizeToolStripMenuItem});
+            this.setPartySizeToolStripMenuItem,
+            this.saveDraftToolStripMenuItem,
+            this.loadDraftToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(793, 24);
@@ -88,14 +94,14 @@
             // __PartySize4
             // 
             this.@__PartySize4.Name = "__PartySize4";
-            this.@__PartySize4.Size = new System.Drawing.Size(180, 22);
+            this.@__PartySize4.Size = new System.Drawing.Size(80, 22);
             this.@__PartySize4.Text = "4";
             this.@__PartySize4.Click += new System.EventHandler(this.@__PartySize4_Click);
             // 
             // __PartySize6
             // 
             this.@__PartySize6.Name = "__PartySize6";
-            this.@__PartySize6.Size = new System.Drawing.Size(180, 22);
+            this.@__PartySize6.Size = new System.Drawing.Size(80, 22);
             this.@__PartySize6.Text = "6";
             this.@__PartySize6.Click += new System.EventHandler(this.@__PartySize6_Click);
             // 
@@ -104,7 +110,7 @@
             this.@__PartySize8.Checked = true;
             this.@__PartySize8.CheckState = System.Windows.Forms.CheckState.Checked;
             this.@__PartySize8.Name = "__PartySize8";
-            this.@__PartySize8.Size = new System.Drawing.Size(180, 22);
+            this.@__PartySize8.Size = new System.Drawing.Size(80, 22);
             this.@__PartySize8.Text = "8";
             this.@__PartySize8.Click += new System.EventHandler(this.@__PartySize8_Click);
             // 
@@ -137,17 +143,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Draft Hand";
             // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.@__PoolContainer);
-            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox2.Location = new System.Drawing.Point(0, 0);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(793, 412);
-            this.groupBox2.TabIndex = 0;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Drafted Pool";
-            // 
             // __DraftHandContainer
             // 
             this.@__DraftHandContainer.AutoScroll = true;
@@ -159,6 +154,17 @@
             this.@__DraftHandContainer.Size = new System.Drawing.Size(787, 240);
             this.@__DraftHandContainer.TabIndex = 0;
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.@__PoolContainer);
+            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox2.Location = new System.Drawing.Point(0, 0);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(793, 412);
+            this.groupBox2.TabIndex = 0;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Drafted Pool";
+            // 
             // __PoolContainer
             // 
             this.@__PoolContainer.AutoScroll = true;
@@ -169,6 +175,34 @@
             this.@__PoolContainer.Name = "__PoolContainer";
             this.@__PoolContainer.Size = new System.Drawing.Size(787, 393);
             this.@__PoolContainer.TabIndex = 0;
+            // 
+            // saveDraftToolStripMenuItem
+            // 
+            this.saveDraftToolStripMenuItem.Name = "saveDraftToolStripMenuItem";
+            this.saveDraftToolStripMenuItem.Size = new System.Drawing.Size(81, 20);
+            this.saveDraftToolStripMenuItem.Text = "Save Draft...";
+            this.saveDraftToolStripMenuItem.Click += new System.EventHandler(this.saveDraftToolStripMenuItem_Click);
+            // 
+            // loadDraftToolStripMenuItem
+            // 
+            this.loadDraftToolStripMenuItem.Name = "loadDraftToolStripMenuItem";
+            this.loadDraftToolStripMenuItem.Size = new System.Drawing.Size(83, 20);
+            this.loadDraftToolStripMenuItem.Text = "Load Draft...";
+            this.loadDraftToolStripMenuItem.Click += new System.EventHandler(this.loadDraftToolStripMenuItem_Click);
+            // 
+            // __OpenTemplateDraftDialog
+            // 
+            this.@__OpenTemplateDraftDialog.DefaultExt = "gwtd";
+            this.@__OpenTemplateDraftDialog.Filter = "Guild Wars Template Draft|*.gwtd";
+            this.@__OpenTemplateDraftDialog.Title = "Open Template Draft...";
+            this.@__OpenTemplateDraftDialog.FileOk += new System.ComponentModel.CancelEventHandler(this.@__OpenTemplateDraftDialog_FileOk);
+            // 
+            // __SaveTemplateDraftDialog
+            // 
+            this.@__SaveTemplateDraftDialog.DefaultExt = "gwtd";
+            this.@__SaveTemplateDraftDialog.Filter = "Guild Wars Template Draft|*.gwtd";
+            this.@__SaveTemplateDraftDialog.Title = "Save Template Draft...";
+            this.@__SaveTemplateDraftDialog.FileOk += new System.ComponentModel.CancelEventHandler(this.@__SaveTemplateDraftDialog_FileOk);
             // 
             // TemplateDraftUI
             // 
@@ -206,5 +240,9 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Panel __DraftHandContainer;
         private System.Windows.Forms.Panel __PoolContainer;
+        private System.Windows.Forms.ToolStripMenuItem saveDraftToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem loadDraftToolStripMenuItem;
+        private System.Windows.Forms.OpenFileDialog __OpenTemplateDraftDialog;
+        private System.Windows.Forms.SaveFileDialog __SaveTemplateDraftDialog;
     }
 }

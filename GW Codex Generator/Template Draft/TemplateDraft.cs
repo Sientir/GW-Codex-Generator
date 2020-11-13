@@ -35,6 +35,87 @@ namespace GW_Codex_Generator.Template_Draft
         List<int> _Rejecteds = new List<int>();
         List<int> _DraftHand = new List<int>();
 
+        public void Write(BinaryWriter output)
+        {
+            // The deck name, I guess?
+            output.Write(_DeckName);
+
+            // Templates:
+            output.Write(_Templates.Count);
+            foreach (string str in _Templates) output.Write(str);
+
+            // Look, we just have a BUNCH of lists to save. They all look mostly the same...
+            output.Write(_Deck.Count);
+            foreach (int i in _Deck) output.Write(i);
+
+            output.Write(_Trashed.Count);
+            foreach (int i in _Trashed) output.Write(i);
+
+            output.Write(_Pool.Count);
+            foreach (int i in _Pool) output.Write(i);
+
+            output.Write(_Rejecteds.Count);
+            foreach (int i in _Rejecteds) output.Write(i);
+
+            output.Write(_DraftHand.Count);
+            foreach (int i in _DraftHand) output.Write(i);
+
+            // And that's it for now.
+        }
+
+        static public TemplateDraft Read(BinaryReader input)
+        {
+            TemplateDraft td = new TemplateDraft();
+            td._DeckName = input.ReadString();
+
+            // Templates:
+            int count = input.ReadInt32();
+            for (int i = 0; i < count; ++i)
+            {
+                td._Templates.Add(input.ReadString());
+            }
+
+            // Just like above, we need to read in all of these lists:
+
+            // The deck:
+            count = input.ReadInt32();
+            for (int i = 0; i < count; ++i)
+            {
+                td._Deck.Add(input.ReadInt32());
+            }
+
+            // Trashed:
+            count = input.ReadInt32();
+            for (int i = 0; i < count; ++i)
+            {
+                td._Trashed.Add(input.ReadInt32());
+            }
+
+            // Pool:
+            count = input.ReadInt32();
+            for (int i = 0; i < count; ++i)
+            {
+                td._Pool.Add(input.ReadInt32());
+            }
+
+            // Rejecteds:
+            count = input.ReadInt32();
+            for (int i = 0; i < count; ++i)
+            {
+                td._Rejecteds.Add(input.ReadInt32());
+            }
+
+            // Draft Hand:
+            count = input.ReadInt32();
+            for (int i = 0; i < count; ++i)
+            {
+                td._DraftHand.Add(input.ReadInt32());
+            }
+
+            // Now that we've loaded everything into it, we can return it:
+            return td;
+        }
+
         static public TemplateDraft Create()
         {
             TemplateDraft td = new TemplateDraft();
@@ -49,6 +130,8 @@ namespace GW_Codex_Generator.Template_Draft
             // Hand it over:
             return td;
         }
+
+        public string GetDeckName() { return _DeckName; }
         public void Reset()
         {
             // Clear the indexing lists:
